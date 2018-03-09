@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #E29845;
+    width: 100%;
+    height: 123px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+}
+
+#whiteLogo {
+    top: 0;
+    left: 10px;
+    position: fixed;
+    width: 257px;
+    height: 123px;
+}
