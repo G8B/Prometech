@@ -20,11 +20,24 @@
 }
 
 #whiteLogo {
-    display: block;
-    top: 0;
+    position: absolute;
     left: 10px;
     max-width: 257px;
     max-height: 123px;
     width: auto;
     height: 100%;
+}
+
+#bars {
+    display: inline-block;
+    position: absolute;
+    background:none;
+    border:none;
+    left: 300px;
+    margin-top: 35px;
+}
+
+#icon-bars {
+    color: white;
+    font-size:35px;
 }
