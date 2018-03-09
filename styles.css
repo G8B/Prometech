@@ -3,10 +3,10 @@
     padding: 0;
 }
 
-header {
+.header {
     background-color: #E29845;
     width: 100%;
-    height: 123px;
+    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,10 +14,17 @@ header {
 
 }
 
+#logo {
+    display: inline-block;
+    height: 100%;
+}
+
 #whiteLogo {
+    display: block;
     top: 0;
     left: 10px;
-    position: fixed;
-    width: 257px;
-    height: 123px;
+    max-width: 257px;
+    max-height: 123px;
+    width: auto;
+    height: 100%;
 }
