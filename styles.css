@@ -47,7 +47,7 @@
     position: absolute;
     background:none;
     border:none;
-    right: 80px;
+    right: 50px;
     float: right;
     margin-top: 27px;
     text-decoration: none;
@@ -62,4 +62,5 @@
 
 #username {
     color: white;
+    font-family: 'Open Sans', sans-serif;
 }
