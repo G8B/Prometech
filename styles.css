@@ -41,3 +41,25 @@
     color: white;
     font-size:35px;
 }
+
+#userProfile {
+    display: inline-block;
+    position: absolute;
+    background:none;
+    border:none;
+    right: 80px;
+    float: right;
+    margin-top: 27px;
+    text-decoration: none;
+    text-align: center;
+;
+}
+
+#icon-user {
+    color: white;
+    font-size: 40px;
+}
+
+#username {
+    color: white;
+}
