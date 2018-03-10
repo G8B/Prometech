@@ -4,7 +4,7 @@
     </a>
     <a id="bars" href="#"><i class="fa fa-bars" id="icon-bars"></i></a>
     <a id="userProfile" href="#">
-        <i class="fa fa-user" id="icon-user"></i> <br>
+        <i class="fa fa-user-circle" id="icon-user"></i> <br>
         <p id="username">Username</p>
     </a>
 </div>

@@ -52,7 +52,6 @@
     margin-top: 27px;
     text-decoration: none;
     text-align: center;
-;
 }
 
 #icon-user {
@@ -63,4 +62,5 @@
 #username {
     color: white;
     font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
 }
