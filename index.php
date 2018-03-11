@@ -10,11 +10,11 @@
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-<?php include("header.php"); ?>
+<?php require_once("pages/header.php"); ?>
 <div id="content-window">
-    <?php include("sidebar.php"); ?>
+    <?php require_once("pages/sidebar.php"); ?>
 
-    <?php include("user-dashboard.php"); ?>
+    <?php require_once("pages/user-dashboard.php"); ?>
 </div>
 <!-- Sidebar toggle -->
 <script>
