@@ -26,6 +26,12 @@
     max-height: 123px;
     width: auto;
     height: 100%;
+    border: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #bars-button {
