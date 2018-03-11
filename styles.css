@@ -37,6 +37,20 @@
     margin-top: 35px;
 }
 
+#bars:hover, #userProfile:hover {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1b573+0,f1b573+10,f1b573+10,e29845+100 */
+    background: #f1b573; /* Old browsers */
+    background: radial-gradient(ellipse at center, #f1b573 0%,#f1b573 10%,#f1b573 10%,#e29845 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1b573', endColorstr='#e29845',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#bars:active, #userProfile:active {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1b573+0,f1b573+62,e29845+100 */
+    background: #f1b573; /* Old browsers */
+    background: radial-gradient(ellipse at center, #f1b573 0%,#f1b573 62%,#e29845 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1b573', endColorstr='#e29845',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
 #icon-bars {
     color: white;
     font-size:35px;
@@ -63,4 +77,26 @@
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 100px;
+    width: 18%;
+    height: 100%;
+    background-color: #365b6b;
+}
+
+.side-button {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: #10455D;
+}
+
+.side-button:focus {
+    background-color: #30728E;
 }
