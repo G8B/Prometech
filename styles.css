@@ -28,7 +28,7 @@
     height: 100%;
 }
 
-#bars {
+#bars-button {
     display: inline-block;
     position: absolute;
     background:none;
@@ -37,14 +37,14 @@
     margin-top: 35px;
 }
 
-#bars:hover, #userProfile:hover {
+#bars-button:hover, #userProfile-button:hover {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1b573+0,f1b573+10,f1b573+10,e29845+100 */
     background: #f1b573; /* Old browsers */
     background: radial-gradient(ellipse at center, #f1b573 0%,#f1b573 10%,#f1b573 10%,#e29845 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1b573', endColorstr='#e29845',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-#bars:active, #userProfile:active {
+#bars-button:active, #userProfile-button:active {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1b573+0,f1b573+62,e29845+100 */
     background: #f1b573; /* Old browsers */
     background: radial-gradient(ellipse at center, #f1b573 0%,#f1b573 62%,#e29845 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -56,7 +56,7 @@
     font-size:35px;
 }
 
-#userProfile {
+#userProfile-button {
     display: inline-block;
     position: absolute;
     background:none;
@@ -82,7 +82,7 @@
 #sidebar {
     position: fixed;
     top: 100px;
-    width: 18%;
+    width: 250px;
     height: 100%;
     background-color: #365b6b;
 }
