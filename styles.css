@@ -185,10 +185,11 @@ body {
     height: 100%;
     float: left;
     vertical-align: top;
-    width: 500px;
+    width: auto;
 }
 
 .user-house-dashboard {
+    float: left;
     width: 600px;
     height: 100%;
     border: 2px #333333 solid;
