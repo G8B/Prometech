@@ -20,9 +20,9 @@
 <script>
     $(function () {
         $("#bars-button").click(function () {
-            $("#sidebar").toggle('slide', {
+            $("#sidebar").toggle(/*'slide', {
                 direction: 'left'
-            });
+            }*/);
         });
     });
 </script>
