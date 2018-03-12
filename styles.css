@@ -194,6 +194,11 @@ body {
     border: 2px #333333 solid;
 }
 
+.user-house-name {
+    text-align: center;
+    color: #333333;
+}
+
 /* Acordeon styles */
 .tab {
     position: relative;
@@ -213,7 +218,8 @@ label {
     position: relative;
     display: block;
     padding: 0 0 0 1em;
-    background: #F1B573;
+    background: #DDDDDD;
+    color: #333333;
     font-weight: bold;
     line-height: 3;
     cursor: pointer;
@@ -235,6 +241,10 @@ label {
 /* :checked */
 input:checked ~ .accordion-tab-content {
     max-height: 100em;
+}
+
+input:checked ~ label {
+    background: #F1B573;
 }
 
 /* Icon */

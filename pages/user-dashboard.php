@@ -8,7 +8,7 @@
         <h1 class="user-house-name">Logement 1</h1>
         <div class="accordion-tab">
             <input id="accordion-tab-one" type="radio" name="accordion" checked>
-            <label for="accordion-tab-one">Label One</label>
+            <label for="accordion-tab-one">Salon</label>
             <div class="accordion-tab-content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis
                     nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum
@@ -17,7 +17,7 @@
         </div>
         <div class="accordion-tab">
             <input id="accordion-tab-two" type="radio" name="accordion">
-            <label for="accordion-tab-two">Label Two</label>
+            <label for="accordion-tab-two">Chambre Parents</label>
             <div class="accordion-tab-content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis
                     nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum
@@ -32,7 +32,7 @@
         </div>
         <div class="accordion-tab">
             <input id="accordion-tab-three" type="radio" name="accordion">
-            <label for="accordion-tab-three">Label Three</label>
+            <label for="accordion-tab-three">Chambre Enfants</label>
             <div class="accordion-tab-content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis
                     nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum
