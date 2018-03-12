@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -26,7 +27,6 @@ body {
     top: 0;
     left: 0;
     overflow: hidden;
-    margin-bottom: -4px;
     flex: 1;
 
 }
@@ -104,7 +104,7 @@ body {
 
 #sidebar {
     /*position: relative;*/
-    display: inline-block;
+    float: left;
     width: 250px;
     height: 100%;
     margin-right: -4px;
@@ -126,11 +126,10 @@ body {
 }
 
 #dashboard-nav {
-    display: inline-block;
+    float: left;
     vertical-align: top;
     height: 100%;
     width: 70px;
-    background-color: aqua;
 }
 
 .dashboard-nav-link {
@@ -142,6 +141,7 @@ body {
     text-align: center;
     line-height: 100%;
     vertical-align: middle;
+    border: 1px #333333 solid;
 }
 
 .dashboard-nav-link:focus {
@@ -179,4 +179,83 @@ body {
 
 #link-footer li:last-child a {
     border-right: none;
+}
+
+.user-dashboard {
+    height: 100%;
+    float: left;
+    vertical-align: top;
+    width: 500px;
+}
+
+.user-house-dashboard {
+    width: 300px;
+    height: 100%;
+    border: 2px #333333 solid;
+}
+
+/* Acordeon styles */
+.tab {
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+}
+
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+label {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    background: #F1B573;
+    font-weight: bold;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.accordion-tab-content {
+    max-height: 0;
+    overflow: hidden;
+    background: white;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+}
+
+.accordion-tab-content p {
+    margin: 1em;
+}
+
+/* :checked */
+input:checked ~ .accordion-tab-content {
+    max-height: 100em;
+}
+
+/* Icon */
+label::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 3;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+}
+
+input[type=radio] + label::after {
+    content: "\25BC";
+}
+
+input[type=radio]:checked + label::after {
+    transform: rotateX(180deg);
 }
