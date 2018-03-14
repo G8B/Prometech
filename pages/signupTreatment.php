@@ -12,4 +12,3 @@ $req->execute(array(
 ));
 
 header('Location: login.php');
-?>

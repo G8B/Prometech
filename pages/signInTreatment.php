@@ -9,22 +9,22 @@ $resultat = $req->fetch();
 
 if (!$resultat) {
     echo 'Identifiant ou mot de passe incorrect';
-    header('Location: ../pages/login.php');
+    header('Location: login.php');
 }
 
 if (isset($_POST['mot_de_passe']) &&  $_POST['mot_de_passe'] == $resultat['mot_de_passe']) {
     session_start();
     $_SESSION['prenom'] = $resultat['prenom'];
-    header('Location: ../index.php');
+    header('Location: user-main.php');
 
 } else {
     echo '<script language="JavaScript">
-            window.location.replace("../pages/login.php");
+            window.location.replace("login.php");
             alert("Login ou mot de passe incorrect. Merci de recommencer");        
             </script>';
 }
 
 
-?>
+
 
 
