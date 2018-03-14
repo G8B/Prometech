@@ -15,6 +15,7 @@ body {
 
 #content-window {
     flex: 1;
+    display: flex;
 }
 
 .header {
@@ -28,7 +29,6 @@ body {
     left: 0;
     overflow: hidden;
     flex: 1;
-
 }
 
 #logo {
@@ -186,10 +186,15 @@ body {
     float: left;
     vertical-align: top;
     width: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    min-width: min-content;
+    display: flex;
 }
 
 .user-house-dashboard {
     float: left;
+    display: inline-block;
     width: 600px;
     height: 100%;
     border: 2px #333333 solid;
@@ -284,3 +289,4 @@ input[type=radio] + label::after {
 input[type=radio]:checked + label::after {
     transform: rotateX(180deg);
 }
+
