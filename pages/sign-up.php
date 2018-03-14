@@ -5,7 +5,7 @@
 </head>
 <body>
 <center>
-    <form method="post" action="TraitementInscription.php">
+    <form method="post" action="signupTreatment.php">
 
         <p>
             <img src = "original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
@@ -39,7 +39,7 @@
             <input type="checkbox" name="choix1" id="choix1"  /> <label for="choix1"> J'utilise des produits Domisep </label> <br />
             <input type="checkbox" name="choix2" id="choix2"/> <label for="choix2"> Je gère un immeuble </label>
         </p>
-        <form   action="inscription.php">
+        <form   action="signupTreatment.php">
             <input id = 'inscription' type="submit" value="S'inscrire >"  style="color:black; background-color:#E67E30; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-bottom: 10px;"/>
         </form>
 
