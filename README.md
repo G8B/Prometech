@@ -13,3 +13,11 @@ Groupe 8B :
 * Molly Lan Nirina
 * Salomé Leduc
 
+## Site
+
+### Structure
+
+Le site consiste en trois parties principales :
+1. Interface client
+1. Interface gestionnaire d'immeuble
+1. Interface administrateur / Back office 
