@@ -2,12 +2,11 @@ img {
     position: relative;
     width: 200px;
     height: 200px;
-
 }
 
 body {
     border: 10px solid #E67E30;
-    margin: 0px;
+    margin: 0;
 }
 
 input::placeholder {
@@ -17,5 +16,8 @@ input::placeholder {
 
 #deja:hover, #inscription:hover {
     cursor: pointer;
+}
 
+.form {
+    text-align: center;
 }

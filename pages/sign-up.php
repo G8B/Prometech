@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../styles/sign-up.css"/>
 </head>
 <body>
-<center>
+<div class="form">
     <form method="post" action="signupTreatment.php">
 
         <p>
@@ -58,4 +58,4 @@
             <input id='deja' type="submit" value="Déjà inscrit ? "
                    style="color:black; background-color:#E67E30; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-top: 10px; margin-bottom: 110px;"/>
 
-</center>
+</div>
