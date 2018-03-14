@@ -1,5 +1,5 @@
 <div class="header">
-    <a href="#" id="logo">
+    <a href="login.php" id="logo">
         <img src="../ressources/logopromSideWHITE.png" alt="logoprom Side WHITE" id="whiteLogo"/>
     </a>
     <a id="bars-button" href="#"><i class="fa fa-bars" id="icon-bars"></i></a>

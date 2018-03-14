@@ -8,7 +8,7 @@
     <form method="post" action="signupTreatment.php">
 
         <p>
-            <img src="original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
+            <img src="../ressources/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
         </p>
         <p>
             <label for="nom"></label>
