@@ -12,12 +12,12 @@
         </p>
         <p>
             <label for="nom"></label>
-            <input type="name" name="nom" id="nom" placeholder="Nom" size="25"
+            <input type="text" name="nom" id="nom" placeholder="Nom" size="25"
                    style="color:black; background-color:#FFCB60; border-radius: 5px; height: 20px;"/>
         </p>
         <p>
             <label for="prenom"></label>
-            <input type="name" name="prenom" id="prenom" placeholder="Prénom" size="25"
+            <input type="text" name="prenom" id="prenom" placeholder="Prénom" size="25"
                    style="color:black; background-color:#FFCB60; border-radius: 5px; height: 20px;"/>
         </p>
         <p>
@@ -27,7 +27,7 @@
         </p>
         <p>
             <label for="adresse"></label>
-            <input type="adresse" name="adresse" id="adresse" placeholder="Adresse" size="25"
+            <input type="text" name="adresse" id="adresse" placeholder="Adresse" size="25"
                    style="color:black; background-color:#FFCB60; border-radius: 5px; height: 20px;"/>
         </p>
         <p>
@@ -54,7 +54,7 @@
 
         <hr width="15%" color="black">
 
-        <form action="inscription.php">
+        <form action="../pages/login.php">
             <input id='deja' type="submit" value="Déjà inscrit ? "
                    style="color:black; background-color:#E67E30; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-top: 10px; margin-bottom: 110px;"/>
 
