@@ -19,17 +19,17 @@ Groupe 8B :
 
 Le site consiste en trois parties principales :
 1. Interface client
-    1. Mon compte
-    1. Gestion utilisateurs
-    1. Gestion logements
-    1. Tableau de bord
+    - Mon compte
+    - Gestion utilisateurs
+    - Gestion logements
+    - Tableau de bord
 1. Interface gestionnaire d'immeuble
-    1. Mon compte
-    1. Gestion immeubles
-    1. Tableau de bord
+    - Mon compte
+    - Gestion immeubles
+    - Tableau de bord
 1. Interface administrateur / Back office
-    1. Mon compte
-    1. Produits disponibles
-    1. Gestion comptes
-    1. Logs
-    1. Support
+    - Mon compte
+    - Produits disponibles
+    - Gestion comptes
+    - Logs
+    - Support
