@@ -1,22 +1,21 @@
 img {
-    position:relative;
+    position: relative;
     width: 200px;
     height: 200px;
 
-
-
 }
+
 body {
     border: 10px solid #E67E30;
     margin: 0px;
 }
+
 input::placeholder {
     color: black;
     text-align: center;
 }
 
-#deja:hover , #inscription:hover  {
+#deja:hover, #inscription:hover {
     cursor: pointer;
-
 
 }

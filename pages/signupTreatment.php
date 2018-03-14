@@ -11,5 +11,5 @@ $req->execute(array(
     'mot_de_passe' => $_POST['mot_de_passe'],
 ));
 
-header('Location: test.php');
+header('Location: login.php');
 ?>

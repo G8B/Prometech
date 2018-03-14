@@ -1,64 +1,47 @@
 img {
-    position:relative;
+    position: relative;
     width: 200px;
     height: 200px;
 
-
-
 }
+
 body {
     border: 10px solid #ED7F10;
     margin: 0px;
 }
 
-
-
 #email {
-    position:relative;
+    position: relative;
     margin-top: 15px;
 
-
-
-
-
 }
+
 input::placeholder {
     color: black;
     text-align: center;
 }
 
-
 #mdp {
-    position:relative;
-
-
-
-
-}
-#envoyer{
-    position:relative;
-
+    position: relative;
 
 }
 
-#inscription{
-    position:relative;
-
-
-
+#envoyer {
+    position: relative;
 
 }
 
+#inscription {
+    position: relative;
 
-
-
+}
 
 footer {
     border: 3px orange solid;
 }
-#envoyer:hover , #inscription:hover  {
-    cursor: pointer;
 
+#envoyer:hover, #inscription:hover {
+    cursor: pointer;
 
 }
 

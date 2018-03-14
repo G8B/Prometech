@@ -7,7 +7,7 @@ $req->execute(array(
     'email' => $_POST['email']));
 $resultat = $req->fetch();
 
-if(!$resultat){
+if (!$resultat) {
     echo 'Identifiant ou mot de passe incorrect';
     header('Location: test.php');
 
@@ -16,16 +16,14 @@ if(!$resultat){
 if ($_POST['mot_de_passe'] == $resultat['mot_de_passe']) {
     session_start();
     $_SESSION['prenom'] = $resultat['prenom'];
-    header('Location: PremierePageBis');
+    header('Location: ../index.php');
 
-}
-else {
+} else {
     echo '<script language="JavaScript">
             window.location.replace("test.php");
             alert("Login ou mot de passe incorrect. Merci de recommencer");        
             </script>';
 }
-
 
 
 ?>
