@@ -12,17 +12,17 @@ if (!$resultat) {
     header('Location: login.php');
 }
 
-if (isset($_POST['mot_de_passe']) &&  $_POST['mot_de_passe'] == $resultat['mot_de_passe']) {
+if (isset($_POST['mot_de_passe']) && $_POST['mot_de_passe'] == $resultat['mot_de_passe']) {
     session_start();
     $_SESSION['prenom'] = $resultat['prenom'];
     header('Location: user-main.php');
 
-} else {
-    echo '<script language="JavaScript">
-            window.location.replace("login.php");
-            alert("Login ou mot de passe incorrect. Merci de recommencer");        
-            </script>';
-}
+} else { ?>
+    <script language="JavaScript">
+        window.location.replace("login.php");
+        alert("Login ou mot de passe incorrect. Merci de recommencer");
+    </script>';
+<?php }
 
 
 
