@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../styles/sign-up.css"/>
 </head>
 <body>
-<center>
+<div class="form">
     <p>
         <img src="../ressources/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
     </p>
@@ -34,7 +34,7 @@
         <input id="inscription" type="submit" value="S'inscrire >"
                style="color:black; background-color:#ED7F10; border-radius: 5px; height: 25px;width: 200px; font-weight: bold;margin-bottom: 340px;"/>
     </form>
-</center>
+</div>
 
 
 </body>
