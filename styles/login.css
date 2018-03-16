@@ -6,7 +6,7 @@ img {
 }
 
 body {
-    border: 10px solid #ED7F10;
+    border: 10px solid #E29845;
     margin: 0;
 }
 
@@ -37,7 +37,7 @@ input::placeholder {
 }
 
 footer {
-    border: 3px orange solid;
+    border: 3px #E29845 solid;
 }
 
 #envoyer:hover, #inscription:hover {

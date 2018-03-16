@@ -48,7 +48,7 @@
         </p>
         <form action="signupTreatment.php">
             <input id='inscription' type="submit" value="S'inscrire >"
-                   style="color:black; background-color:#E67E30; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-bottom: 10px;"/>
+                   style="color:black; background-color:#E29845; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-bottom: 10px;"/>
         </form>
 
 
@@ -56,6 +56,6 @@
 
         <form action="../pages/login.php">
             <input id='deja' type="submit" value="Déjà inscrit ? "
-                   style="color:black; background-color:#E67E30; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-top: 10px; margin-bottom: 110px;"/>
+                   style="color:black; background-color:#E29845; border-radius: 5px; height: 25px;width: 200px; font-weight: bold; margin-top: 10px; margin-bottom: 110px;"/>
 
 </div>
