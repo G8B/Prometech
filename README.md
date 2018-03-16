@@ -6,9 +6,9 @@ Prométech est une interface web d'interaction avec les produits de DomISEP.
 
 Groupe 8B :
 
-* Marin Godechot
+* Marin Godechot @Houguiram
 * Maël Julienne
-* Dany Khalil
+* Dany Khalil @boudykh
 * Richard Kohler
 * Molly Lan Nirina
 * Salomé Leduc
