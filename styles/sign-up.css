@@ -21,3 +21,15 @@ input::placeholder {
 .form {
     text-align: center;
 }
+
+.form-checkbox {
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    vertical-align: center;
+    padding-bottom: 10px;
+}
+
+.form-checkbox > input {
+    width: auto;
+}

@@ -8,12 +8,22 @@ img {
 body {
     border: 10px solid #E29845;
     margin: 0;
+    padding-bottom: 50px;
+    height: 100%;
 }
 
-#email {
-    position: relative;
-    margin-top: 15px;
 
+footer {
+    border: 3px #E29845 solid;
+}
+
+input {
+    color: black;
+    background-color: #F1C595;
+    border-radius: 5px;
+    height: 20px;
+    width: 200px;
+    position: relative;
 }
 
 input::placeholder {
@@ -21,27 +31,10 @@ input::placeholder {
     text-align: center;
 }
 
-#mdp {
-    position: relative;
-
+.form-button {
+    background-color: #E29845;
 }
 
-#envoyer {
-    position: relative;
-
-}
-
-#inscription {
-    position: relative;
-
-}
-
-footer {
-    border: 3px #E29845 solid;
-}
-
-#envoyer:hover, #inscription:hover {
+.form-button:hover {
     cursor: pointer;
-
 }
-
