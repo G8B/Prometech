@@ -1,0 +1,35 @@
+img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+body {
+    border: 10px solid #E29845;
+    margin: 0;
+}
+
+input::placeholder {
+    color: black;
+    text-align: center;
+}
+
+#deja:hover, #inscription:hover {
+    cursor: pointer;
+}
+
+.form {
+    text-align: center;
+}
+
+.form-checkbox {
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    vertical-align: center;
+    padding-bottom: 10px;
+}
+
+.form-checkbox > input {
+    width: auto;
+}

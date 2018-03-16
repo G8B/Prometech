@@ -1,0 +1,40 @@
+img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+
+}
+
+body {
+    border: 10px solid #E29845;
+    margin: 0;
+    padding-bottom: 50px;
+    height: 100%;
+}
+
+
+footer {
+    border: 3px #E29845 solid;
+}
+
+input {
+    color: black;
+    background-color: #F1C595;
+    border-radius: 5px;
+    height: 20px;
+    width: 200px;
+    position: relative;
+}
+
+input::placeholder {
+    color: black;
+    text-align: center;
+}
+
+.form-button {
+    background-color: #E29845;
+}
+
+.form-button:hover {
+    cursor: pointer;
+}

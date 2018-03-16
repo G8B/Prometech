@@ -173,7 +173,7 @@ body {
     border: 1px #333333 solid;
 }
 
-.dashboard-nav-link:focus {
+.current-dashboard {
     background-color: #F1B573;
 }
 
