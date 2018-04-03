@@ -28,6 +28,13 @@ CREATE TABLE actionneurs (
 	etat INTEGER
 );
 
+CREATE TABLE historique (
+  numeroDeSerie INTEGER PRIMARY KEY REFERENCES produits (numeroDeSerie)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  valeur FLOAT,
+  time DATETIME
+);
+
 CREATE TABLE proprieteProduit ( 
 	ID_utilisateur INTEGER REFERENCES utilisateurs (ID)
 		ON DELETE CASCADE ON UPDATE CASCADE,
