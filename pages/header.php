@@ -8,3 +8,6 @@
         <p id="username">Username</p>
     </a>
 </div>
+<div>
+    <p>Salut</p>
+</div>
