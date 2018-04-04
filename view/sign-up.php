@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../styles/sign-up.css"/>
-    <link rel="stylesheet" href="../styles/login.css"/>
+    <link rel="stylesheet" href="/prometech/public/css/sign-up.css"/>
+    <link rel="stylesheet" href="/prometech/public/css/login.css"/>
 </head>
 <body>
 <div class="form">
-    <form method="post" action="signupTreatment.php">
+    <form method="post" action="/prometech/model/signupTreatment.php">
 
         <p>
-            <img src="../ressources/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
+            <img src="/prometech/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
         </p>
         <p>
             <label for="nom"></label>
@@ -40,14 +40,14 @@
                 Domisep </label> <br/>
             <input type="checkbox" name="choix2" id="choix2"/> <label for="choix2"> Je gère un immeuble </label>
         </p>
-        <form action="signupTreatment.php">
+        <form action="/prometech/model/signupTreatment.php">
             <input id='inscription' class="form-button" type="submit" value="S'inscrire >"/>
         </form>
 
 
         <hr width="15%" color="black">
 
-        <form action="../pages/login.php">
+        <form action="login.php">
             <input class="form-button" type="submit" value="Déjà inscrit ? "/>
 
 </div>

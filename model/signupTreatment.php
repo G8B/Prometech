@@ -11,4 +11,4 @@ $req->execute(array(
     'mot_de_passe' => $_POST['mot_de_passe'],
 ));
 
-header('Location: login.php');
+header('Location: /prometech/view/login.php');
