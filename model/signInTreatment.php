@@ -1,8 +1,8 @@
 <?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=membres;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=prometech;charset=utf8', 'root', '');
 
-$req = $bdd->prepare('SELECT email, mot_de_passe, prenom FROM membres WHERE email = :email');
+$req = $bdd->prepare('SELECT email, password, prenom FROM utilisateurs WHERE email = :email');
 $req->execute(array(
     'email' => $_POST['email']));
 $resultat = $req->fetch();
