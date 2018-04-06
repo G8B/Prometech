@@ -9,17 +9,17 @@ $resultat = $req->fetch();
 
 if (!$resultat) {
     echo 'Identifiant ou mot de passe incorrect';
-    header('Location: /prometech/view/login.php');
+    header('Location: /view/login.php');
 }
 
 if (isset($_POST['mot_de_passe']) && $_POST['mot_de_passe'] == $resultat['mot_de_passe']) {
     session_start();
     $_SESSION['prenom'] = $resultat['prenom'];
-    header('Location: /prometech/view/user-main.php');
+    header('Location: /view/user-main.php');
 
 } else { ?>
     <script language="JavaScript">
-        window.location.replace("/prometech/view/login.php");
+        window.location.replace("/view/login.php");
         alert("Login ou mot de passe incorrect. Merci de recommencer");
     </script>';
 <?php }
