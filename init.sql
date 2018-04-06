@@ -2,7 +2,7 @@ CREATE TABLE utilisateurs (
 	ID INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nom VARCHAR(256),
 	prenom VARCHAR(256),
-	mail VARCHAR(256),
+	email VARCHAR(256),
 	password VARCHAR(256),
 	statutClient BOOLEAN,
 	statutGestionnaire BOOLEAN,
