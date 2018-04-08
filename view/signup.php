@@ -24,10 +24,6 @@
             <input type="email" name="email" placeholder="Email" size="25"/>
         </p>
         <p>
-            <label for="adresse"></label>
-            <input type="text" name="adresse" placeholder="Adresse" size="25"/>
-        </p>
-        <p>
             <label for="password"></label>
             <input type="password" name="mot de passe" id="mot de passe" placeholder="Mot de passe" size="25"/>
         </p>
@@ -47,7 +43,6 @@
 
         <hr width="15%" color="black">
 
-        <form action="login.php">
-            <input class="form-button" type="submit" value="Déjà inscrit ? "/>
+        <p><a href="/index.php?target=home&page=login">Déjà inscrit ?</a></p>
 
 </div>

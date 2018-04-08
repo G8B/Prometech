@@ -1,6 +1,6 @@
 <?php
 
-include ('../model/signInTreatment.php');
+include ('model/signInTreatment.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "login";
@@ -27,8 +27,14 @@ switch ($page) {
                 $alerte = "Identifiant ou mot de passe invalide.";
             }
         }
+        break;
+
+    case 'signup' :
+        $view = 'signup';
+        $title = 'Inscription';
+
 }
 
 
-include ('../view/' . $view . '.php');
+include ('view/' . $view . '.php');
 

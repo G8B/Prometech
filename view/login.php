@@ -27,11 +27,7 @@
     <hr width="15%" color="black">
 
 
-    <p>
-
-    <form action="/view/sign-up.php">
-        <input class="form-button" type="submit" value="S'inscrire >"/>
-    </form>
+    <p><a href="/index.php?target=home&page=signup">S'inscrire</a></p>
 </div>
 
 

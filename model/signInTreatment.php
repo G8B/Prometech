@@ -1,9 +1,9 @@
 <?php
 
+require("connectBDD.php");
+
 function login($email, $password): bool
 {
-    $bdd = new PDO('mysql:host=localhost;dbname=prometech;charset=utf8', 'root', '');
-
     $req = $bdd->prepare('SELECT email, password, prenom FROM utilisateurs WHERE email = :email');
     $req->execute(array(
         'email' => $email));
