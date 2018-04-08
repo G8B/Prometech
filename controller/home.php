@@ -1,6 +1,6 @@
 <?php
 
-include ('model/signInTreatment.php');
+include ('../model/signInTreatment.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "login";
@@ -23,10 +23,12 @@ switch ($page) {
             } else if (login($_POST['email'],$_POST['password'])) {
                 header('Location: /view/user-main.php');
                 exit();
+            } else {
+                $alerte = "Identifiant ou mot de passe invalide.";
             }
         }
 }
 
 
-include ('view/' . $view . '.php');
+include ('../view/' . $view . '.php');
 
