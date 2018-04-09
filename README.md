@@ -9,9 +9,9 @@ Groupe 8B :
 * Marin Godechot [Houguiram](https://github.com/Houguiram)
 * Maël Julienne
 * Dany Khalil [boudykh](https://github.com/boudykh)
-* Richard Kohler
-* Molly Lan Nirina
-* Salomé Leduc
+* Richard Kohler [RichardKohler](https://github.com/RichardKohler)
+* Molly Lan Nirina [Eddyah](https://github.com/Eddyah)
+* Salomé Leduc [SalomeLeduc](https://github.com/SalomeLeduc)
 
 ## Site
 
