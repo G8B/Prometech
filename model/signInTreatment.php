@@ -13,7 +13,7 @@ function login($email, $password): bool
         return false;
     }
 
-    if ($password == $resultat['password']) {
+    if (password_verify($password, $resultat['password'])) {
         session_start();
         $_SESSION['prenom'] = $resultat['prenom'];
         return true;
