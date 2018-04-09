@@ -12,7 +12,7 @@ function signup(): bool
     $statutGestionnaire = isset($_POST['choixGestionnaire']) ? true : false;
 
 
-    $req->execute(array(
+    $req->execute([
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
         'email' => $_POST['email'],
@@ -21,7 +21,7 @@ function signup(): bool
         'statutGestionnaire' => $statutGestionnaire,
         'statutAdmin' => false,
         'statutSubordonne' => false
-    ));
+    ]);
 
     return true;
 }
