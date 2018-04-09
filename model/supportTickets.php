@@ -6,6 +6,11 @@
  *  - 1 : à traiter
  *  - 2 : en attente
  *  - 3 : terminé
+ *
+ * La priorité du ticket est :
+ *  - 1 : Haute
+ *  - 2 : Moyenne
+ *  - 3 : Basse
  * @return bool
  */
 

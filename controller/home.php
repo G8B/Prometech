@@ -10,11 +10,13 @@ if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = $_GET['page'];
 }
 
+$alerte = false;
+
+
 switch ($page) {
     case 'login' :
         $view = 'login';
         $title = 'Connexion';
-        $alerte = false;
 
         // formulaire posté
         if (isset($_POST['email']) and isset($_POST['password'])) {

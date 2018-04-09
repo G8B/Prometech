@@ -27,9 +27,9 @@
     <p>
         <label for="priorite">Priorité : </label><br>
         <select name="priorite" id="priorite">
-            <option value="Haute">Haute</option>
-            <option value="Moyenne" selected>Moyenne</option>
-            <option value="Basse">Basse</option>
+            <option value="1">Haute</option>
+            <option value="2" selected>Moyenne</option>
+            <option value="3">Basse</option>
         </select>
     </p>
     <p>
