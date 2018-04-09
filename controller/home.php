@@ -40,6 +40,11 @@ switch ($page) {
             exit();
         }
         break;
+
+    case 'contact' :
+        $view = 'contact';
+        $title = 'Contact';
+        break;
 }
 
 
