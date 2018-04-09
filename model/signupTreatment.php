@@ -16,7 +16,7 @@ function signup(): bool
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
         'email' => $_POST['email'],
-        'password' => $_POST['password'],
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
         'statutClient' => $statutClient,
         'statutGestionnaire' => $statutGestionnaire,
         'statutAdmin' => false,

@@ -13,7 +13,7 @@ function login($email, $password): bool
         return false;
     }
 
-    if ($password == $resultat['password']) {
+    if (password_hash($password, PASSWORD_DEFAULT) == $resultat['password']) {
         session_start();
         $_SESSION['prenom'] = $resultat['prenom'];
         return true;
