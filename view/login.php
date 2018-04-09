@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/public/css/login.css"/>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
+    <link rel="stylesheet" href="/public/css/login.css"/>
     <title><? echo $title ?></title>
 </head>
 <body>
@@ -31,7 +31,7 @@
     <p><a href="/index.php?target=home&page=signup">S'inscrire</a></p>
 </div>
 
-<? include ("home-footer.php") ?>
+<? include ("home-footer.php"); ?>
 
 </body>
 </html>

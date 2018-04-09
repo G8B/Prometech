@@ -5,6 +5,7 @@
     <title><? echo $title ?></title>
 </head>
 <body>
+<?php echo AfficheAlerte($alerte); ?>
 <div class="header">
     <a href="/index.php?target=home&page=login" id="logo">
         <img src="/public/images/logopromSideWHITE.png" alt="logoprom Side WHITE" id="whiteLogo"/>
@@ -39,6 +40,6 @@
         <input class="form-button" type="submit" value="Envoyer"/>
     </p>
 </form>
-
+<? include ("home-footer.php"); ?>
 </body>
 </html>

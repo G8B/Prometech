@@ -95,8 +95,7 @@ CREATE TABLE ticketsDeSupport (
 	priorite INTEGER,
 	time DATETIME,
 	contenu TEXT,
-	ID_utilisateur INTEGER REFERENCES utilisateurs (ID)
-		ON DELETE NO ACTION ON UPDATE CASCADE
+	email VARCHAR(256)
 );
 
 
