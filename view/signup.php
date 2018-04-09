@@ -32,20 +32,20 @@
             <label for="password"></label>
             <input type="password" name="password" placeholder="Confirmer mot de passe" size="25"/>
         </p>
-        <!--
+
         <p class="form-checkbox">
-            <input type="checkbox" name="choix1" id="choix1"/> <label for="choix1"> J'utilise des produits
+            <input type="checkbox" name="choixUtilisateur" id="choixUtilisateur" value="true"/> <label for="choixUtilisateur"> J'utilise des produits
                 Domisep </label> <br/>
-            <input type="checkbox" name="choix2" id="choix2"/> <label for="choix2"> Je gère un immeuble </label>
+            <input type="checkbox" name="choixGestionnaire" id="choixGestionnaire" value="true"/> <label for="choixGestionnaire"> Je gère un immeuble </label>
         </p>
-        -->
-        <form action="/model/signupTreatment.php">
-            <input id='inscription' class="form-button" type="submit" value="S'inscrire >"/>
-        </form>
 
 
-        <hr width="15%" color="black">
+        <input id='inscription' class="form-button" type="submit" value="S'inscrire >"/>
+    </form>
 
-        <p><a href="/index.php?target=home&page=login">Déjà inscrit ?</a></p>
+
+    <hr width="15%" color="black">
+
+    <p><a href="/index.php?target=home&page=login">Déjà inscrit ?</a></p>
 
 </div>
