@@ -1,5 +1,12 @@
 <?php
 
 function connectBDD(): PDO {
-    return new PDO('mysql:host=localhost;dbname=prometech;charset=utf8', 'root', '');
+    $host = 'localhost';
+    $db = 'prometech';
+    $user = 'root';
+    $pass = '';
+    $charset = 'utf8';
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    return new PDO($dsn, $user, $pass);
 }
