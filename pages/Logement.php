@@ -1,8 +1,8 @@
 <?php
 require_once("Piece.php");
     class Logement {
-        public $ID_Logement;
-        private $ListePiece = array();
+        private $ID_Logement;
+        private $ListePiece;
         private $adresse;
 
 

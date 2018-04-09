@@ -5,9 +5,9 @@ class Test1
 }
 
 
-$User = new User();
+$User = new Logement();
 
-$User->setAdresseMail('danystory');
-$User->rechercheID();
-echo $User->getAdresseMail();
-echo $User->getID();
+$User->setIDLogement(1);
+$User->listePiece();
+$Liste = $User->getListePiece();
+echo $Liste[0]->getNom();
