@@ -3,10 +3,11 @@
 <head>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
     <link rel="stylesheet" href="/public/css/login.css"/>
+    <title><? echo $title ?></title>
 </head>
 <body>
 <div class="form">
-    <form method="post" action="/model/signupTreatment.php">
+    <form method="post" action="">
 
         <p>
             <img src="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
@@ -31,11 +32,13 @@
             <label for="password"></label>
             <input type="password" name="password" placeholder="Confirmer mot de passe" size="25"/>
         </p>
+        <!--
         <p class="form-checkbox">
             <input type="checkbox" name="choix1" id="choix1"/> <label for="choix1"> J'utilise des produits
                 Domisep </label> <br/>
             <input type="checkbox" name="choix2" id="choix2"/> <label for="choix2"> Je gère un immeuble </label>
         </p>
+        -->
         <form action="/model/signupTreatment.php">
             <input id='inscription' class="form-button" type="submit" value="S'inscrire >"/>
         </form>

@@ -1,6 +1,7 @@
 <?php
-
+include ('model/connectBDD.php');
 include ('model/signInTreatment.php');
+include ('model/signupTreatment.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "login";
@@ -33,6 +34,12 @@ switch ($page) {
         $view = 'signup';
         $title = 'Inscription';
 
+        if (isset($_POST['email']) and isset($_POST['password'])) {
+            signup();
+            header('Location: /index.php?target=home&page=login');
+            exit();
+        }
+        break;
 }
 
 

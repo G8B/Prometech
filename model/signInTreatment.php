@@ -1,9 +1,9 @@
 <?php
 
-require("connectBDD.php");
 
 function login($email, $password): bool
 {
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT email, password, prenom FROM utilisateurs WHERE email = :email');
     $req->execute(array(
         'email' => $email));

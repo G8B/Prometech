@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/login.css"/>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
+    <title><? echo $title ?></title>
 </head>
 <body>
 <?php echo AfficheAlerte($alerte); ?>
