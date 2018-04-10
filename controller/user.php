@@ -23,5 +23,5 @@ switch ($page) {
 }
 
 
-include ('view/user-main.php');
+include('view/template.php');
 
