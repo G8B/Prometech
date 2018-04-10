@@ -59,6 +59,10 @@ switch ($page) {
         }
 
         break;
+
+    default :
+        $view = 'notFound404';
+        $title = '404';
 }
 
 
