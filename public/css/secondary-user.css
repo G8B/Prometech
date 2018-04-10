@@ -1,0 +1,48 @@
+
+table
+{
+	border-collapse: collapse;
+	/* -- table-layout: auto; -- */
+	/* --width: 100%;-- */
+	
+	
+	 
+}
+
+
+
+
+tbody{
+    height:200px;
+    overflow-y:auto;
+    width: 100%;
+    display:block;
+    
+    }
+    
+
+td , th
+{
+	border : 1px solid black;
+	height:25px;
+	
+	
+    
+}
+
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+table th {
+    color: black;
+    background-color: grey;
+}
+
+
+
+
+
