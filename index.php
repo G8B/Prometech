@@ -16,6 +16,10 @@ switch ($target) {
         $domain = 'home';
         break;
 
+    case 'user' :
+        $domain = 'user';
+        break;
+
     default :
         $domain = 'home';
         break;
