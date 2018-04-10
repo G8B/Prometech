@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include ('controller/functions.php');
 include ('view/functions.php');
 
@@ -18,6 +18,10 @@ switch ($target) {
 
     case 'user' :
         $domain = 'user';
+        break;
+
+    case 'admin' :
+        $domain = $_SESSION['admin'] == 1 ? 'admin' : 'home';
         break;
 
     default :
