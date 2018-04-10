@@ -5,10 +5,20 @@ include ('view/functions.php');
 
 // Appel du contrôleur selon paramètre GET
 
-if(isset($_GET['target']) && !empty($_GET['target'])) {
-    $url = $_GET['target'];
+if (!isset($_GET['target']) || empty($_GET['target'])) {
+    $target = "home";
 } else {
-    $url = 'home';
+    $target = $_GET['target'];
 }
 
-include('controller/' . $url . '.php');
+switch ($target) {
+    case 'home' :
+        $domain = 'home';
+        break;
+
+    default :
+        $domain = 'home';
+        break;
+}
+
+include('controller/' . $domain . '.php');
