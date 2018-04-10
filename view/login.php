@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/public/css/login.css"/>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
+    <link rel="stylesheet" href="/public/css/login.css"/>
     <title><? echo $title ?></title>
 </head>
 <body>
@@ -12,13 +12,13 @@
         <img src="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png"/>
     </p>
     <form method="post" action="">
-        <p >
+        <p>
             <label for="email"></label>
-            <input type="email" name="email"  placeholder="Email" size="25"/>
+            <input type="email" name="email" placeholder="Email" size="25"/>
         </p>
-        <p >
+        <p>
             <label for="password"></label>
-            <input type="password" name="password"  placeholder="Mot de passe" size="25"/>
+            <input type="password" name="password" placeholder="Mot de passe" size="25"/>
         </p>
         <p>
             <input class="form-button" type="submit" value="Se connecter >"/>
@@ -31,6 +31,7 @@
     <p><a href="/index.php?target=home&page=signup">S'inscrire</a></p>
 </div>
 
+<? include ("home-footer.php"); ?>
 
 </body>
 </html>
