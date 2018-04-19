@@ -1,0 +1,58 @@
+/* --- HEADER --- */
+.header {
+    display: inline-block;
+    background-color: #E29845;
+    width: 100%;
+    max-height: 100px;
+    min-height: 100px;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    flex: 1;
+}
+
+#logo {
+    display: inline-block;
+    height: 100%;
+}
+
+#whiteLogo {
+    position: absolute;
+    left: 10px;
+    max-width: 257px;
+    max-height: 123px;
+    width: auto;
+    height: 100%;
+    border: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#link-footer {
+    width: inherit;
+    position: absolute;
+    bottom: 1%;
+    float: left;
+    list-style: none;
+    padding-left: 20px;
+}
+
+#link-footer li {
+    float: left;
+}
+
+#link-footer li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #E29845;
+    border-right: 1px solid #ccc;
+}
+
+#link-footer li:last-child a {
+    border-right: none;
+}
