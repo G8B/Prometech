@@ -1,6 +1,7 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=promethec' , 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $req = $bdd->prepare('SELECT * FROM utilisateurs');
+$req->execute(array($_SESSION["ID"]));
 
 $account = $req->fetchAll();
 
