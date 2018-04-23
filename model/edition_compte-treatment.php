@@ -1,11 +1,11 @@
 <?php
-
 /* ------------------------------------BDD -------------------------------------------------------------*/
+session_start();
 $bdd = connectBDD();
 $req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs');
 $req->execute();
-$account = $req->fetch();
-$_SESSION["userID"] = $account['ID'];
+$userInfos = $req->fetch();
+$_SESSION["userID"] = $userInfos['ID'];
 
 /*-----------------------------------fonctions edition de profil----------------------------------------*/
 
@@ -28,31 +28,31 @@ $_SESSION["userID"] = $account['ID'];
  */
 
 
-function updatenom($newno, $idUser)
+function updatenom($newnom, $iduser)
 {
     require('C:/xampp/htdocs/model/connectBDD.php');
-    $insertnom = $bdd->prepare('UPDATE utilisateurs SET nom = ? WHERE ID = userID');
+    $insertnom = $bdd->prepare('UPDATE utilisateurs SET nom = ? WHERE ID = ?');
     $insertnom->execute(array($newnom, $iduser));
 }
 
-function updateprenom($newprenom, $idUser)
+function updateprenom($newprenom, $iduser)
 {
     require('C:/xampp/htdocs/model/connectBDD.php');
-    $insertprenom = $bdd->prepare('UPDATE utilisateurs SET prenom = ? WHERE ID = userID');
-    $insertprenom->execute(array($newprenom, $idUser));
+    $insertprenom = $bdd->prepare('UPDATE utilisateurs SET prenom = ? WHERE ID = ?');
+    $insertprenom->execute(array($newprenom, $iduser));
 }
 
-function updatemail($newmail, $idUser)
+function updatemail($newmail, $iduser)
 {
     require('C:/xampp/htdocs/model/connectBDD.php');
-    $insertmail = $bdd->prepare('UPDATE utilisateurs SET email = ? WHERE ID = userID');
+    $insertmail = $bdd->prepare('UPDATE utilisateurs SET email = ? WHERE ID = ?');
     $insertmail->execute(array($newmail, $iduser));
 }
 
-function updatepassword($newmdp, $idUser)
+function updatepassword($newmdp, $iduser)
 {
     require('C:/xampp/htdocs/model/connectBDD.php');
-    $insertpassword = $bdd->prepare("UPDATE utilisateurs SET password = ? WHERE ID = userID");
+    $insertpassword = $bdd->prepare("UPDATE utilisateurs SET password = ? WHERE ID = ?");
     $insertpassword->execute(array($newmdp, $iduser));
 }
 ?>
