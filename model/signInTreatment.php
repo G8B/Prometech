@@ -15,6 +15,7 @@ function login($email, $password): bool
     if (password_verify($password, $user['password'])) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
+        
         return true;
     } else {
         return false;
