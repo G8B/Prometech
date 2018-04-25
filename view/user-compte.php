@@ -1,6 +1,6 @@
 <?php
 require('C:/xampp/htdocs/controller/edition_compte-controller.php');
-session_start();
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -34,12 +34,12 @@ session_start();
 				
 		<p >
             <label for="nom">Nom :</label>
-            <input type="Nom" name="Nom"  placeholder="<?php echo $account['nom']?>" size="25"/>
+            <input type="Nom" name="Nom"  placeholder="<?php echo $userinfo['nom']?>" size="25"/>
         </p>
         <br>
         <p >
             <label for="prenom">Prenom :</label>
-            <input type="prenom" name="prenom" placeholder="<?php echo $account['prenom']?>"   size="25"/>
+            <input type="prenom" name="prenom" placeholder="<?php echo $userinfo['prenom']?>"   size="25"/>
         </p>
         <br>
          <!--
@@ -51,19 +51,30 @@ session_start();
         -->
         <p >
             <label for="email">Email :</label>
-            <input type="email" name="email" placeholder="<?php echo $account['email']?>"  size="25"/>
+            <input type="email" name="email" placeholder="<?php echo $userinfo['email']?>"  size="25"/>
         </p>
         <br>
         <p >
-            <label for="password">Mot de passe :</label>
-            <input type="password" name="password" placeholder="password"  size="25"/>
-        </p>
+            <label for="password">Mot de passe actuel :</label>
+            <input type="password" name="password" placeholder="Actual password"  size="25"/>
+        </p>        
+        <br>
         
+        <p >
+            <label for="newpassword">Nouveau mot de passe:</label>
+            <input type="newpassword" name="newpassword" placeholder="New password"  size="25"/>
+        </p>
+        <br>
+        
+        <p >
+            <label for="confirm">Confirmer nouveau mot de passe:</label>
+            <input type="confirm" name="confirmation" placeholder="New password"  size="25"/>
+        </p>
+        <br>
         <br>
          <p>
             <input class="form-button" type="submit" value="Confirmer"  style="width: 100px" />
         </p>
-        
         
         
 	</form>
