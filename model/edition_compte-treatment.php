@@ -2,14 +2,11 @@
 /* ------------------------------------BDD -------------------------------------------------------------*/
 session_start();
 $bdd = connectBDD();
-$req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs');
-$req->execute();
+$req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs where ID = ?');
+$req->execute(array($_SESSION['userID']));
 $userInfos = $req->fetch();
-$_SESSION["userID"] = $userInfos['ID'];
 
-$reqUser = $bdd->prepare('SELECT nom, prenom, email, password FROM utilisateurs where ID = ? ');
-$reqUser->execute(array($_SESSION['userID']));
-$userinfo = $reqUser->fetch();
+
 
 /*-----------------------------------fonctions edition de profil----------------------------------------*/
 
