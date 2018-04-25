@@ -7,6 +7,10 @@ $req->execute();
 $userInfos = $req->fetch();
 $_SESSION["userID"] = $userInfos['ID'];
 
+$reqUser = $bdd->prepare('SELECT nom, prenom, email, password FROM utilisateurs where ID = ? ');
+$reqUser->execute(array($_SESSION['userID']));
+$userinfo = $reqUser->fetch();
+
 /*-----------------------------------fonctions edition de profil----------------------------------------*/
 
 
