@@ -34,12 +34,12 @@ require('C:/xampp/htdocs/controller/edition_compte-controller.php');
 				
 		<p >
             <label for="nom">Nom :</label>
-            <input type="Nom" name="Nom"  placeholder="<?php echo $userinfo['nom']?>" size="25"/>
+            <input type="Nom" name="Nom"  placeholder="<?php echo $userInfos['nom']?>" size="25"/>
         </p>
         <br>
         <p >
             <label for="prenom">Prenom :</label>
-            <input type="prenom" name="prenom" placeholder="<?php echo $userinfo['prenom']?>"   size="25"/>
+            <input type="prenom" name="prenom" placeholder="<?php echo $userInfos['prenom']?>"   size="25"/>
         </p>
         <br>
          <!--
@@ -51,7 +51,7 @@ require('C:/xampp/htdocs/controller/edition_compte-controller.php');
         -->
         <p >
             <label for="email">Email :</label>
-            <input type="email" name="email" placeholder="<?php echo $userinfo['email']?>"  size="25"/>
+            <input type="email" name="email" placeholder="<?php echo $userInfos['email']?>"  size="25"/>
         </p>
         <br>
         <p >
