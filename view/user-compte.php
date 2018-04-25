@@ -27,19 +27,19 @@ require('C:/xampp/htdocs/controller/edition_compte-controller.php');
 	
 <div id="user-compte">
 	
-		<form action="" method="post">
+		<form action="C:/xampp/htdocs/controller/edition_compte-controller.php" method="post">
 	
 		<h1>Mon compte</h1>
 		<br>
 				
 		<p >
             <label for="nom">Nom :</label>
-            <input type="Nom" name="Nom"  placeholder="<?php echo $userInfos['nom']?>" size="25"/>
+            <input type="Nom" name="Nom" id ="newnom" placeholder="<?php echo $userInfos['nom']?>" size="25"/>
         </p>
         <br>
         <p >
             <label for="prenom">Prenom :</label>
-            <input type="prenom" name="prenom" placeholder="<?php echo $userInfos['prenom']?>"   size="25"/>
+            <input type="prenom" name="prenom" id="newprenom" placeholder="<?php echo $userInfos['prenom']?>"   size="25"/>
         </p>
         <br>
          <!--
@@ -51,24 +51,24 @@ require('C:/xampp/htdocs/controller/edition_compte-controller.php');
         -->
         <p >
             <label for="email">Email :</label>
-            <input type="email" name="email" placeholder="<?php echo $userInfos['email']?>"  size="25"/>
+            <input type="email" name="email"  placeholder="<?php echo $userInfos['email']?>"  size="25"/>
         </p>
         <br>
         <p >
             <label for="password">Mot de passe actuel :</label>
-            <input type="password" name="password" placeholder="Actual password"  size="25"/>
+            <input type="password" name="password" id="mdpactuel" placeholder="Actual password"  size="25"/>
         </p>        
         <br>
         
         <p >
             <label for="newpassword">Nouveau mot de passe:</label>
-            <input type="newpassword" name="newpassword" placeholder="New password"  size="25"/>
+            <input type="password" name="newpassword" id="newmdp1" placeholder="New password"  size="25"/>
         </p>
         <br>
         
         <p >
             <label for="confirm">Confirmer nouveau mot de passe:</label>
-            <input type="confirm" name="confirmation" placeholder="New password"  size="25"/>
+            <input type="password" name="confirmation" id="newmdp2" placeholder="New password"  size="25"/>
         </p>
         <br>
         <br>
