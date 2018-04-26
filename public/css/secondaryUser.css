@@ -240,11 +240,24 @@ input[type=radio]:checked + label::after {
 }
 
 /*-------------------------------------------------Tableau-----------------------------------------------*/
+
+#secondary-user-board {
+    height: 100%;
+    float: left;
+    vertical-align: top;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: flex;
+   
+}
+
+
 table
 {
 	border-collapse: collapse;
 	/* -- table-layout: auto; -- */
-	/* --width: 100%;-- */	
+	width: 100%;	
 	 
 }
 
@@ -261,6 +274,7 @@ td , th
 {
 	border : 1px solid black;
 	height:25px;   
+	width: 750px;
 }
 
 
