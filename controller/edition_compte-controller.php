@@ -1,6 +1,6 @@
 <?php
-require('C:/xampp/htdocs/model/connectBDD.php');
-require('C:/xampp/htdocs/model/edition_compte-treatment.php');
+require('../model/connectBDD.php');
+require('../model/edition_compte-treatment.php');
 $bdd=connectBDD();
 
 
