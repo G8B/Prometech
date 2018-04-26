@@ -1,5 +1,5 @@
 <?php
-require('C:/xampp/htdocs/controller/edition_compte-controller.php');
+require('../controller/edition_compte-controller.php');
 
 ?>
 <!DOCTYPE HTML>
