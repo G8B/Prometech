@@ -22,7 +22,7 @@ if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newpre
 /*--------------------------------------Modification de l'email--------------------------------------------*/
 if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email'])
 {
-    $newprenom = htmlspecialchars($_POST['newmail']);
+    $newmail = htmlspecialchars($_POST['newmail']);
     updatemail($newmail, $userInfos['ID']);
 }
 
