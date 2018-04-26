@@ -30,11 +30,11 @@ if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] 
 
 /* ----------------------------------------- Modification du mot de passe ----------------------------- */
 if(isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2'])) {
-    $mdpactuel = password_hash($_POST['mdpactuel'], PASSWORD_DEFAULT);
+    $mdpactuel = $_POST['mdpactuel'];
     $newmdp1 = password_hash($_POST['newmdp1'], PASSWORD_DEFAULT);
     $newmdp2 = password_hash($_POST['newmdp2'], PASSWORD_DEFAULT);
     
-    if($mdpactuel == $userInfos['password'] )
+    if( password_verify($mdpactuel, $userInfos['password']))
     {
         if($newmdp1 == $newmdp2) {
             updatepassword($newmdp1, $userInfos['ID']);
