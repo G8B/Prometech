@@ -1,13 +1,14 @@
 <?php
-include('C:/xampp/htdocs/model/connectBDD.php');
-include ('C:/xampp/htdocs/model/edition_compte-treatment.php');
+require('C:/xampp/htdocs/model/connectBDD.php');
+require('C:/xampp/htdocs/model/edition_compte-treatment.php');
+$bdd=connectBDD();
 
 
 /*--------------------------------------Modification du nom-----------------------------------------------*/
 if(isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $userInfos['nom'])
 {
     $newnom = htmlspecialchars($_POST['newnom']);
-    updatenom($newnom);
+    updatenom($newnom, $userInfos['ID']);
 }
 
 
@@ -22,7 +23,7 @@ if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newpre
 /*--------------------------------------Modification de l'email--------------------------------------------*/
 if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email'])
 {
-    $newmail = htmlspecialchars($_POST['newmail']);
+    $new = htmlspecialchars($_POST['newmail']);
     updatemail($newmail, $userInfos['ID']);
 }
 
@@ -39,11 +40,12 @@ if(isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['
             updatepassword($newmdp1, $userInfos['ID']);
         }
         else {
-            alert("Vos deux nouveaux mots de passe ne correspondent pas !");
+            echo '<p> Vos deux nouveaux mots de passe ne correspondent pas ! </p>';
+            
         }
     }
     else {
-        alert("Mot de passe actuel incorrect !");
+        echo "<p>Mot de passe actuel incorrect !</p>";
     }
     
 }
