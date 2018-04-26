@@ -31,13 +31,13 @@ if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] 
 /* ----------------------------------------- Modification du mot de passe ----------------------------- */
 if(isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2'])) {
     $mdpactuel = $_POST['mdpactuel'];
-    $newmdp1 = password_hash($_POST['newmdp1'], PASSWORD_DEFAULT);
-    $newmdp2 = password_hash($_POST['newmdp2'], PASSWORD_DEFAULT);
+    $newmdp1 = $_POST['newmdp1'];
+    $newmdp2 = $_POST['newmdp1'];
     
     if( password_verify($mdpactuel, $userInfos['password']))
     {
         if($newmdp1 == $newmdp2) {
-            updatepassword($newmdp1, $userInfos['ID']);
+            updatepassword(password_hash($newmdp1, PASSWORD_DEFAULT), $userInfos['ID']);
         }
         else {
             echo '<p> Vos deux nouveaux mots de passe ne correspondent pas ! </p>';
