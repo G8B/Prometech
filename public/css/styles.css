@@ -293,4 +293,3 @@ input[type=radio] + label::after {
 input[type=radio]:checked + label::after {
     transform: rotateX(180deg);
 }
-
