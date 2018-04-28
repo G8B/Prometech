@@ -154,7 +154,7 @@ body {
 }
 
 
-/* - Accordion css - */
+/* ------------------------------------ Accordion-----------------------------------------------------*/
 .accordion {
     margin-left: 4px;;
     background-color: #eee;
@@ -168,6 +168,8 @@ body {
     font-size: 15px;
     transition: 0.4s;
     background: #DDDDDD;
+    display:fex;
+    flex : 1;
 }
 
 .active, .accordion:hover {
@@ -220,6 +222,46 @@ table th {
 }
 
 
+.ajoutUser{
+	padding:70px;
+}
+
+p{
+	text-align : center;
+}
+
+/*-----------------------------------------------Bouton----------------------------------------------- */
 
 
+.autorisations{
+	display:flex;
+}
+.blocBoutton1{
+	padding:25px;
+	padding-left: 200px;
+	padding-right: 200px;
+}
 
+.blocBoutton2{
+	padding:25px;
+	padding-left: 200x;
+	padding-right: 200px;
+}
+
+.modifAutorisation{
+	border-radius: 5px;
+	padding: 5px 10px 5px 10px;
+	background-color: rgb(241,197,150);
+}
+
+.suprUtilisateur{
+	border-radius: 5px;
+	padding: 5px 10px 5px 10px;
+	background-color: rgb(229,98,104);
+}
+
+.ajoutUtilisateur{
+	border-radius: 10px;
+	padding: 9px 20px 9px 20px;
+	background-color: rgb(241,197,150);
+}
