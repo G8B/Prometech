@@ -1,5 +1,5 @@
 <?php
-  require('../controller/secondaryUserController.php');
+require('../controller/secondaryUserController.php');
 
 ?>
 <!DOCTYPE HTML>
@@ -58,12 +58,12 @@
                         </tbody>
                         
                     </table>
-                    <div class = "autorisations" style = "display:flex">
-                    <div class="blocBoutton 1" style = "padding:25px">
+                    <div class = "autorisations">
+                    <div class="blocBoutton1">
                         <input class='modifAutorisation' type="submit" value="Modifier autorisations"/>
                     </div>
                     
-                    <div class="blocBoutton 2" style = "padding:25px">
+                    <div class="blocBoutton2">
                         <input class='suprUtilisateur' type="submit" value="Supprimer utilisateur "/>
                     </div>
 	</div>
@@ -105,12 +105,12 @@
                         </tbody>
                         
                     </table>
-                    <div class = "autorisations" style = "display:flex">
-                    <div class="blocBoutton 1" style = "padding:25px">
+                    <div class = "autorisations">
+                    <div class="blocBoutton1" >
                         <input class='modifAutorisation' type="submit" value="Modifier autorisations"/>
                     </div>
                     
-                    <div class="blocBoutton 2" style = "padding:25px">
+                    <div class="blocBoutton2">
                         <input class='suprUtilisateur' type="submit" value="Supprimer utilisateur "/>
                     </div>
 	</div>
@@ -153,16 +153,20 @@
                         </tbody>
                         
                     </table>
-                    <div class = "autorisations" style = "display:flex">
-                    <div class="blocBoutton 1" style = "padding:25px">
+                    <div class = "autorisations">
+                    <div class="blocBoutton1">
                         <input class='modifAutorisation' type="submit" value="Modifier autorisations"/>
                     </div>
                     
-                    <div class="blocBoutton 2" style = "padding:25px">
+                    <div class="blocBoutton2">
                         <input class='suprUtilisateur' type="submit" value="Supprimer utilisateur "/>
                     </div>
 	</div>
 	
+</div>
+
+<div class="ajoutUser">
+	<p id="ajout"><input class='ajoutUtilisateur' type="submit" value="Ajouter utilisateur "/></p>
 </div>
 
  
