@@ -155,103 +155,33 @@ body {
 
 
 /* - Accordion css - */
-.tab {
-    position: relative;
-    margin-bottom: 1px;
-    width: 100%;
-    color: #fff;
-    overflow: hidden;
-}
-
-input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-
-label {
-    position: relative;
-    display: block;
-    padding: 0 0 0 1em;
-    background: #DDDDDD;
-    color: #333333;
-    font-weight: bold;
-    line-height: 3;
+.accordion {
+    margin-left: 4px;;
+    background-color: #eee;
+    color: #444;
     cursor: pointer;
-}
-
-.accordion-tab-content {
-    max-height: 0;
-    overflow: hidden;
-    background: white;
-    -webkit-transition: max-height .35s;
-    -o-transition: max-height .35s;
-    transition: max-height .35s;
-    display: grid;
-}
-
-.product-grid {
-    margin: 1em;
-    display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr;
-    grid-gap: 50px;
-}
-
-.product-box {
-    background-color: white;
-    border: 2px #333333 solid;
-    overflow: hidden;
-}
-
-/* :checked */
-input:checked ~ .accordion-tab-content {
-    max-height: 100em;
-}
-
-input:checked ~ .accordion-tab-content .product-grid {
-    height: 500px;
-}
-
-input:checked ~ label {
-    background: #F1B573;
-}
-
-/* Icon */
-label::after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: block;
-    width: 3em;
-    height: 3em;
-    line-height: 3;
-    text-align: center;
-    -webkit-transition: all .35s;
-    -o-transition: all .35s;
-    transition: all .35s;
-}
-
-input[type=radio] + label::after {
-    content: "\25BC";
-}
-
-input[type=radio]:checked + label::after {
-    transform: rotateX(180deg);
-}
-
-/*-------------------------------------------------Tableau-----------------------------------------------*/
-
-#secondary-user-board {
-    height: 100%;
-    float: left;
-    vertical-align: top;
+    padding: 18px;
     width: 100%;
-    overflow-x: scroll;
-    white-space: nowrap;
-    display: flex;
-   
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    background: #DDDDDD;
 }
 
+.active, .accordion:hover {
+    background-color:#F1B573; 
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    margin-left: 5px;
+}
+/*-------------------------------------------------Tableau-----------------------------------------------*/
 
 table
 {
