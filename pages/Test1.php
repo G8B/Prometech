@@ -5,9 +5,11 @@ class Test1
 }
 
 
-$User = new Logement();
+$User = new User();
 
-$User->setIDLogement(1);
-$User->listePiece();
-$Liste = $User->getListePiece();
-echo $Liste[0]->getNom();
+$User->setAdresseMail('danystory@hotmail.fr');
+$User->rechercheID();
+echo $User->getID();
+$User->ListeLogement();
+$Liste = $User->getListeLogement();
+echo $Liste[1]->getIDLogement();

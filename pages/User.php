@@ -6,7 +6,7 @@ require_once("Logement.php");
         public $ID;
         private $Nom;
         public $Prenom;
-        public $adresseMail;
+        private $adresseMail;
         private $ListeLogement;
 
         /**
@@ -69,9 +69,10 @@ require_once("Logement.php");
         {
 
             $bdd = new PDO('mysql:host=localhost;dbname=promethec;charset=utf8', 'root', '');
-            $reponse = $bdd->query('SELECT ID, nom, prénom FROM utilisateurs WHERE mail = " ' .$this->adresseMail. '" ');
+
+            $reponse = $bdd->query('SELECT ID, nom, prénom FROM utilisateurs WHERE mail ="'.$this->getAdresseMail().'" '  );
             while ($donnees = $reponse->fetch()) {
-                $this->ID = $donnees['ID'];
+                $this->setID($donnees['ID']);
                 $this->Nom = $donnees['nom'];
                 $this->Prenom = $donnees['prénom'];
 
