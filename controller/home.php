@@ -53,7 +53,7 @@ switch ($page) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (sendSupportTicket()) {
-                header('Location: /view/template.php');
+                header('Location: /index.php?target=home&page=login');
             } else {
                 $alerte = 'Veuillez vérifier que tous les champs sont bien remplis.';
             }
