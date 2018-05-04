@@ -1,6 +1,6 @@
 <?php
-require('../model/connectBDD.php');
-require('../model/edition_compte-treatment.php');
+require('model/connectBDD.php');
+require('model/edition_compte-treatment.php');
 $bdd=connectBDD();
 
 
@@ -23,7 +23,7 @@ if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newpre
 /*--------------------------------------Modification de l'email--------------------------------------------*/
 if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email'])
 {
-    $new = htmlspecialchars($_POST['newmail']);
+    $newmail = htmlspecialchars($_POST['newmail']);
     updatemail($newmail, $userInfos['ID']);
 }
 
@@ -49,6 +49,8 @@ if(isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['
     }
     
 }
+
+include('view/user-compte.php');
 
 
 ?>

@@ -1,7 +1,3 @@
-<?php
-require('../controller/edition_compte-controller.php');
-
-?>
 <!DOCTYPE HTML>
 <html>
 <head>

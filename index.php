@@ -1,14 +1,23 @@
 <?php
-
 include ('controller/functions.php');
 include ('view/functions.php');
-
-// Appel du contrÃ´leur selon paramÃ¨tre GET
-
-if(isset($_GET['target']) && !empty($_GET['target'])) {
-    $url = $_GET['target'];
+// Appel du contrôleur selon paramètre GET
+if (!isset($_GET['target']) || empty($_GET['target'])) {
+    $target = "home";
 } else {
-    $url = 'home';
+    $target = $_GET['target'];
 }
-
-include('controller/' . $url . '.php');
+switch ($target) {
+    case 'home' :
+        $domain = 'home';
+        break;
+        
+    case 'edition_compte-controller' :
+        $domain = 'edition_compte-controller' ;
+        break;
+        
+    default :
+        $domain = 'home';
+        break;
+}
+include('controller/' . $domain . '.php');

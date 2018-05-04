@@ -166,7 +166,9 @@ require('../controller/secondaryUserController.php');
 </div>
 
 <div class="ajoutUser">
-	<p id="ajout"><input class='ajoutUtilisateur' type="submit" value="Ajouter utilisateur "/></p>
+	<form action="ajoutSecondUser.php" method="post">
+		<p id="ajout"><input class='ajoutUtilisateur' type="submit" value="Ajouter utilisateur "/></p></form>
+	
 </div>
 
  
