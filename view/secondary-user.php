@@ -1,7 +1,4 @@
-<?php
-require('../controller/secondaryUserController.php');
 
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
