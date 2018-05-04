@@ -70,16 +70,41 @@ require_once("Logement.php");
 
             $bdd = new PDO('mysql:host=localhost;dbname=promethec;charset=utf8', 'root', '');
 
-            $reponse = $bdd->query('SELECT ID, nom, prénom FROM utilisateurs WHERE mail ="'.$this->getAdresseMail().'" '  );
+            $reponse = $bdd->query('SELECT ID, nom, prenom FROM utilisateurs WHERE email ="'.$this->getAdresseMail().'" '  );
             while ($donnees = $reponse->fetch()) {
                 $this->setID($donnees['ID']);
                 $this->Nom = $donnees['nom'];
-                $this->Prenom = $donnees['prénom'];
+                $this->Prenom = $donnees['prenom'];
 
 
 
             }
 
+
+        }
+        public function genererInfo(){
+            $this->rechercheID();
+
+            $this->ListeLogement();
+            $Liste = $this->getListeLogement();
+
+            foreach ($Liste as $Logement){
+                $Logement->listePiece();
+            }
+
+
+            foreach ($Liste as $Logement){
+                $ListePiece = $Logement->getListePiece();
+                $k = 0;
+                foreach ($ListePiece as $Piece) {
+                    $Piece->listeCapteur();
+
+
+
+
+                }
+
+            }
 
         }
     }

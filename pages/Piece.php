@@ -66,17 +66,17 @@ class Piece
 
         public function listeCapteur(){
             $bdd = new PDO('mysql:host=localhost;dbname=promethec;charset=utf8', 'root', '');
-            $reponse = $bdd->query('SELECT * FROM produits JOIN positionproduit ON positionproduit.ID_pièce= '.$this->ID_piece.' AND positionproduit.numéroDeSérie = produits.numéroDeSérie');
+            $reponse = $bdd->query('SELECT * FROM produits JOIN positionproduit ON positionproduit.ID_piece= '.$this->ID_piece.' AND positionproduit.numeroDeSerie = produits.numeroDeSerie');
             while ($donnees = $reponse->fetch()){
-                if ($donnees['modèle'] == 'actionneur') {
+                if ($donnees['modele'] == 'actionneur') {
                     $actionneur = new Actionneur();
-                    $actionneur->setModele('actionneur'); $actionneur->setNom($donnees['nom']); $actionneur->setNumeroSerie($donnees['numéroDeSérie']);
+                    $actionneur->setModele('actionneur'); $actionneur->setNom($donnees['nom']); $actionneur->setNumeroSerie($donnees['numeroDeSerie']);
                     $this->ListeCapteur[] =$actionneur;
                 }
 
                 else {
                     $capteur = new Capteur();
-                    $capteur->setModele('capteur'); $capteur->setNom($donnees['nom']); $capteur->setNumeroSerie($donnees['numéroDeSérie']);
+                    $capteur->setModele('capteur'); $capteur->setNom($donnees['nom']); $capteur->setNumeroSerie($donnees['numeroDeSerie']);
                     $this->ListeCapteur[] =$capteur;
 
 
