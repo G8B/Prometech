@@ -16,10 +16,6 @@ switch ($target) {
         $domain = 'edition_compte-controller' ;
         break;
         
-    case 'secondaryUserController' :
-        $domain = 'secondaryUserController';
-        break;
-        
     default :
         $domain = 'home';
         break;
