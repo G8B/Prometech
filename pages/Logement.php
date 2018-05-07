@@ -1,8 +1,8 @@
 <?php
 require_once("Piece.php");
     class Logement {
-        public $ID_Logement;
-        private $ListePiece = array();
+        private $ID_Logement;
+        private $ListePiece;
         private $adresse;
 
 
@@ -10,7 +10,7 @@ require_once("Piece.php");
         {
             return $this->ID_Logement;
         }
-        public function getListePiece(): array
+        public function getListePiece()
         {
             return $this->ListePiece;
         }
@@ -21,7 +21,7 @@ require_once("Piece.php");
 
         public function listePiece(){
             $bdd = new PDO('mysql:host=localhost;dbname=promethec;charset=utf8','root', '');
-            $reponse = $bdd->query('SELECT ID, nom FROM pièces WHERE ID_logement = '.$this->ID_Logement);
+            $reponse = $bdd->query('SELECT ID, nom FROM pieces WHERE ID_logement = '.$this->ID_Logement);
             while ($donnees = $reponse->fetch()){
                 $Piece = new Piece();
                 $Piece->setIDLogement($this->ID_Logement);$Piece->setIDPiece($donnees['ID']);$Piece->setNom($donnees['nom']);
