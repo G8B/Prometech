@@ -7,16 +7,16 @@ function login($email, $password): bool
     $req = $bdd->prepare('SELECT email, password, prenom, statutAdmin FROM utilisateurs WHERE email = :email');
     $req->execute(['email' => $email]);
     $user = $req->fetch();
-
+    
     if (!$user) {
         return false;
     }
-
+    
     if (password_verify($password, $user['password'])) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
+        $_SESSION['userID'] = $user['ID'];
         $_SESSION['admin'] = $user['statutAdmin'];
-
         return true;
     } else {
         return false;
