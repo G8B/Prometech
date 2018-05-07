@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,7 +14,7 @@
 <div id="content-window">
     <?php require_once("sidebar.php"); ?>
 
-    <?php require_once("user-dashboard.php"); ?>
+    <?php include($tab . '.php'); ?>
 </div>
 <!-- Sidebar toggle -->
 <script>

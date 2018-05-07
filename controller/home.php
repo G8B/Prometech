@@ -25,7 +25,8 @@ switch ($page) {
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide.";
             } else if (login($_POST['email'],$_POST['password'])) {
-                header('Location: /view/user-main.php');
+                $redirection = $_SESSION['admin'] == 1 ? 'admin' : 'user';
+                header('Location: /index.php?target=' . $redirection);
                 exit();
             } else {
                 $alerte = "Identifiant ou mot de passe invalide.";
@@ -52,7 +53,7 @@ switch ($page) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (sendSupportTicket()) {
-                header('Location: /view/user-main.php');
+                header('Location: /index.php?target=home&page=login');
             } else {
                 $alerte = 'Veuillez vérifier que tous les champs sont bien remplis.';
             }
