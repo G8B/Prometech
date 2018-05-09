@@ -32,7 +32,7 @@ input::placeholder {
 .bouton{
 	margin-top:2%;
 	margin-left : 50%;
-	argin-right:50%;
+	margin-right:50%;
 }
 
 .form-button:hover {
@@ -41,14 +41,6 @@ input::placeholder {
 
 /* -- FORMULAIRE -- */
 
-
-label{
-    display: block;
-    width: 50%;
-    float: left;
-    background-color : white;
-
-}
 
 #user-compte{
 	display:flex;
