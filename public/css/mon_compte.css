@@ -31,6 +31,7 @@ input::placeholder {
 	margin-top:2%;
 	margin-left : 50%;
 	margin-right:50%;
+	width : 100%;
 }
 
 .form-button:hover {
