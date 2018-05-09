@@ -65,6 +65,7 @@ switch ($page) {
     case 'accounts-management' :
         $tab = 'admin-accounts-management';
         $title = 'Gestion des comptes';
+        $accounts = getAllUsers();
         break;
 
     default :

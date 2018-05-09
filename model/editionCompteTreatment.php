@@ -34,3 +34,12 @@ function updatepassword($newmdp, $iduser)
     $insertpassword = $bdd->prepare("UPDATE utilisateurs SET password = ? WHERE ID = ?");
     $insertpassword->execute(array($newmdp, $iduser));
 }
+
+function getAllUsers() : array
+{
+    $bdd=connectBDD();
+    $req = $bdd->prepare('SELECT ID, nom, prenom, email, statutClient, statutAdmin, statutGestionnaire, statutSubordonne FROM utilisateurs');
+    $req->execute();
+
+    return $req->fetchAll();
+}
