@@ -16,6 +16,9 @@
         <div class="cell">
             Type de compte
         </div>
+        <div class="cell">
+            Éditer
+        </div>
     </div>
 
     <?php
@@ -45,7 +48,9 @@
                 if ($account['statutSubordonne'] == 1)
                     echo "Compte subordonné ";
                 ?>
-
+            </div>
+            <div class="cell">
+                <a href="#"><i class="fas fa-pencil-alt"></i></i></a>
             </div>
         </div>
 
