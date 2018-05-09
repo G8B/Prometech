@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <? $style = $title == 'Mon compte' ? "<link rel=\"stylesheet\" type=\"text/css\" href=\"/public/css/mon_compte.css\">" : "<link rel=\"stylesheet\" type=\"text/css\" href=\"/public/css/styles.css\"> ";
     echo $style; ?>
+    <link rel="stylesheet" type="text/css" href="/public/css/headerAndFooter.css"
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
