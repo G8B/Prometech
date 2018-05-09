@@ -19,7 +19,7 @@ body {
     display: flex;
 }
 /* --- HEADER --- */
-.header {
+.main-header {
     display: inline-block;
     background-color: #E29845;
     width: 100%;
