@@ -2,47 +2,47 @@
 
     <div class="row header">
         <div class="cell">
-            Full Name
+            Nom
         </div>
         <div class="cell">
-            Age
+            Prénom
         </div>
         <div class="cell">
-            Job Title
+            Email
         </div>
         <div class="cell">
-            Location
+            Type de compte
         </div>
     </div>
 
 
     <div class="row result">
-        <div class="cell" data-title="Full Name">
-            Sean Guzman
+        <div class="cell" data-title="Nom">
+            SampleNom
         </div>
-        <div class="cell" data-title="Age">
-            25
+        <div class="cell" data-title="Prénom">
+            SamplePrénom
         </div>
-        <div class="cell" data-title="Job Title">
-            Web Designer
+        <div class="cell" data-title="Email">
+            sample@mail.fr
         </div>
-        <div class="cell" data-title="Location">
-            San Francisco
+        <div class="cell" data-title="Type de compte">
+            sample; sample
         </div>
     </div>
 
     <div class="row result">
-        <div class="cell" data-title="Full Name">
-            Keith Carter
+        <div class="cell" data-title="Nom">
+            SampleNom
         </div>
-        <div class="cell" data-title="Age">
-            20
+        <div class="cell" data-title="Prénom">
+            SamplePrénom
         </div>
-        <div class="cell" data-title="Job Title">
-            Graphic Designer
+        <div class="cell" data-title="Email">
+            sample@mail.fr
         </div>
-        <div class="cell" data-title="Location">
-            New York, NY
+        <div class="cell" data-title="Type de compte">
+            sample; sample
         </div>
     </div>
 
