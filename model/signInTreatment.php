@@ -4,7 +4,7 @@
 function login($email, $password): bool
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT email, password, prenom, statutAdmin FROM utilisateurs WHERE email = :email');
+    $req = $bdd->prepare('SELECT ID, email, password, prenom, statutAdmin FROM utilisateurs WHERE email = :email');
     $req->execute(['email' => $email]);
     $user = $req->fetch();
     
