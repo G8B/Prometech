@@ -62,6 +62,11 @@ switch ($page) {
         }
         break;
 
+    case 'accounts-management' :
+        $tab = 'admin-accounts-management';
+        $title = 'Gestion des comptes';
+        break;
+
     default :
         $title = '404';
         header('Location : /index.php?target=home&page=404');
