@@ -12,7 +12,7 @@
     <a class="side-button" href="../index.php?target=admin&page=myinfos" >Mon compte</a>
     <a class="side-button" href="#">Gestion produits</a>
     <a class="side-button" href="#">Gestion comptes</a>
-    <a class="side-button" href="#">Support</a>
+    <a class="side-button" href="../index.php?target=admin&page=support">Support</a>
     <a class="side-button" href="#">Logs</a>
     <?php
     }
