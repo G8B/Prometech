@@ -51,3 +51,18 @@ function getProductInfos($idproduct) : array
     $productInfos = $req->fetch();
     return $productInfos;
 }
+
+function addProduct($numeroDeSerie, $idPiece, $idUser)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece) VALUES (:numeroDeSerie, :ID_piece)');
+    $req->execute([
+        'numeroDeSerie' => $numeroDeSerie,
+        'ID_piece' => $idPiece
+    ]);
+    $req2 = $bdd->prepare('INSERT INTO proprieteProduit(ID_utilisateur, numeroDeSerie) VALUES (:IDUser, :numeroDeSerie)');
+    $req2->execute([
+        'numeroDeSerie' => $numeroDeSerie,
+        'IDUser' => $idUser
+    ]);
+}

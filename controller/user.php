@@ -70,11 +70,17 @@ switch ($page) {
         $tab = "add-product";
         $title = "Ajouter un produit";
         $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece'])) {
+            $num = htmlspecialchars($_POST['numeroDeSerie']);
+            addProduct($num, $_POST['idPiece'], $_SESSION['userID']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
         break;
 
     default :
         $title = '404';
-        header('Location : /index.php?target=home&page=404');
+        echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
         exit();
 }
 
