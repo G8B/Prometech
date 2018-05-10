@@ -1,8 +1,9 @@
 <div id="user-compte">
 
     <form action="" method="post">
+        <?php $h1 = isset($id) ? "Compte n° " . $id : "Mon compte" ; ?>
 
-        <h1>Mon compte</h1>
+        <h1><?php echo $h1; ?></h1>
         <br>
 
         <p>
@@ -22,6 +23,7 @@
                    size="25"/>
         </p>
         <br>
+        <?php if (!isset($id)) : ?>
         <p>
             Mot de passe actuel :
             <input class="compte" type="password" name="mdpactuel" placeholder="Actual password" size="25"/>
@@ -36,6 +38,7 @@
             Confirmer nouveau mot de passe:
             <input class="compte" type="password" name="newmdp2" placeholder="New password" size="25"/>
         </p>
+        <?php endif; ?>
         <div class="bouton">
             <button class="form-button">Confirmer</button>
         </div>
