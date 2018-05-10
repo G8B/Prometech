@@ -41,9 +41,9 @@
         <?php else : ?>
             <p>
                 Type de compte : <br/>
-                <input type="checkbox" name="typesCompte[]" id="choixUtilisateur" value="client" checked/> <label for="choixUtilisateur"> Client </label> <br/>
-                <input type="checkbox" name="typesCompte[]" id="choixGestionnaire" value="gestionnaire"/> <label for="choixGestionnaire"> Gestionnaire </label> <br/>
-                <input type="checkbox" name="typesCompte[]" id="choixAdmin" value="admin"/> <label for="choixAdmin"> Administrateur </label> <br/>
+                <input type="checkbox" name="typesCompte[]" id="choixUtilisateur" value="client" <?php if($userInfos['statutClient']) {echo "checked";} ?>/> <label for="choixUtilisateur"> Client </label> <br/>
+                <input type="checkbox" name="typesCompte[]" id="choixGestionnaire" value="gestionnaire" <?php if($userInfos['statutGestionnaire']) {echo "checked";} ?>/> <label for="choixGestionnaire"> Gestionnaire </label> <br/>
+                <input type="checkbox" name="typesCompte[]" id="choixAdmin" value="admin" <?php if($userInfos['statutAdmin']) {echo "checked";} ?>/> <label for="choixAdmin"> Administrateur </label> <br/>
             </p>
         <?php endif; ?>
         <div class="bouton">
