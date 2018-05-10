@@ -2,7 +2,7 @@
 function getUserInfos($id)
 {
     $bdd=connectBDD();
-    $req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs where ID = ?');
+    $req = $bdd->prepare('SELECT ID, nom, prenom, email, password, statutClient, statutAdmin, statutGestionnaire, statutSubordonne FROM utilisateurs where ID = ?');
     $req->execute($id);
     $_SESSION['userInfos'] = $req->fetch();
 }
