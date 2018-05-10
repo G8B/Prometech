@@ -20,7 +20,7 @@ function occupation(){
        /* echo $donnees["ID"]; */
         $ID_logement = $donnees["ID"];
     }
-    $req = $bdd->prepare('INSERT INTO occupationlogement(ID_utilisateur, ID_logement) VALUES(:ID_utilisateur, :ID_logement)');
+    $req = $bdd->prepare('INSERT INTO occupationLogement(ID_utilisateur, ID_logement) VALUES(:ID_utilisateur, :ID_logement)');
     $req->execute(array(
         'ID_utilisateur' => $_SESSION['userID'],
         'ID_logement' => $ID_logement
