@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form_logement">
     <form method="post" action="" id="ajoutProduit">
 
         <h1>Ajouter un produit</h1>
