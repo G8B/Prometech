@@ -20,7 +20,7 @@
         </p>
 
 
-        <input id='inscription' class="form-button" type="submit" value="Ajouter produit"/>
+        <input id='ajoutProduitButton' class="form-button" type="submit" value="Ajouter produit"/>
     </form>
 </div>
 
