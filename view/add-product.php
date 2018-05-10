@@ -1,6 +1,8 @@
 <div class="form">
     <form method="post" action="" id="ajoutProduit">
 
+        <h1>Ajouter un produit</h1>
+
         <p>
             <label for="numeroDeSerie"></label>
             <input type="text" name="numeroDeSerie" placeholder="Numéro de série" size="25"/>
