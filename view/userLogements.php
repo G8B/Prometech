@@ -26,6 +26,6 @@ foreach ($houses as $house) : ?>
     <?php
     $i++;
 endforeach; ?>
-<a id="addProd"><i class="fas fa-plus-square">Ajouter Produit</i></a>
+<a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
 
 
