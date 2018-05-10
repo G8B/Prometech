@@ -1,6 +1,7 @@
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
+require('model/houses.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "dashboard";
