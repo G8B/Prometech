@@ -74,8 +74,9 @@ switch ($page) {
         if(isset($_POST['adresse']) AND !empty($_POST['adresse'])){
             addLogement();
             occupation();
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
         }
-        
         break;
 
     case 'ajout-produit' :
