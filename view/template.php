@@ -11,7 +11,7 @@
     else
         $style = '<link rel="stylesheet" type="text/css" href="/public/css/styles.css">';
 
-    echo $style;?>
+    echo $style; ?>
     <link rel="stylesheet" type="text/css" href="/public/css/headerAndFooter.css"
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>

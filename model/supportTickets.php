@@ -14,7 +14,7 @@
  * @return bool
  */
 
-function sendSupportTicket() : bool
+function sendSupportTicket(): bool
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT 

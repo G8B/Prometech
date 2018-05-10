@@ -40,6 +40,6 @@
         <input class="form-button" type="submit" value="Envoyer"/>
     </p>
 </form>
-<?php include ("home-footer.php"); ?>
+<?php include("home-footer.php"); ?>
 </body>
 </html>

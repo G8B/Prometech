@@ -18,6 +18,7 @@ body {
     flex: 1;
     display: flex;
 }
+
 /* --- HEADER --- */
 .main-header {
     display: inline-block;

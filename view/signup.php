@@ -34,9 +34,11 @@
         </p>
 
         <p class="form-checkbox">
-            <input type="checkbox" name="choixUtilisateur" id="choixUtilisateur" value="true"/> <label for="choixUtilisateur"> J'utilise des produits
+            <input type="checkbox" name="choixUtilisateur" id="choixUtilisateur" value="true"/> <label
+                    for="choixUtilisateur"> J'utilise des produits
                 Domisep </label> <br/>
-            <input type="checkbox" name="choixGestionnaire" id="choixGestionnaire" value="true"/> <label for="choixGestionnaire"> Je gère un immeuble </label>
+            <input type="checkbox" name="choixGestionnaire" id="choixGestionnaire" value="true"/> <label
+                    for="choixGestionnaire"> Je gère un immeuble </label>
         </p>
 
 

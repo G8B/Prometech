@@ -31,7 +31,7 @@
     <p><a href="/index.php?target=home&page=signup">S'inscrire</a></p>
 </div>
 
-<?php include ("home-footer.php"); ?>
+<?php include("home-footer.php"); ?>
 
 </body>
 </html>

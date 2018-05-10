@@ -23,6 +23,6 @@
     </div>
 </section>
 
-<?php include ("home-footer.php"); ?>
+<?php include("home-footer.php"); ?>
 </body>
 </html>
