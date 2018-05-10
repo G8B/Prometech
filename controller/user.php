@@ -21,7 +21,7 @@ switch ($page) {
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';
-
+        $houses = getHouses($_SESSION['userID']);
         break;
 
     case 'myinfos' :

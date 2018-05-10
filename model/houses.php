@@ -4,9 +4,17 @@ function getHouses($iduser) : array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID_logement FROM occupationLogement WHERE ID_utilisateur = ?');
-    $req->execute($iduser);
+    $req->execute(array($iduser));
     $houses = $req->fetch();
     return $houses;
+}
+
+function getHouseAdress($idHouse)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT adresse FROM logements WHERE ID = ?');
+    $req->execute(array($idHouse));
+    return $req->fetch();
 }
 
 function getRooms($idhouse) : array
