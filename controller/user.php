@@ -1,6 +1,7 @@
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
+require('model/ajoutLogementTreatment.php');
 require('model/houses.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
@@ -65,6 +66,16 @@ switch ($page) {
             }
             header("Refresh:0");
         }
+        break;
+        
+    case 'myHouses':
+        $tab = 'ajoutLogement';
+        $title = 'Mes logements';
+        if(isset($_POST['adresse']) AND !empty($_POST['adresse'])){
+            addLogement();
+            occupation();
+        }
+        
         break;
 
     case 'ajout-produit' :
