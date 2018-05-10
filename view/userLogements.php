@@ -12,11 +12,10 @@ foreach ($houses as $house) : ?>
                 <label for="accordion<?php echo $i ?>-tab-<?php echo $j ?>"><?php echo getRoomName($room['ID']); ?></label>
                 <div class="accordion-tab-content">
                     <div class="product-grid">
-
-                        <div class="product-box">Capteur 1</div>
-                        <div class="product-box">Actionneur 1</div>
-                        <div class="product-box">Capteur 2</div>
-                        <div class="product-box">Actionneur 2</div>
+                        <?php $products = getProducts($room['ID']);
+                        foreach ($products as $product) : ?>
+                        <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
