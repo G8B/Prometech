@@ -1,7 +1,3 @@
-<div id="dashboard-nav">
-    <a class="dashboard-nav-link current-dashboard" href="#"><i class="fas fa-sliders-h"></i></a>
-    <a class="dashboard-nav-link" href="#"><i class="fas fa-chart-bar"></i></a>
-</div>
 <?php
 $i = 0;
 foreach ($houses as $house) : ?>
@@ -18,7 +14,7 @@ foreach ($houses as $house) : ?>
                     <div class="product-grid">
                         <?php $products = getProducts($room['ID']);
                         foreach ($products as $product) : ?>
-                            <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></div>
+                        <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -30,3 +26,6 @@ foreach ($houses as $house) : ?>
     <?php
     $i++;
 endforeach; ?>
+<a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
+
+
