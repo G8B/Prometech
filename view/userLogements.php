@@ -27,5 +27,7 @@ foreach ($houses as $house) : ?>
     $i++;
 endforeach; ?>
 <a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
+<a id="addProd" href="../index.php?target=user&page=newHouse"><i class="fas fa-plus-square">Ajouter Logement</i></a>
+
 
 

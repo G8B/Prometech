@@ -68,7 +68,7 @@ switch ($page) {
         }
         break;
         
-    case 'myHouses':
+    case 'newHouse':
         $tab = 'ajoutLogement';
         $title = 'Mes logements';
         if(isset($_POST['adresse']) AND !empty($_POST['adresse'])){
