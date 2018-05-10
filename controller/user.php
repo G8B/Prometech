@@ -66,6 +66,12 @@ switch ($page) {
         }
         break;
 
+    case 'ajout-produit' :
+        $tab = "add-product";
+        $title = "Ajouter un produit";
+        $houses = getHouses($_SESSION['userID']);
+        break;
+
     default :
         $title = '404';
         header('Location : /index.php?target=home&page=404');
