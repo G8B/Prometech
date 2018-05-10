@@ -17,6 +17,11 @@ switch ($page) {
         $title = 'Dashboard';
         break;
 
+    case 'logements' :
+        $tab = 'userLogements';
+        $title = 'Mes logements';
+        break;
+
     case 'myinfos' :
         $tab = 'user-compte';
         $title = 'Mon compte';
