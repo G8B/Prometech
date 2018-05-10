@@ -15,11 +15,9 @@ function addLogement(){
 
 function occupation(){
     $bdd=connectBDD();
-    $reponse = $bdd->query('SELECT ID FROM logements WHERE adresse = "'.$_POST["adresse"].'" ');
-    while ($donnees = $reponse->fetch()) {
-       /* echo $donnees["ID"]; */
-        $ID_logement = $donnees["ID"];
-    }
+    $req = $bdd->prepare('SELECT ID FROM logements WHERE adresse = ?');
+    $req->execute(array($_POST["adresse"]));
+    $ID_logement = $req->fetch()['ID'];
     $req = $bdd->prepare('INSERT INTO occupationLogement(ID_utilisateur, ID_logement) VALUES(:ID_utilisateur, :ID_logement)');
     $req->execute(array(
         'ID_utilisateur' => $_SESSION['userID'],
@@ -27,4 +25,3 @@ function occupation(){
     ));
     
 }
-
