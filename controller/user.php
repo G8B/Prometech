@@ -20,6 +20,7 @@ switch ($page) {
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';
+
         break;
 
     case 'myinfos' :
