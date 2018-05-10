@@ -20,7 +20,7 @@ switch ($page) {
     case 'myinfos' :
         $tab = 'user-compte';
         $title = 'Mon compte';
-        getUserInfos();
+        getUserInfos(array($_SESSION['userID']));
         $userInfos = $_SESSION['userInfos'];
         if(isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $userInfos['nom'])
         {

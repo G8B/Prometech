@@ -1,9 +1,9 @@
 <?php
-function getUserInfos()
+function getUserInfos($id)
 {
     $bdd=connectBDD();
     $req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs where ID = ?');
-    $req->execute(array($_SESSION['userID']));
+    $req->execute($id);
     $_SESSION['userInfos'] = $req->fetch();
 }
 

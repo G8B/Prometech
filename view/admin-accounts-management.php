@@ -50,7 +50,7 @@
                 ?>
             </div>
             <div class="cell">
-                <a href="#"><i class="fas fa-pencil-alt"></i></i></a>
+                <a href="../index.php?target=admin&page=edit-account&ID=<?php echo $account['ID'] ?>"><i class="fas fa-pencil-alt"></i></i></a>
             </div>
         </div>
 
