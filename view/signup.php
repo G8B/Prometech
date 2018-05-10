@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
     <link rel="stylesheet" href="/public/css/login.css"/>
-    <title><? echo $title ?></title>
+    <title><?php echo $title ?></title>
 </head>
 <body>
 <div class="form">

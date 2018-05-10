@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="/public/css/contact.css">
-    <title><? echo $title ?></title>
+    <title><?php echo $title ?></title>
 </head>
 <body>
 <?php echo AfficheAlerte($alerte); ?>
@@ -40,6 +40,6 @@
         <input class="form-button" type="submit" value="Envoyer"/>
     </p>
 </form>
-<? include ("home-footer.php"); ?>
+<?php include ("home-footer.php"); ?>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
     <link rel="stylesheet" href="/public/css/login.css"/>
-    <title><? echo $title ?></title>
+    <title><?php echo $title ?></title>
 </head>
 <body>
 <?php echo AfficheAlerte($alerte); ?>
@@ -31,7 +31,7 @@
     <p><a href="/index.php?target=home&page=signup">S'inscrire</a></p>
 </div>
 
-<? include ("home-footer.php"); ?>
+<?php include ("home-footer.php"); ?>
 
 </body>
 </html>
