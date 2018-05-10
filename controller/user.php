@@ -16,6 +16,7 @@ switch ($page) {
     case 'dashboard' :
         $tab = 'user-dashboard';
         $title = 'Dashboard';
+        $houses = getHouses($_SESSION['userID']);
         break;
 
     case 'logements' :
