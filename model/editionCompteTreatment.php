@@ -35,6 +35,13 @@ function updatepassword($newmdp, $iduser)
     $insertpassword->execute(array($newmdp, $iduser));
 }
 
+function updateAccountTypes($statutClient, $statutGestionnaire, $statutAdmin, $iduser)
+{
+    $bdd=connectBDD();
+    $insertClient = $bdd->prepare("UPDATE utilisateurs SET statutClient = ?, statutGestionnaire = ?, statutAdmin = ? WHERE ID = ?");
+    $insertClient->execute(array($statutClient, $statutGestionnaire, $statutAdmin, $iduser));
+}
+
 function getAllUsers() : array
 {
     $bdd=connectBDD();

@@ -1,8 +1,8 @@
 <?php
 
 /**
-* Fonctions de contrôle des chaînes de caractères
-*/
+ * Fonctions de contrôle des chaînes de caractères
+ */
 
 
 /**
@@ -30,4 +30,22 @@ function isAPassword($str): bool
     } else {
         return is_string($str);
     }
+}
+
+/**
+ * Test si un élément est coché dans un groupe de checkbox
+ * @param $chkname
+ * @param $value
+ * @return bool
+ */
+function isChecked($chkname, $value)
+{
+    if (!empty($_POST[$chkname])) {
+        foreach ($_POST[$chkname] as $chkval) {
+            if ($chkval == $value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }

@@ -115,8 +115,23 @@ switch ($page) {
             }
             header("Refresh:0");
         }
-        break;
 
+        if(isset($_POST['typesCompte']) AND !empty($_POST['typesCompte']))
+        {
+            $client=0;
+            $gestionnaire=0;
+            $admin=0;
+            if (isChecked('typesCompte', "client"))
+                $client = 1;
+            if (isChecked('typesCompte', "gestionnaire"))
+                $gestionnaire = 1;
+            if (isChecked('typesCompte', "admin"))
+                $admin = 1;
+            updateAccountTypes($client, $gestionnaire, $admin, $userInfos['ID']);
+           /* header("Refresh:0"); */
+        }
+
+        break;
 
 
     default :
