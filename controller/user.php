@@ -1,6 +1,7 @@
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
+require('model/houses.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "dashboard";
@@ -15,6 +16,13 @@ switch ($page) {
     case 'dashboard' :
         $tab = 'user-dashboard';
         $title = 'Dashboard';
+        $houses = getHouses($_SESSION['userID']);
+        break;
+
+    case 'logements' :
+        $tab = 'userLogements';
+        $title = 'Mes logements';
+        $houses = getHouses($_SESSION['userID']);
         break;
 
     case 'myinfos' :
@@ -59,9 +67,21 @@ switch ($page) {
         }
         break;
 
+    case 'ajout-produit' :
+        $tab = "add-product";
+        $title = "Ajouter un produit";
+        $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece'])) {
+            $num = htmlspecialchars($_POST['numeroDeSerie']);
+            addProduct($num, $_POST['idPiece'], $_SESSION['userID']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        break;
+
     default :
         $title = '404';
-        header('Location : /index.php?target=home&page=404');
+        echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
         exit();
 }
 
