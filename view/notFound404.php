@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/contact.css">
     <link rel="stylesheet" href="/public/css/notFound404.css">
-    <title><? echo $title ?></title>
+    <title><?php echo $title ?></title>
 </head>
 <body>
 <div class="header">
@@ -23,6 +23,6 @@
     </div>
 </section>
 
-<? include ("home-footer.php"); ?>
+<?php include("home-footer.php"); ?>
 </body>
 </html>

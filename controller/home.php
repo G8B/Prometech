@@ -1,8 +1,8 @@
 <?php
-include ('model/connectBDD.php');
-include ('model/signInTreatment.php');
-include ('model/signupTreatment.php');
-include ('model/supportTickets.php');
+include('model/connectBDD.php');
+include('model/signInTreatment.php');
+include('model/signupTreatment.php');
+include('model/supportTickets.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "login";
@@ -24,7 +24,7 @@ switch ($page) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide.";
-            } else if (login($_POST['email'],$_POST['password'])) {
+            } else if (login($_POST['email'], $_POST['password'])) {
                 $redirection = $_SESSION['admin'] == 1 ? 'admin' : 'user';
                 header('Location: /index.php?target=' . $redirection);
                 exit();
@@ -67,5 +67,5 @@ switch ($page) {
 }
 
 
-include ('view/' . $view . '.php');
+include('view/' . $view . '.php');
 

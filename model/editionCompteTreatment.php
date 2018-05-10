@@ -1,9 +1,9 @@
 <?php
-function getUserInfos()
+function getUserInfos($id)
 {
     $bdd=connectBDD();
-    $req = $bdd->prepare('SELECT ID, nom, prenom, email, password FROM utilisateurs where ID = ?');
-    $req->execute(array($_SESSION['userID']));
+    $req = $bdd->prepare('SELECT ID, nom, prenom, email, password, statutClient, statutAdmin, statutGestionnaire, statutSubordonne FROM utilisateurs where ID = ?');
+    $req->execute($id);
     $_SESSION['userInfos'] = $req->fetch();
 }
 
@@ -33,4 +33,20 @@ function updatepassword($newmdp, $iduser)
     $bdd=connectBDD();
     $insertpassword = $bdd->prepare("UPDATE utilisateurs SET password = ? WHERE ID = ?");
     $insertpassword->execute(array($newmdp, $iduser));
+}
+
+function updateAccountTypes($statutClient, $statutGestionnaire, $statutAdmin, $iduser)
+{
+    $bdd=connectBDD();
+    $insertClient = $bdd->prepare("UPDATE utilisateurs SET statutClient = ?, statutGestionnaire = ?, statutAdmin = ? WHERE ID = ?");
+    $insertClient->execute(array($statutClient, $statutGestionnaire, $statutAdmin, $iduser));
+}
+
+function getAllUsers() : array
+{
+    $bdd=connectBDD();
+    $req = $bdd->prepare('SELECT ID, nom, prenom, email, statutClient, statutAdmin, statutGestionnaire, statutSubordonne FROM utilisateurs');
+    $req->execute();
+
+    return $req->fetchAll();
 }

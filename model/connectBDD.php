@@ -1,6 +1,7 @@
 <?php
 
-function connectBDD(): PDO {
+function connectBDD(): PDO
+{
     $host = 'localhost';
     $db = 'prometech';
     $user = 'root';
