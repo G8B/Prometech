@@ -17,7 +17,7 @@
         </p>
 
 
-        <input id='ajoutPieceButton' class="form-button" type="submit" value="Ajouter produit"/>
+        <input id='ajoutPieceButton' class="form-button" type="submit" value="Ajouter pièce"/>
     </form>
 </div>
 
