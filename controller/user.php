@@ -67,11 +67,11 @@ switch ($page) {
             header("Refresh:0");
         }
         break;
-        
+
     case 'newHouse':
         $tab = 'ajoutLogement';
         $title = 'Mes logements';
-        if(isset($_POST['adresse']) AND !empty($_POST['adresse'])){
+        if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
             addLogement();
             occupation();
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
@@ -86,6 +86,18 @@ switch ($page) {
         if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece'])) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
             addProduct($num, $_POST['idPiece'], $_SESSION['userID']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        break;
+
+    case 'ajout-piece' :
+        $tab = "add-room";
+        $title = "Ajouter une pièce";
+        $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['nomPiece']) AND !empty($_POST['nomPiece']) AND isset($_POST['idHouse'])) {
+            $nom = htmlspecialchars($_POST['nomPiece']);
+            addRoom($nom, $_POST['idHouse']);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }

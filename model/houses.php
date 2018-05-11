@@ -66,3 +66,13 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
         'IDUser' => $idUser
     ]);
 }
+
+function addRoom($nomPiece, $idHouse)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO pieces(ID_logement, nom) VALUES (:house, :name)');
+    $req->execute([
+        'house' => $idHouse,
+        'name' => $nomPiece
+    ]);
+}
