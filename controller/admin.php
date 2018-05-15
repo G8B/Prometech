@@ -1,6 +1,7 @@
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
+require('model/logsTreatment.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "support";
@@ -118,6 +119,12 @@ switch ($page) {
             header("Refresh:0");
         }
 
+        break;
+        
+    case 'logs' :
+        $tab = 'logs';
+        $title = 'Logs';
+        DateAndName();
         break;
 
 

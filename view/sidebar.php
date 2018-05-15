@@ -15,7 +15,7 @@
             <a class="side-button" href="#">Gestion produits</a>
             <a class="side-button" href="../index.php?target=admin&page=accounts-management">Gestion comptes</a>
             <a class="side-button" href="../index.php?target=admin&page=support">Support</a>
-            <a class="side-button" href="#">Logs</a>
+            <a class="side-button" href="../index.php?target=admin&page=logs">Logs</a>
         <?php
     }
     ?>
