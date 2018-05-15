@@ -97,7 +97,7 @@ CREATE TABLE positionProduit (
 CREATE TABLE logs (
   ID             INTEGER AUTO_INCREMENT PRIMARY KEY,
   time           DATETIME,
-  contenu        TEXT,
+  action         TEXT,
   ID_utilisateur INTEGER REFERENCES utilisateurs (ID)
     ON DELETE NO ACTION
     ON UPDATE CASCADE
