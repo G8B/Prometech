@@ -23,7 +23,6 @@ switch ($page) {
         if (isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $userInfos['nom']) {
             $newnom = htmlspecialchars($_POST['newnom']);
             updatenom($newnom, $userInfos['ID']);
-            ajoutLog("test");
             header("Refresh:0");
         }
 
