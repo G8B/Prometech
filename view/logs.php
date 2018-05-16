@@ -10,14 +10,15 @@
 		</tr>
 		<tr>
 			<?php 
-			$IDs = getIDAdmin() ;
-			$Dates = getDates();
-			while($row_ID = $IDs->fetchObject () AND $row_date = $Dates->fetchObject ()) {
-			    echo '<tr><td>' . $row_ID->ID . '</td>';
-			    echo '<td>' . $row_date->time . '</td></tr>';
-			
+			$Logs = getLogs();
+
+			foreach ($Logs as $Log){
+			    echo '<tr><td>' . $Log['ID'] . '</td>' ;
+			    $adminNames = getAdminName($Log['ID_utilisateur']);
+			    echo '<td>' . $Log['time'] . '</td>';
+			    echo '<td>'. $Log['action'].'</td>';
+			    echo '<td>'. $adminNames['nom'] . '</td></tr>';
 			}
-			
 		
 		 ?>
 		
