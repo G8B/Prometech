@@ -83,30 +83,14 @@ switch ($page) {
         if (isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $userInfos['prenom']) {
             $newprenom = htmlspecialchars($_POST['newprenom']);
             updateprenom($newprenom, $userInfos['ID']);
+            ajoutLog("L'admin " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " a changé le prénom de l'utilisateur n°" . $userInfos['ID'] . " en " . $newprenom);
             header("Refresh:0");
         }
 
         if (isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email']) {
             $newmail = htmlspecialchars($_POST['newmail']);
             updatemail($newmail, $userInfos['ID']);
-            header("Refresh:0");
-        }
-
-        if (isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2'])) {
-            $mdpactuel = $_POST['mdpactuel'];
-            $newmdp1 = $_POST['newmdp1'];
-            $newmdp2 = $_POST['newmdp1'];
-
-            if (password_verify($mdpactuel, $userInfos['password'])) {
-                if ($newmdp1 == $newmdp2) {
-                    updatepassword(password_hash($newmdp1, PASSWORD_DEFAULT), $userInfos['ID']);
-                } else {
-                    echo '<p> Vos deux nouveaux mots de passe ne correspondent pas ! </p>';
-
-                }
-            } else {
-                echo "<p>Mot de passe actuel incorrect !</p>";
-            }
+            ajoutLog("L'admin " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " a changé le mail de l'utilisateur n°" . $userInfos['ID'] . " en " . $newmail);
             header("Refresh:0");
         }
 
@@ -121,6 +105,14 @@ switch ($page) {
             if (isChecked('typesCompte', "admin"))
                 $admin = 1;
             updateAccountTypes($client, $gestionnaire, $admin, $userInfos['ID']);
+            $newstatus = "";
+            if ($client)
+                $newstatus .= "Client ";
+            if ($gestionnaire)
+                $newstatus .= "Gestionnaire  ";
+            if ($admin)
+                $newstatus .= "Administrateur ";
+            ajoutLog("L'admin " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " a changé le statut de l'utilisateur n°" . $userInfos['ID'] . " en " . $newstatus);
             header("Refresh:0");
         }
 
