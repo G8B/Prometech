@@ -54,21 +54,21 @@
                     echo "checked";
                 } ?>/> <label for="choixAdmin"> Administrateur </label> <br/>
             </p>
-        <div class="bouton">
-            <button class="form-button supprimer" type="button">Supprimer</button>
-        </div>
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn" type="button">Open Modal</button>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
+            <div class="bouton">
+                <button class="form-button supprimer" type="button" id="supprimer">Supprimer</button>
+            </div>
 
-                <!-- Modal content -->
+            <div id="confirmationModale" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Some text in the Modal..</p>
+                    <h1>Etes vous sûr de vouloir supprimer ce compte ?</h1>
+                    <h2>Cette action est irréversible !</h2>
+                    <div style="margin-left: 20%;">
+                        <button type="button" class="form-button supprimer">Supprimer</button>
+                        <button type="button" class="form-button" id="cancel">Annuler</button>
+                    </div>
                 </div>
-
             </div>
         <?php endif; ?>
         <div class="bouton">

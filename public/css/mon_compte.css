@@ -57,7 +57,11 @@ h1 { /* Titres */
     width: 100%;
 }
 
+h2 {
+    text-align: center
 
+;
+}
 /* -- FORMULAIRE AJOUT DE LOGEMENT -- */
 
 .form_logement{
