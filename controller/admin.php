@@ -2,6 +2,7 @@
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/logsTreatment.php');
+require('model/supportTickets.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "support";

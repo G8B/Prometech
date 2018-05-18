@@ -17,18 +17,55 @@
 function sendSupportTicket(): bool
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('INSERT 
-        INTO ticketsDeSupport(etat, priorite, time, contenu, email) 
-        VALUES(:etat, :priorite, :time, :contenu, :email)');
-
-
+    $req = $bdd->prepare('INSERT
+        INTO ticketsDeSupport(etat, priorite, time, contenu, email, objet)
+        VALUES(:etat, :priorite, :time, :contenu, :email, :objet)');
+    
+    
     $req->execute([
         'etat' => 1,
         'priorite' => $_POST['priorite'],
         'email' => $_POST['email'],
         'time' => date("Y-m-d H:i:s"),
-        'contenu' => $_POST['message']
+        'contenu' => $_POST['message'],
+        'objet' => $_POST['objet']
     ]);
-
+    
     return true;
+}
+
+function getTickets(){
+    $bdd=connectBDD();
+    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet from ticketsdesupport');
+    $req->execute();
+    $Tickets=$req->fetchAll();
+    return $Tickets;
+}
+
+function returnStatut($etat) : string {
+    if ($etat == 1){
+        $statut = "A traiter";
+        return $statut ;
+    }
+    if ($etat == 2){
+        $statut = "En attente";
+        return $statut ;
+    } else{
+        $statut = "Terminé";
+        return $statut;
+    }
+}
+
+function returnPriorite($priorite) : string {
+    if ($priorite == 1){
+        $priorite = "Haute";
+        return $priorite ;
+    }
+    if ($priorite == 2){
+        $priorite = "Moyenne";
+        return $priorite ;
+    } else{
+        $priorite = "Basse";
+        return $priorite;
+    }
 }
