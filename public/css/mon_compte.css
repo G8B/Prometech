@@ -26,7 +26,7 @@ input::placeholder {
     border-radius: 5px;
 }
 
-.supprimer {
+.confirm-delete-btn {
     background-color: #e22b1d;
 }
 

@@ -1,4 +1,4 @@
-$('#deleteUser').click(function () {
+$('#deleteElement').click(function () {
     var form = $('#form');
 
     var field = $('<input>');

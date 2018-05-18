@@ -35,5 +35,6 @@
     });
 </script>
 <script src="/public/js/modal.js"></script>
+<script src="/public/js/deletePost.js"></script>
 </body>
 </html>

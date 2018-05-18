@@ -56,7 +56,7 @@
             </p>
 
             <div class="bouton">
-                <button class="form-button supprimer" type="button" id="supprimer">Supprimer</button>
+                <button class="form-button supprimer confirm-delete-btn" type="button">Supprimer</button>
             </div>
 
             <div id="confirmationModale" class="modal">
@@ -65,7 +65,7 @@
                     <h1>Etes vous sûr de vouloir supprimer ce compte ?</h1>
                     <h2>Cette action est irréversible !</h2>
                     <div style="margin-left: 20%;">
-                        <button type="button" class="form-button supprimer" id="deleteUser">Supprimer</button>
+                        <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>
                         <button type="button" class="form-button" id="cancel">Annuler</button>
                     </div>
                 </div>
@@ -76,4 +76,3 @@
         </div>
     </form>
 </div>
-<script src="/public/js/deleteUser.js"></script>
