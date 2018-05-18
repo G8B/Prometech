@@ -5,7 +5,6 @@ table
 	width : 100%;
 	margin-left: 0.2%;
 	display : table;
-	overflow-y: scroll;
 }
 
 td{
@@ -18,4 +17,5 @@ th{
 }
 .tableau{
 	width : 100%;
+	overflow-y: scroll;
 }
