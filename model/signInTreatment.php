@@ -4,7 +4,7 @@
 function login($email, $password): bool
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT ID, email, password, prenom, statutAdmin FROM utilisateurs WHERE email = :email');
+    $req = $bdd->prepare('SELECT ID, email, password, prenom, nom, statutAdmin FROM utilisateurs WHERE email = :email');
     $req->execute(['email' => $email]);
     $user = $req->fetch();
 
@@ -15,6 +15,7 @@ function login($email, $password): bool
     if (password_verify($password, $user['password'])) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
+        $_SESSION['nom'] = $user['nom'];
         $_SESSION['userID'] = $user['ID'];
         $_SESSION['admin'] = $user['statutAdmin'];
         return true;

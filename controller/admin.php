@@ -30,12 +30,14 @@ switch ($page) {
         if (isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $userInfos['prenom']) {
             $newprenom = htmlspecialchars($_POST['newprenom']);
             updateprenom($newprenom, $userInfos['ID']);
+            ajoutLog("L'admin n°" . $userInfos['ID'] . " a changé son prénom en " . $newprenom);
             header("Refresh:0");
         }
 
         if (isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email']) {
             $newmail = htmlspecialchars($_POST['newmail']);
             updatemail($newmail, $userInfos['ID']);
+            ajoutLog("L'admin n°" . $userInfos['ID'] . " a changé son email en " . $newmail);
             header("Refresh:0");
         }
 
@@ -54,6 +56,7 @@ switch ($page) {
             } else {
                 echo "<p>Mot de passe actuel incorrect !</p>";
             }
+            ajoutLog("L'admin n°" . $userInfos['ID'] . " a changé son mot de passe");
             header("Refresh:0");
         }
         break;
@@ -73,6 +76,7 @@ switch ($page) {
         if (isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $userInfos['nom']) {
             $newnom = htmlspecialchars($_POST['newnom']);
             updatenom($newnom, $userInfos['ID']);
+            ajoutLog("L'admin " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " a changé le nom de l'utilisateur n°" . $userInfos['ID'] . " en " . $newnom);
             header("Refresh:0");
         }
 
