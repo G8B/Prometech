@@ -12,7 +12,8 @@
         $style = '<link rel="stylesheet" type="text/css" href="/public/css/styles.css">';
 
     echo $style; ?>
-    <link rel="stylesheet" type="text/css" href="/public/css/headerAndFooter.css"
+    <link rel="stylesheet" type="text/css" href="/public/css/headerAndFooter.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/modal.css">
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -33,5 +34,6 @@
         });
     });
 </script>
+<script src="/public/js/modal.js"></script>
 </body>
 </html>

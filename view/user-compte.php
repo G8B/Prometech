@@ -54,6 +54,22 @@
                     echo "checked";
                 } ?>/> <label for="choixAdmin"> Administrateur </label> <br/>
             </p>
+        <div class="bouton">
+            <button class="form-button supprimer" type="button">Supprimer</button>
+        </div>
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn" type="button">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+
+            </div>
         <?php endif; ?>
         <div class="bouton">
             <button class="form-button">Confirmer</button>
