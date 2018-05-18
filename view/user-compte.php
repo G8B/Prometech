@@ -1,6 +1,6 @@
 <div id="user-compte">
 
-    <form action="" method="post">
+    <form action="" method="post" id="form">
         <?php $h1 = isset($id) ? "Compte n° " . $id : "Mon compte"; ?>
 
         <h1><?php echo $h1; ?></h1>
@@ -65,7 +65,7 @@
                     <h1>Etes vous sûr de vouloir supprimer ce compte ?</h1>
                     <h2>Cette action est irréversible !</h2>
                     <div style="margin-left: 20%;">
-                        <button type="button" class="form-button supprimer">Supprimer</button>
+                        <button type="button" class="form-button supprimer" id="deleteUser">Supprimer</button>
                         <button type="button" class="form-button" id="cancel">Annuler</button>
                     </div>
                 </div>
@@ -76,3 +76,4 @@
         </div>
     </form>
 </div>
+<script src="/public/js/deleteUser.js"></script>
