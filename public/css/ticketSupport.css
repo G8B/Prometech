@@ -44,8 +44,14 @@ th{
 .Tickets{
 	width : 99.5%;
 	margin-left: 0.2%;
-	border-radius : 5px;
+	border : 1px solid black;
+	background-color: rgb(238,238,238);
 	
+}
+
+.Tickets:hover{
+	background-color: rgb(241, 194, 148);
+	cursor : pointer; 
 }
 
 button:hover{
@@ -59,16 +65,20 @@ button:hover{
 
 .support-button {
     background-color: #E29845;
-    margin-top: 10%;
-    height: 40px;
-    width: 10%;
+    height: 30px;
     border-radius: 5px;
+    margin-top : 1%;
+    margin-bottom : 1%;
 }
 
 #answer-button{
-	margin-left : 25%;
+	margin-left : 20%;
+	margin-right : 20%;
 }
 
-#status-button{
-	margin-left : 25%;
+.status-form{
+	margin-top : 5%;
+	display : flex;
+	margin-left : 35%;
+	margin-right : 30%;
 }

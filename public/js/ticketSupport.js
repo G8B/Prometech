@@ -23,7 +23,7 @@ for (i =0 ; i< listes.length ; i++){
 $(document).ready(function () {
     $('.text').hide();
     $('.expander').click(function () {
-        // .parent() selects the A tag, .next() selects the P tag
+        // .parent() selects the button tag, .next() selects the P tag
         $(this).parent().next().slideToggle(200);
     });
     $('.text').slideUp(200);
