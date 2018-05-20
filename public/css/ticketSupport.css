@@ -2,7 +2,7 @@ table
 {
 	border:1px solid black;
 	border-collapse: collapse;
-	width : 100%;
+	width : 99.5%;
 	margin-left: 0.2%;
 	display : table;
 }
@@ -13,12 +13,16 @@ table.scroll tbody {
     overflow-x: hidden;
 }
 
+
+
+
 td{
 	border:1px solid black;
 }
 
 tr:hover{
 	background-color: rgb(241, 194, 148);
+	cursor : pointer; 
 }
 
 th{
@@ -27,5 +31,44 @@ th{
 }
 .tableau-support{
 	width : 100%;
-	height:50%;
+	margin-bottom : 3%;
+}
+
+#main{
+	display : flex;
+	flex-direction : column;
+	width : 100%;
+	margin-left : 0.4%;
+}
+
+.Tickets{
+	width : 99.5%;
+	margin-left: 0.2%;
+	border-radius : 5px;
+	
+}
+
+button:hover{
+	cursor : pointer; 
+	background-color: rgb(241, 194, 148);
+}
+
+.text{
+	overflow-y : scroll;
+}
+
+.support-button {
+    background-color: #E29845;
+    margin-top: 10%;
+    height: 40px;
+    width: 10%;
+    border-radius: 5px;
+}
+
+#answer-button{
+	margin-left : 25%;
+}
+
+#status-button{
+	margin-left : 25%;
 }
