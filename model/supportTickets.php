@@ -36,7 +36,7 @@ function sendSupportTicket(): bool
 
 function getTickets(){
     $bdd=connectBDD();
-    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsdesupport');
+    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsDeSupport');
     $req->execute();
     $Tickets=$req->fetchAll();
     return $Tickets;

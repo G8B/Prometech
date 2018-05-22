@@ -109,6 +109,7 @@ CREATE TABLE ticketsDeSupport (
   priorite INTEGER,
   time     DATETIME,
   contenu  TEXT,
+  objet    VARCHAR(256),
   email    VARCHAR(256)
 );
 
