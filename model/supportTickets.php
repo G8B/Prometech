@@ -36,7 +36,7 @@ function sendSupportTicket(): bool
 
 function getTickets(){
     $bdd=connectBDD();
-    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsdesupport');
+    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsDeSupport');
     $req->execute();
     $Tickets=$req->fetchAll();
     return $Tickets;
@@ -69,3 +69,31 @@ function returnPriorite($priorite) : string {
         return $priorite;
     }
 }
+
+function getStatus($statut) : int {
+    if($statut == "A traiter"){
+        $etat = 1;
+        return $etat;
+    }
+    if($statut == "En attente"){
+        $etat = 2;
+        return $etat;
+    } if($statut== "Terminé"){
+        $etat = 3;
+        return $etat;
+    }
+}
+
+
+function getIDTicket($str) : int {
+    $reg= '/^Ticket/';
+    $ticketNumber = preg_replace($reg, '$1', $str);
+    return $ticketNumber;
+    
+}
+function changeStatus($newStatus ,$id){
+    $bdd=connectBDD();
+    $req=$bdd->prepare('UPDATE ticketsDeSupport SET etat = ? WHERE id = ? ');
+    $req->execute(array($newStatus ,$id));
+}
+
