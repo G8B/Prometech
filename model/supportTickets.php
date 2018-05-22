@@ -34,81 +34,73 @@ function sendSupportTicket(): bool
     return true;
 }
 
-function getTickets(){
-    $bdd=connectBDD();
-    $req=$bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsDeSupport');
+function getTickets()
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT ID, etat, priorite, contenu, email, objet, time from ticketsDeSupport');
     $req->execute();
-    $Tickets=$req->fetchAll();
+    $Tickets = $req->fetchAll();
     return $Tickets;
 }
 
-function returnStatut($etat) : string {
-    if ($etat == 1){
+function returnStatut($etat): string
+{
+    if ($etat == 1) {
         $statut = "A traiter";
-        return $statut ;
+        return $statut;
     }
-    if ($etat == 2){
+    if ($etat == 2) {
         $statut = "En attente";
-        return $statut ;
-    } else{
+        return $statut;
+    } else {
         $statut = "Terminé";
         return $statut;
     }
 }
 
-function returnPriorite($priorite) : string {
-    if ($priorite == 1){
+function returnPriorite($priorite): string
+{
+    if ($priorite == 1) {
         $priorite = "Haute";
-        return $priorite ;
+        return $priorite;
     }
-    if ($priorite == 2){
+    if ($priorite == 2) {
         $priorite = "Moyenne";
-        return $priorite ;
-    } else{
+        return $priorite;
+    } else {
         $priorite = "Basse";
         return $priorite;
     }
 }
 
-<<<<<<< HEAD
-function getStatus($statut) : int {
-    if($statut == "A traiter"){
+function getStatus($statut): int
+{
+    if ($statut == "A traiter") {
         $etat = 1;
         return $etat;
     }
-    if($statut == "En attente"){
+    if ($statut == "En attente") {
         $etat = 2;
         return $etat;
-    } if($statut== "Terminé"){
+    }
+    else {
         $etat = 3;
         return $etat;
     }
 }
 
 
-function getIDTicket($str) : int {
-    $reg= '/^Ticket/';
+function getIDTicket($str): int
+{
+    $reg = '/^Ticket/';
     $ticketNumber = preg_replace($reg, '$1', $str);
     return $ticketNumber;
-    
-}
-function changeStatus($newStatus ,$id){
-    $bdd=connectBDD();
-    $req=$bdd->prepare('UPDATE ticketsDeSupport SET etat = ? WHERE id = ? ');
-    $req->execute(array($newStatus ,$id));
-=======
-function changeStatus($statut, $ticketID)
-{
 
 }
 
-function getStatus($intStatut)
+function changeStatus($newStatus, $id)
 {
-
-}
-
-function getIDTicket($ticket)
-{
-
->>>>>>> branch 'Ticket_de_support' of https://github.com/G8B/Prometech.git
+    $bdd = connectBDD();
+    $req = $bdd->prepare('UPDATE ticketsDeSupport SET etat = ? WHERE id = ? ');
+    $req->execute(array($newStatus, $id));
 }

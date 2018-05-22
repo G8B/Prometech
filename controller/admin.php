@@ -14,11 +14,12 @@ switch ($page) {
     case 'support' :
         $tab = 'support';
         $title = 'Support';
-        if (isset($_POST['ticketChoice']) AND  isset($_POST['Statuts'])){
+        if (isset($_POST['ticketChoice']) AND isset($_POST['Statuts'])) {
             changeStatus(getStatus($_POST['Statuts']), getIDTicket($_POST['ticketChoice']));
+            header("Refresh:0");
         }
         break;
-        
+
     case 'myinfos' :
         $tab = 'user-compte';
         $title = 'Mon compte';
@@ -121,7 +122,7 @@ switch ($page) {
         }
 
         break;
-        
+
     case 'logs' :
         $tab = 'logs';
         $title = 'Logs';
