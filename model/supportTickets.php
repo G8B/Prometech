@@ -20,8 +20,8 @@ function sendSupportTicket(): bool
     $req = $bdd->prepare('INSERT
         INTO ticketsDeSupport(etat, priorite, time, contenu, email, objet)
         VALUES(:etat, :priorite, :time, :contenu, :email, :objet)');
-    
-    
+
+
     $req->execute([
         'etat' => 1,
         'priorite' => $_POST['priorite'],
@@ -30,7 +30,7 @@ function sendSupportTicket(): bool
         'contenu' => $_POST['message'],
         'objet' => $_POST['objet']
     ]);
-    
+
     return true;
 }
 
@@ -68,4 +68,19 @@ function returnPriorite($priorite) : string {
         $priorite = "Basse";
         return $priorite;
     }
+}
+
+function changeStatus($statut, $ticketID)
+{
+
+}
+
+function getStatus($intStatut)
+{
+
+}
+
+function getIDTicket($ticket)
+{
+
 }
