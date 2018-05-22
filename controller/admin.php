@@ -2,6 +2,7 @@
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/logsTreatment.php');
+require('model/supportTickets.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "support";
@@ -13,6 +14,10 @@ switch ($page) {
     case 'support' :
         $tab = 'support';
         $title = 'Support';
+        if (isset($_POST['ticketChoice']) AND isset($_POST['Statuts'])) {
+            changeStatus(getStatus($_POST['Statuts']), getIDTicket($_POST['ticketChoice']));
+            header("Refresh:0");
+        }
         break;
 
     case 'myinfos' :
@@ -117,7 +122,7 @@ switch ($page) {
         }
 
         break;
-        
+
     case 'logs' :
         $tab = 'logs';
         $title = 'Logs';
