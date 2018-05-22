@@ -1,8 +1,8 @@
 <?php
 $i = 0;
 foreach ($houses as $house) : ?>
-    <div class="user-house-dashboard">
-        <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?><button class="supprimer delete-btn" type="button" id="supprimer"><i class="fas fa-minus"></i></button></h1>
+    <div class="user-house-dashboard" id="<?php echo $house['ID_logement'] ?>">
+        <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?><button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i class="fas fa-minus"></i></button></h1>
         <?php $rooms = getRooms($house['ID_logement']);
         $j = 0;
         foreach ($rooms as $room) : ?>
@@ -33,7 +33,7 @@ endforeach; ?>
 <div id="confirmationModale" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h1>Etes vous sûr de vouloir supprimer ce logement ?</h1>
+        <h1>Êtes vous sûr de vouloir supprimer ce logement ?</h1>
         <h2>Cette action est irréversible !</h2>
         <div style="margin-left: 20%;">
             <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>

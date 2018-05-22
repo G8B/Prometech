@@ -24,6 +24,10 @@ switch ($page) {
         $tab = 'userLogements';
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['delete'])) {
+            deleteHouse($_POST['idHouse']);
+            header("Refresh:0");
+        }
         break;
 
     case 'myinfos' :
