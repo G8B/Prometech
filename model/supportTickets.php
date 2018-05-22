@@ -70,6 +70,33 @@ function returnPriorite($priorite) : string {
     }
 }
 
+<<<<<<< HEAD
+function getStatus($statut) : int {
+    if($statut == "A traiter"){
+        $etat = 1;
+        return $etat;
+    }
+    if($statut == "En attente"){
+        $etat = 2;
+        return $etat;
+    } if($statut== "Terminé"){
+        $etat = 3;
+        return $etat;
+    }
+}
+
+
+function getIDTicket($str) : int {
+    $reg= '/^Ticket/';
+    $ticketNumber = preg_replace($reg, '$1', $str);
+    return $ticketNumber;
+    
+}
+function changeStatus($newStatus ,$id){
+    $bdd=connectBDD();
+    $req=$bdd->prepare('UPDATE ticketsDeSupport SET etat = ? WHERE id = ? ');
+    $req->execute(array($newStatus ,$id));
+=======
 function changeStatus($statut, $ticketID)
 {
 
@@ -83,4 +110,5 @@ function getStatus($intStatut)
 function getIDTicket($ticket)
 {
 
+>>>>>>> branch 'Ticket_de_support' of https://github.com/G8B/Prometech.git
 }
