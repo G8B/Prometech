@@ -46,7 +46,7 @@
     <div class="status-form">
         <form action="" method="post">
 
-            <select class="ticketChoice" id="ticketChoice" title="Ticket">
+            <select class="ticketChoice" name="ticketChoice" title="Ticket">
                 <?php foreach ($Tickets as $Ticket) : ?>
                     <option>Ticket <?php echo $Ticket['ID'] ?></option>
                 <?php endforeach; ?>
