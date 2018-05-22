@@ -62,7 +62,7 @@
             <div id="confirmationModale" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <h1>Etes vous sûr de vouloir supprimer ce compte ?</h1>
+                    <h1>Êtes vous sûr de vouloir supprimer ce compte ?</h1>
                     <h2>Cette action est irréversible !</h2>
                     <div style="margin-left: 20%;">
                         <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>
