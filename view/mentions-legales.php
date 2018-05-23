@@ -6,7 +6,6 @@
 </head>
 
 <body>
-<?php echo AfficheAlerte($alerte); ?>
 
 <div class="header">
     <a href="/index.php?target=home&page=login" id="logo">
@@ -23,9 +22,8 @@
 
 <div>
     <h2>Editeur du site</h2>
-    <br/>
     <p class="gras">Prometech</p>
-    <p>par Promtech<br/>10 rue de Vanves<br/>97132 Issy-les-Moulineaux<br/>France
+    <p>par Prometech<br/>10 rue de Vanves<br/>97132 Issy-les-Moulineaux<br/>France
     <br/>Tel. : +33 (0)6 .. .. .. ..<br/>Fax : +33 (0)1 .. .. .. ..</p>
     <a href="http://www.prometech.fr" target="_blanck">Le site Prometech</a>
     <br/>
