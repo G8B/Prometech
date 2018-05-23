@@ -19,6 +19,7 @@ function getHousesManagement($iduser) : array
 }
 
 
+
 function addBuilding(){
     $bdd=connectBDD();
     $req = $bdd->prepare('SELECT ID FROM logements WHERE adresse = ?');
