@@ -103,6 +103,20 @@ switch ($page) {
         }
         break;
 
+    case 'update-logement' :
+        $tab = "EditerLogement";
+        $title = "Editer son logement";
+        $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['idHouse']) AND isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])  ) {
+            $nbrPieces = htmlspecialchars($_POST['nbrPieces']);
+            $nbrHabitants = htmlspecialchars($_POST['nbrHabitants']);
+            $superficie = htmlspecialchars($_POST['superficie']);
+            updateLogements($nbrHabitants,$nbrPieces,$superficie,$_POST['idHouse']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        break;
+
     default :
         $title = '404';
         echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";

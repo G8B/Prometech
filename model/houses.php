@@ -76,3 +76,11 @@ function addRoom($nomPiece, $idHouse)
         'name' => $nomPiece
     ]);
 }
+
+function updateLogements($nbrHabitants, $nbrPieces, $superficie, $idHouse){
+    $bdd = connectBDD();
+    $updateLogement = $bdd->prepare("UPDATE logements SET nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
+    $updateLogement->execute(array($nbrPieces, $nbrHabitants, $superficie));
+
+
+}
