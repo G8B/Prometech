@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/mentions-legales.css">
     <link rel="stylesheet" href="/public/css/contact.css">
-    <title><?php echo $title ?></title>
+    <title>Mentions légales</title>
 </head>
 
 <body>
