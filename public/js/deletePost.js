@@ -41,7 +41,7 @@ $('.house-delete').click(function () {
 
     form.append(field);
 
-    console.log("Appended field")
+    $('#deletedElement').text("logement");
 });
 
 function checkFormExistence() {
@@ -50,3 +50,26 @@ function checkFormExistence() {
         console.log('Appended form');
     }
 }
+
+$('.product-delete').click(function () {
+
+    var idProduct = $(this).parent().attr('id');
+
+    console.log(idProduct);
+
+    checkFormExistence();
+
+    var form = $('#form');
+
+    var field = $('<input>');
+
+    field.attr("type", "text");
+    field.attr("name", "idProduct");
+    field.attr("value", idProduct);
+
+    form.append(field);
+
+    $('#deletedElement').text("produit");
+
+    console.log("Appended field")
+});

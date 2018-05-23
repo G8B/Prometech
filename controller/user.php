@@ -25,7 +25,10 @@ switch ($page) {
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['delete'])) {
-            deleteHouse($_POST['idHouse']);
+            if (isset($_POST['idHouse']))
+                deleteHouse($_POST['idHouse']);
+            else
+                deleteProduct($_POST['idProduct']);
             header("Refresh:0");
         }
         break;
