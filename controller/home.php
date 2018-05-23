@@ -58,6 +58,11 @@ switch ($page) {
                 $alerte = 'Veuillez vérifier que tous les champs sont bien remplis.';
             }
         }
+        break;
+
+    case 'mentions-legales':
+        $view = 'mentions-legales';
+        $title = 'mentions-legales';
 
         break;
 
