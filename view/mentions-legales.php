@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="/public/css/mentions-legales.css">
+    <link rel="stylesheet" href="/public/css/contact.css">
     <title><?php echo $title ?></title>
 </head>
 
 <body>
-
 <div class="header">
     <a href="/index.php?target=home&page=login" id="logo">
         <img src="/public/images/logopromSideWHITE.png" alt="logoprom Side WHITE" id="whiteLogo"/>
     </a>
 </div>
-
+<br/>
 <h1>Mentions légales</h1>
 
 <div>
@@ -30,7 +30,7 @@
     <p>Prometech est une SARL au capital de 0€<br/>.. . .. .. .. - Siret : .........
         - APE : ...<br/>N° déclaration CNIL : .......</p>
 </div>
-
+<br/>
 <div>
     <h2>Conseil d'utilisation</h2>
     <p>Le site accessible par les url suivants : <a href="http://www.prometech.fr" target="_blanck">www.prometech.fr</a>
@@ -40,7 +40,7 @@
         et sans préavis par la société Prometech.</p>
     <p>Prometech ne saurait être tenu pour responsable en aucune manière d’une mauvaise utilisation du service.</p>
 </div>
-
+<br/>
 <div>
     <h2>Responsable éditorial</h2>
     <p>Groupe 8b - ISEP</p>
@@ -48,7 +48,7 @@
     <p>par Prometech<br/>10 rue de Vanves<br/>97132 Issy-les-Moulineaux<br/>France
     <br/>Tél. : +33 (0)6 .. .. .. ..<br/>Fax : +33 (0)1 .. .. .. ..<br/> <a href="http://www.prometech.fr" target="_blanck">Le site Prometech</a></p>
 </div>
-
+<br/>
 <div>
     <h2>Limitation et responsabilité</h2>
     <p>Les informations contenues sur ce site sont aussi précises que possibles et le site est périodiquement remis à jour, mais peut toutefois contenir
@@ -61,21 +61,21 @@
         <br/>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient
         engager la responsabilité de Prometech.</p>
 </div>
-
+<br/>
 <div>
     <h2>Litiges</h2>
     <p>Les présentes conditions sont régies par les lois françaises et toute contestation ou litiges qui pourraient naître de l'interprétation ou de l'exécution de
         celles-ci seront de la compétence exclusive des tribunaux dont dépend le siège social de la société Prometech. La langue de référence, pour le règlement de
         contentieux éventuels, est le français.</p>
 </div>
-
+<br/>
 <div>
     <h2>Déclaration à la CNIL</h2>
     <p>Conformément à la loi 78-17 du 6 janvier 1978 (modifiée par la loi 2004-801 du 6 août 2004 relative à la protection des personnes physiques à l'égard des
         traitements de données à caractère personnel) relative à l'informatique, aux fichiers et aux libertés, le site a fait l'objet d'une déclaration auprès de
         la Commission nationale de l'informatique et des libertés (<a href="https://www.cnil.fr/" target="_blanck">www.cnil.fr</a>).</p>
 </div>
-
+<br/>
 <div>
     <h2>Droit d'accès</h2>
     <p>En application de cette loi, les internautes disposent d’un droit d’accès, de rectification, de modification et de suppression concernant les données qui les
@@ -83,12 +83,12 @@
         à l’adresse email suivante : contact@prometech.fr
         Les informations personnelles collectées ne sont en aucun cas confiées à des tiers hormis pour l’éventuelle bonne exécution de la prestation commandée par l’internaute.</p>
 </div>
-
+<br/>
 <div>
     <h2>Confidentialité</h2>
     <p>Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers hormis pour la bonne exécution de la prestation.</p>
 </div>
-
+<br/>
 <div>
     <h2>Propriété intellectuelle</h2>
     <p>Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes
@@ -115,19 +115,19 @@
             <li>E-mail de l'auteur : groupe8b@isep.fr</li>
         </ul>
 </div>
-
+<br/>
 <div>
     <h2>Hébergeur</h2>
     <p>..........<br/>Plateforme de gestion et création de site internet<br/><a href="http://www.hebergeur.fr" target="_blanck">www.hebergeur.fr</a>
     <br/>contact@hebergeur.com</p>
 </div>
-
+<br/>
 <div>
     <h2>Conditions de service</h2>
     <p>Ce site est proposé en langages HTML5 et CSS3, pour un meilleur confort d'utilisation et un graphisme plus agréable, nous vous recommandons de recourir à
         des navigateurs modernes comme Safari, Firefox, Chrome,...</p>
 </div>
-
+<br/>
 <div>
     <h2>Informations et exclusion</h2>
     <p>Prometech met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet.
@@ -135,7 +135,7 @@
         et signaler toutes modifications du site qu'il jugerait utile. Prometech n'est en aucun cas responsable de l'utilisation faite de ces informations,
         et de tout préjudice direct ou indirect pouvant en découler.</p>
 </div>
-
+<br/>
 <div>
     <h2>Liens hypertextes</h2>
     <p>Les sites internet de Prometech peuvent offrir des liens vers d’autres sites internet ou d’autres ressources disponibles sur Internet.
@@ -152,19 +152,19 @@
         appartiendra d'adresser un email accessible sur le site afin de formuler sa demande de mise en place d'un hyperlien. Prometech se réserve le droit
         d’accepter ou de refuser un hyperlien sans avoir à en justifier sa décision.</p>
 </div>
-
+<br/>
 <div>
     <h2>Recherche</h2>
     <p>En outre, le renvoi sur un site internet pour compléter une information recherchée ne signifie en aucune façon que Prometech reconnaît ou accepte
         quelque responsabilité quant à la teneur ou à l'utilisation dudit site.</p>
 </div>
-
+<br/>
 <div>
     <h2>Précautions d'usage</h2>
     <p>Il vous incombe par conséquent de prendre les précautions d'usage nécessaires pour vous assurer que ce que vous choisissez d'utiliser ne soit pas
         entaché d'erreurs voire d'éléments de nature destructrice tels que virus, trojans, etc....</p>
 </div>
-
+<br/>
 <div>
     <h2>Responsabilité</h2>
     <p>Aucune autre garantie n'est accordée au client, auquel incombe l'obligation de formuler clairement ses besoins et le devoir de s'informer.
@@ -172,11 +172,12 @@
         cohérence ou de la vraisemblance des résultats obtenus. Prometech ne sera en aucune façon responsable vis à vis des tiers de l'utilisation par
         le client des informations ou de leur absence contenues dans ses produits y compris un de ses sites Internet.   </p>
 </div>
-
+<br/>
 <div>
     <h2>Contactez-nous</h2>
     <p>Prometech est à votre disposition pour tous vos commentaires et suggestions.<br/>
-        <a href="contact.php" target="_blanck">Contact</a></p>
+        <a href="/index.php?target=home&page=contact" target="_blanck">Contact</a></p>
 </div>
-
+<br/>
+<br/>
 </body>
