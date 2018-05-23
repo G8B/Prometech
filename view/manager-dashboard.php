@@ -4,12 +4,14 @@
 </div>
 <?php
 
-$IDhousesManaged = getHousesManagement($iduser['ID_User']);
+//$IDhousesManaged = getHousesManagement($iduser['ID_User']);
+$IDhousesManaged  = getHousesManagement($iduser[1]);
 $adressesDistinctes = Array ();
 $adressesNonDistinctes = Array ();
+
 foreach ($IDhousesManaged as $housemanaged) :
-    // on récupère l'addresse correspondant à l'id du logement. On l'a compare ensuite avec les autres adresses du tableau
-    $adresse = getHouseAdress($idHouse['$houseManaged']);
+
+    $adresse = getHouseAdress($housemanaged);
     $adressesNonDistinctes[] = $adresse;
     endforeach;
 
@@ -22,13 +24,13 @@ foreach ( $adressesNonDistinctes as $adresseDistincte) :?>
         <h1 class="user-house-name"><?php echo $adresseDistincte; ?></h1>
        <?php
 
-      $logements = getIDHousesFromAdress($adresseduser['adresseDictincte']);
+      $logements = getIDHousesFromAdress($adresseDistincte);
       $j = 0;
-       foreach ($products as $product) : ?>
+       foreach ($logements as $logement) : ?>
 
 
         <div class="accordion-tab">
-        <input id="accordion<?php echo $i ?>-tab-<?php echo 'appartement' +$j ?>" type="radio" name="accordion<?php echo $i ?>">
+        <input id="accordion<?php echo $i ?>-tab-<?php echo 'appartement' +$logement ?>" type="radio" name="accordion<?php echo $i ?>">
                checked>
         </div>
             <?php
