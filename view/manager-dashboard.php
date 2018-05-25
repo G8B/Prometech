@@ -21,7 +21,7 @@ foreach ($IDhousesManaged as $housemanaged) :
 $adressesDistinctes = array_unique($adressesNonDistinctes);
 
 $i = 0;
-foreach ( $adressesNonDistinctes as $adresseDistincte) :?>
+foreach ( $adressesDistinctes as $adresseDistincte) :?>
         <div class="user-house-dashboard">
         <h1 class="user-house-name"><?php echo $adresseDistincte; ?></h1>
        <?php
@@ -108,7 +108,7 @@ function getHouseAdress($idHouse)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT adresse FROM logements WHERE ID = ?');
-    $req->execute(array($idHouse));
+    $req->execute(array($idHouse["ID_logement"]));
     return $req->fetch()['adresse'];
 }
 

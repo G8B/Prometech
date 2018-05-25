@@ -25,9 +25,22 @@ switch ($page) {
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide.";
             } else if (login($_POST['email'], $_POST['password'])) {
-                $redirection = $_SESSION['admin'] == 1 ? 'admin' : 'user';
-                header('Location: /index.php?target=' . $redirection);
-                exit();
+                if ( $_SESSION['admin'] == 1){
+                    $redirection='admin';
+                    header('Location: /index.php?target=' . $redirection);
+                    exit();
+                }else {
+                    if  ( $_SESSION['gestionnaire'] == 1){
+                        $redirection='gestionnaire';
+                        header('Location: /index.php?target=' . $redirection);
+                        exit();
+                    }else{
+                        $redirection ='user';
+                        header('Location: /index.php?target=' . $redirection);
+                        exit();
+                    }
+
+                }
             } else {
                 $alerte = "Identifiant ou mot de passe invalide.";
             }
