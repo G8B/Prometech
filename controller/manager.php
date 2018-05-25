@@ -3,6 +3,8 @@ include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
 require('model/buildings.php');
+require('model/houses.php');
+
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "dashboard";
@@ -15,10 +17,9 @@ $alerte = false;
 
 switch ($page) {
     case 'dashboard' :
-        $tab = 'user-dashboard';
+        $tab = 'manager-dashboard';
         $title = 'Dashboard';
-        $buildings = getBuildings($_SESSION['userID']);
-        $houses = getHouses($_SESSION['userID']);
+        getUserInfos(array($_SESSION['userID']));
         break;
 
     case 'gestionImmeubles' :

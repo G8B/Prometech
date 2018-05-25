@@ -7,7 +7,7 @@
 <?php
 
 //$IDhousesManaged = getHousesManagement($iduser['ID_User']);
-$IDhousesManaged  = getHousesManagement(1);
+$IDhousesManaged  = getHousesManagement(4);
 
 
 echo var_dump ($IDhousesManaged );

@@ -18,10 +18,9 @@ function getHousesManagement($iduser) : array
     return $houses;
 }
 
-
-
-function addBuilding(){
-    $bdd=connectBDD();
+function addBuilding()
+{
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID FROM logements WHERE adresse = ?');
     $req->execute(array($_POST["adresse"]));
     $ID_logement = $req->fetch()['ID'];
@@ -30,6 +29,16 @@ function addBuilding(){
         'ID_utilisateur' => $_SESSION['userID'],
         'ID_logement' => $ID_logement
     ));
-
 }
+function getHouseAdressManager($idHouse)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT adresse FROM logements WHERE ID = ?');
+    $req->execute(array($idHouse["ID_logement"]));
+    return $req->fetch()['adresse'];
+}
+
+
+
+
 

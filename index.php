@@ -29,7 +29,7 @@ switch ($target) {
         break;
 
     case 'manager' :
-        $domain = $_SESSION['gestionnaire'] == 1 ? 'gestionnaire' : 'home';
+        $domain = $_SESSION['gestionnaire'] == 1 ? 'manager' : 'home';
         break;
 
     default :
