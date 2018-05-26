@@ -20,6 +20,7 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         break;
 
+
     case 'dashboard' :
         $tab = 'user-dashboard';
         $title = 'Dashboard';
