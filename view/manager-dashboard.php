@@ -28,14 +28,15 @@ foreach ( $adressesDistinctes as $adresseDistincte) :?>
        <?php
 
       $logements = getIDHousesFromAdress($adresseDistincte);
-      $j = 0;
-       foreach ($logements as $logement) : ?>
 
+      $j = 0;
+       foreach ($logements as $logement) :?>
 
         <div class="accordion-tab">
-        <input id="accordion<?php echo $i ?>-tab-<?php echo $j ?>" type="radio" name="accordion<?php echo $i ?>">
-               checked>
+        <input id="accordion<?php echo $i ?>-tab-<?php echo $j ?>" type="radio" name="accordion<?php echo $i ?>" checked>
+        <label for="accordion<?php echo $i ?>-tab-<?php echo $j ?>"><?php echo 'Appartement '; ?><?php echo $logement["ID"] ; ?></label>
         </div>
+
             <?php
             $j++;
         endforeach; ?>
