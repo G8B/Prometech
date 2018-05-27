@@ -5,7 +5,7 @@
 
 <?php
 
-//$IDhousesManaged = getHousesManagement($iduser['ID_User']);
+
 $IDhousesManaged  = getHousesManagement(4);
 
 $adressesDistinctes = Array ();
@@ -15,6 +15,7 @@ foreach ($IDhousesManaged as $housemanaged) :
 
     $adresse = getHouseAdressManager($housemanaged);
     $adressesNonDistinctes[] = $adresse;
+
     endforeach;
 
   //  $adressesDistinctes = array_unique($adressesNonDistinctes[$sort_flags = SORT_STRING ]);
@@ -32,7 +33,7 @@ foreach ( $adressesDistinctes as $adresseDistincte) :?>
 
 
         <div class="accordion-tab">
-        <input id="accordion<?php echo $i ?>-tab-<?php echo 'appartement' +$logement ?>" type="radio" name="accordion<?php echo $i ?>">
+        <input id="accordion<?php echo $i ?>-tab-<?php echo $j ?>" type="radio" name="accordion<?php echo $i ?>">
                checked>
         </div>
             <?php
