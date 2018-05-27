@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/public/css/mon_compte.css">
 
 
-<div class="form_immeuble">
+<div class="form_logement">
 
 		<form action="" method="post">
 
@@ -9,7 +9,7 @@
 		<br>
 
 		<p >
-Adresse :
+ Adresse :
             <input  class ="compte" type="adress" name="adresse" size="50"/>
         </p>
         <br>

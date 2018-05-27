@@ -23,15 +23,19 @@ switch ($page) {
         break;
 
     case 'gestionImmeubles' :
-        $tab = 'managerBuilduings';
+        $tab = 'ajoutImmeuble';
         $title = 'gestion d\' immeuble';
         $houses = getHouses($_SESSION['userID']);
-        $buildings = getBuildings($_SESSION['userID']);
+        if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
+            addBuilding();
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=gestionImmeubles');</script>";
+            exit();
+        }
         break;
 
     case 'newBuilding':
         $tab = 'ajoutImmeuble';
-        $title = 'Mes logements';
+        $title = 'Mes Immeubles';
         if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
             addBuilding();
             echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=gestionImmeubles');</script>";
