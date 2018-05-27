@@ -11,7 +11,7 @@
 
         case 'manager' :
             ?>
-            <a class="side-button" href="../index.php?target=user&page=myinfos">Mon compte</a>
+            <a class="side-button" href="../index.php?target=manager&page=myinfos">Mon compte</a>
             <a class="side-button" href="../index.php?target=manager&page=logements">Gestion logements</a>
             <a class="side-button" href="../index.php?target=manager&page=dashboard">Tableau de bord</a>
             <?php break;

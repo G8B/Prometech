@@ -19,7 +19,6 @@ switch ($page) {
     case 'dashboard' :
         $tab = 'manager-dashboard';
         $title = 'Dashboard';
-        getUserInfos(array($_SESSION['userID']));
         $IDhousesManaged  = getHousesManagement($_SESSION['userID']);
         break;
 

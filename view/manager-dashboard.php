@@ -4,10 +4,6 @@
 </div>
 
 <?php
-
-
-$IDhousesManaged  = getHousesManagement(4);
-
 $adressesDistinctes = Array ();
 $adressesNonDistinctes = Array ();
 
