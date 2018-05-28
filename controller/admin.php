@@ -24,7 +24,7 @@ switch ($page) {
     case 'produits' :
         $tab='gestionProduits';
         $title = 'Gestion de produits';
-        if(isset($_POST['addModel']) AND !empty($_POST["addModel"])){
+        if(isset($_POST['addModel']) AND !empty($_POST["addModel"]) AND isset($_POST['iconsList'])){
             addModel();
         }
         
