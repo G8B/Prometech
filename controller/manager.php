@@ -28,19 +28,19 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
             addBuilding();
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard');</script>";
+            $logements = getIDHousesFromAdress($_POST['adresse']);
+            $adresseDictincte=$_POST['adresse'];
+            var_dump($adresseDictincte);
+
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding');</script>";
             exit();
         }
         break;
 
     case 'newBuilding':
-        $tab = 'ajoutImmeuble';
-        $title = 'Mes Immeubles';
-        if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
-            addBuilding();
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=gestionImmeubles');</script>";
-            exit();
-        }
+        $tab = 'ajoutLogementGestionnaire';
+        $title = 'ChoixLogement';
+
         break;
 
     case 'myinfos' :

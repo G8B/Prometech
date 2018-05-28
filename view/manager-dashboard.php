@@ -14,7 +14,7 @@ foreach ($IDhousesManaged as $housemanaged) :
 
     endforeach;
 
-  //  $adressesDistinctes = array_unique($adressesNonDistinctes[$sort_flags = SORT_STRING ]);
+
 $adressesDistinctes = array_unique($adressesNonDistinctes);
 
 $i = 0;
