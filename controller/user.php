@@ -110,6 +110,17 @@ switch ($page) {
         }
         break;
 
+    case 'edit-house' :
+        $tab = "edit-house";
+        $title = "Edition maison";
+        if (!isset($_GET['idhouse'])) {
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
+            exit();
+        }
+        $idHouse = $_GET['idhouse'];
+        break;
+
+
     default :
         $title = '404';
         echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
