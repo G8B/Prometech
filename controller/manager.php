@@ -28,7 +28,7 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
             addBuilding();
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=gestionImmeubles');</script>";
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard');</script>";
             exit();
         }
         break;

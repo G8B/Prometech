@@ -30,6 +30,7 @@ function addBuilding()
         'ID_logement' => $ID_logement
     ));
 }
+
 function getHouseAdressManager($idHouse)
 {
     $bdd = connectBDD();
