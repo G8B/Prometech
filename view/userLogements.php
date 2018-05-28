@@ -5,8 +5,9 @@ foreach ($houses as $house) : ?>
         <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?>
             <button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i class="fas fa-minus"></i>
             </button>
-            <button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i class="fas fa-cog"></i>
-            </button>
+            <a class="setting-btn"
+               href="../index.php?target=user&page=edit-house&idhouse=<?php echo $house['ID_logement'] ?>"><i
+                        class="fas fa-cog"></i></a>
         </h1>
         <?php $rooms = getRooms($house['ID_logement']);
         $j = 0;
