@@ -1,0 +1,1 @@
+<p> Edition du logement <?php echo getHouseAdress($idHouse); ?></p>

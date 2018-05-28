@@ -23,8 +23,12 @@ function occupation(){
         'ID_utilisateur' => $_SESSION['userID'],
         'ID_logement' => $ID_logement
     ));
-    
 }
 
-
-
+function deleteHouse($idHouse){
+    $bdd=connectBDD();
+    $req = $bdd->prepare('DELETE FROM logements WHERE ID = ?');
+    $req->execute(array($idHouse));
+    $req = $bdd->prepare('DELETE FROM occupationLogement WHERE ID_logement = ?');
+    $req->execute(array($idHouse));
+}

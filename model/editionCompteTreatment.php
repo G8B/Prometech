@@ -50,3 +50,10 @@ function getAllUsers() : array
 
     return $req->fetchAll();
 }
+
+function deleteUser($idUser)
+{
+    $bdd=connectBDD();
+    $req = $bdd->prepare('DELETE FROM utilisateurs WHERE ID = ?');
+    $req->execute(array($idUser));
+}

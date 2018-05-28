@@ -121,6 +121,13 @@ switch ($page) {
             header("Refresh:0");
         }
 
+        if (isset($_POST['delete'])) {
+            deleteUser($userInfos['ID']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=admin&page=accounts-management');</script>";
+        }
+
+
+
         break;
 
     case 'logs' :

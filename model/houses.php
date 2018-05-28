@@ -1,6 +1,6 @@
 <?php
 
-function getHouses($iduser) : array
+function getHouses($iduser): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID_logement FROM occupationLogement WHERE ID_utilisateur = ?');
@@ -17,7 +17,7 @@ function getHouseAdress($idHouse)
     return $req->fetch()['adresse'];
 }
 
-function getRooms($idhouse) : array
+function getRooms($idhouse): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID FROM pieces WHERE ID_logement = ?');
@@ -34,7 +34,7 @@ function getRoomName($idRoom)
     return $req->fetch()['nom'];
 }
 
-function getProducts($idroom) : array
+function getProducts($idroom): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numeroDeSerie FROM positionProduit WHERE ID_piece = ?');
@@ -43,7 +43,7 @@ function getProducts($idroom) : array
     return $products;
 }
 
-function getProductInfos($idproduct) : array
+function getProductInfos($idproduct): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT nom, modele FROM produits WHERE numeroDeSerie = ?');
@@ -65,6 +65,15 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
     ]);
+}
+
+function deleteProduct($idProduct)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE FROM proprieteProduit WHERE numeroDeSerie = ?');
+    $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
+    $req->execute(array($idProduct));
 }
 
 function addRoom($nomPiece, $idHouse)

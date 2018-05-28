@@ -24,6 +24,13 @@ switch ($page) {
         $tab = 'userLogements';
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['delete'])) {
+            if (isset($_POST['idHouse']))
+                deleteHouse($_POST['idHouse']);
+            else
+                deleteProduct($_POST['idProduct']);
+            header("Refresh:0");
+        }
         break;
 
     case 'myinfos' :
@@ -115,6 +122,16 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
+        break;
+    
+    case 'edit-house' :
+        $tab = "edit-house";
+        $title = "Edition maison";
+        if (!isset($_GET['idhouse'])) {
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
+            exit();
+        }
+        $idHouse = $_GET['idhouse'];
         break;
 
     default :
