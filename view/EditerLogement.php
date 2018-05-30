@@ -8,17 +8,9 @@
 <div>
     <form method="post" action="" id="updateLogement">
 
-        <h1>Editer un logement</h1>
+        <h1>Editer le logement <?php echo getHouseAdress($idHouse); ?></h1>
 
 
-
-        <p>
-            <select title="idHouse" name="idHouse" form="updateLogement">
-                <?php foreach ($houses as $house) : ?>
-                    <option value="<?php echo $house['ID_logement'] ?>"><?php echo getHouseAdress($house['ID_logement']); ?></option>
-                <?php endforeach; ?>
-            </select>
-        </p>
         <p>
             Nombres de pieces :
             <input class ="logement" type="number" name="nbrPieces"  min = 1 max = 1000 step = 1 size="50" />

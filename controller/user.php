@@ -114,7 +114,7 @@ switch ($page) {
         $tab = "EditerLogement";
         $title = "Editer son logement";
         $houses = getHouses($_SESSION['userID']);
-        if (isset($_POST['idHouse']) AND isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])  ) {
+        if (isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])  ) {
             $nbrPieces = htmlspecialchars($_POST['nbrPieces']);
             $nbrHabitants = htmlspecialchars($_POST['nbrHabitants']);
             $superficie = htmlspecialchars($_POST['superficie']);
@@ -132,6 +132,14 @@ switch ($page) {
             exit();
         }
         $idHouse = $_GET['idhouse'];
+        if (isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])  ) {
+            $nbrPieces = htmlspecialchars($_POST['nbrPieces']);
+            $nbrHabitants = htmlspecialchars($_POST['nbrHabitants']);
+            $superficie = htmlspecialchars($_POST['superficie']);
+            updateLogements($nbrHabitants,$nbrPieces,$superficie,$idHouse);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
         break;
 
     default :
