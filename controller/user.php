@@ -126,6 +126,11 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
+        if (isset($_POST['delete'])) {
+            if (isset($_POST['idRoom']))
+                deleteRoom($_POST['idRoom']);
+            header("Refresh:0");
+        }
         break;
 
     default :

@@ -76,6 +76,13 @@ function deleteProduct($idProduct)
     $req->execute(array($idProduct));
 }
 
+function deleteRoom($idRoom)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE FROM pieces WHERE ID = ?');
+    $req->execute(array($idRoom));
+}
+
 function addRoom($nomPiece, $idHouse)
 {
     $bdd = connectBDD();

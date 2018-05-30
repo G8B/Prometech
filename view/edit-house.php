@@ -38,8 +38,8 @@
         foreach ($rooms as $room) : ?>
         <tr>
             <td><?php echo getRoomName($room['ID']); ?></td>
-            <td>
-                <button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i
+            <td id="<?php echo $room['ID'] ?>">
+                <button class="supprimer delete-btn room-delete" type="button" id="supprimer"><i
                             class="fas fa-minus"></i>
                 </button>
             </td>
