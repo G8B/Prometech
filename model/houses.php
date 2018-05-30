@@ -50,7 +50,6 @@ function getProductInfos($idproduct): array
     $req->execute(array($idproduct));
 
     $productInfos = $req->fetch();
-    // Giampiero | Mike
     if(!is_array($productInfos)){ // dans le cas où la base de données des produits est vide
         return array('nom' => 'no name in db', 'modele' => 'no modele in db');
     }

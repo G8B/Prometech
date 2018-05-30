@@ -7,10 +7,10 @@ if(!isset($_GET['spage'])){
     $_GET['spage'] = '';
 }
 switch($_GET['spage']){
-    case 'graph_conso':
-        echo 'God';
+    case 'graph_conso': //affichage de la page de graphique de consommation
+        
         break;
-    default:
+    default: // par défaut, on affiche celle des capteurs par pièce par logement
         $i = 0;
         foreach ($houses as $house) : ?>
             <div class="user-house-dashboard">
