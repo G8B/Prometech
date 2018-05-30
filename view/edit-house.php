@@ -48,3 +48,15 @@
         </tbody>
     </table>
 </div>
+
+<div id="confirmationModale" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Êtes vous sûr de vouloir supprimer cette pièce ?</h1>
+        <h2>Cette action est irréversible !</h2>
+        <div style="margin-left: 20%;">
+            <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>
+            <button type="button" class="form-button" id="cancel">Annuler</button>
+        </div>
+    </div>
+</div>
