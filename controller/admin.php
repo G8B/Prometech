@@ -30,6 +30,7 @@ switch ($page) {
                     addModel();
                 }
             }  else{
+                echo '<script>alert("Ce modèle existe déjà !");</script>';
             }
         }
         

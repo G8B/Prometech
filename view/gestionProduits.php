@@ -5,7 +5,7 @@
 
 	<div class="products" id="productsList">
 		<h2>Liste des modèles disponibles</h2>
-		<table>
+		<table id="test">
 		<?php foreach ($Models as $Model) :?>
 		<tr><td><i class ="<?php echo getIcon($Model['modele']) ?>"></i><?php echo $Model['modele']  ;?></td></tr>
 		<?php endforeach;?>
@@ -19,7 +19,7 @@
 		
 		<div class="products" id="icons">
 		<p>Voici la liste de icônes possibles : </p><br>
-		<table>
+		<table >
 			<?php $icons = listIcons() ; $i = 0; $indexes = array();
 			?>
 			<?php foreach ($icons as $icon) : $i++ ; array_push($indexes , $i) ?>
@@ -30,7 +30,7 @@
 		</div>
 		
 		<div class="Add">
-				<input type="text" name="addModel" placeholder="Nom du modèle" class="add"> <br>
+				<input type="text" name="addModel" id="addModel" placeholder="Nom du modèle" class="add"> <br>
 				<select id="iconsList" name="iconsList">
 					<?php foreach ($indexes as $index) :?>
 					<option value="<?php echo $index ;?>"> <?php echo $index ;?>
