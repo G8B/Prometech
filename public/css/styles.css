@@ -16,11 +16,16 @@
     line-height: 100%;
     vertical-align: middle;
     border: 1px #333333 solid;
+    cursor:pointer;
 }
 
-.current-dashboard {
-    background-color: #F1B573;
+.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+    background-color: #E29845;
+    color:#292929;
+    cursor: pointer;
+    text-decoration: none;
 }
+
 
 .fas {
     position: relative;
@@ -109,7 +114,7 @@ input:checked ~ .accordion-tab-content {
 }
 
 input:checked ~ .accordion-tab-content .product-grid {
-    height: 500px;
+    max-height: 500px;
 }
 
 input:checked ~ label {

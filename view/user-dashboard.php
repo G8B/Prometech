@@ -1,15 +1,18 @@
 <div id="dashboard-nav">
-    <a class="dashboard-nav-link current-dashboard" href="index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
+    <a class="dashboard-nav-link" href="index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
     <a class="dashboard-nav-link" href="index.php?target=user&page=dashboard&spage=graph_conso"><i class="fas fa-chart-bar"></i></a>
 </div>
+
 <?php
 if(!isset($_GET['spage'])){
     $_GET['spage'] = '';
 }
 switch($_GET['spage']){
+
     case 'graph_conso': //affichage de la page de graphique de consommation
         
         break;
+
     default: // par défaut, on affiche celle des capteurs par pièce par logement
         $i = 0;
         foreach ($houses as $house) : ?>
