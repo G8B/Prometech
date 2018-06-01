@@ -16,7 +16,7 @@ function removeModel(){
 
 function getModelsList(){
     $bdd= connectBDD();
-    $req = $bdd-> prepare("SELECT ID, modele from modeleProduits");
+    $req = $bdd-> prepare("SELECT ID, modele FROM modeleProduits");
     $req->execute();
     $Models = $req->fetchAll();
     return $Models;
@@ -24,7 +24,7 @@ function getModelsList(){
 
 function getIcon($modele) : string {
     $bdd = connectBDD();
-    $req= $bdd->prepare('SELECT icon from modeleProduits WHERE modele = ?  ');
+    $req= $bdd->prepare('SELECT icon FROM modeleProduits WHERE modele = ?  ');
     $req->execute(array($modele));
     $indexes = $req-> fetch();
     $index = $indexes['icon'];
@@ -37,4 +37,13 @@ function listIcons() : array{
     $icons = array('fa fa-thermometer-full', 'fa fa-cogs', 'fa fa-video', 'fa fa-lightbulb',
         'fa fa-male', 'fa fa-lock', 'fa fa-tint' );
     return $icons;
+}
+
+function existenceModele(){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT modele FROM modeleProduits WHERE modele = ?');
+    $req->execute(array($_POST['addModel']));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
 }
