@@ -139,7 +139,12 @@ switch ($page) {
                                     ajoutLog("L'admin " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " a changé le statut de l'utilisateur n°" . $userInfos['ID'] . " en " . $newstatus);
                                     header("Refresh:0");
         }
-        
+
+        if (isset($_POST['delete'])) {
+            deleteUser($userInfos['ID']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=admin&page=accounts-management');</script>";
+        }
+
         break;
         
     case 'logs' :
