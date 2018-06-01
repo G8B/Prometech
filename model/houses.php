@@ -43,6 +43,14 @@ function getProducts($idroom): array
     return $products;
 }
 
+function hasNoProduct($idroom)
+{
+    $products = getProducts($idroom);
+    if (count($products))
+        return false;
+    return true;
+}
+
 function getProductInfos($idproduct): array
 {
     $bdd = connectBDD();

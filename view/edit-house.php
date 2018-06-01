@@ -31,6 +31,7 @@
 </div>
 
 <div style="margin-left: 100px">
+    <?php echo AfficheAlerte($alerte); ?>
     <h1>Supprimer une pièce</h1>
     <table>
         <tbody>

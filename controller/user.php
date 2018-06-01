@@ -118,18 +118,23 @@ switch ($page) {
             exit();
         }
         $idHouse = $_GET['idhouse'];
-        if (isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])  ) {
+        if (isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])) {
             $nbrPieces = htmlspecialchars($_POST['nbrPieces']);
             $nbrHabitants = htmlspecialchars($_POST['nbrHabitants']);
             $superficie = htmlspecialchars($_POST['superficie']);
-            updateLogements($nbrHabitants,$nbrPieces,$superficie,$idHouse);
+            updateLogements($nbrHabitants, $nbrPieces, $superficie, $idHouse);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
         if (isset($_POST['delete'])) {
-            if (isset($_POST['idRoom']))
-                deleteRoom($_POST['idRoom']);
-            header("Refresh:0");
+            if (isset($_POST['idRoom'])) {
+                if (hasNoProduct($_POST['idRoom'])) {
+                    deleteRoom($_POST['idRoom']);
+                    header("Refresh:0");
+                } else
+                    $alerte = "Impossible de supprimer une pièce qui contient des produits !";
+
+            }
         }
         break;
 
