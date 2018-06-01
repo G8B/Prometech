@@ -113,8 +113,8 @@ CREATE TABLE ticketsDeSupport (
   email    VARCHAR(256)
 );
 
-
-
-
-
-
+CREATE TABLE modeleProduits(
+    ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    modele VARCHAR(256),
+    icon INTEGER
+);
