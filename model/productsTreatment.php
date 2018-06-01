@@ -38,4 +38,3 @@ function listIcons() : array{
         'fa fa-male', 'fa fa-lock', 'fa fa-tint' );
     return $icons;
 }
-?>
