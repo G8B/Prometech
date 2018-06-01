@@ -1,3 +1,4 @@
+
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
@@ -19,7 +20,7 @@ switch ($page) {
     case 'dashboard' :
         $tab = 'manager-dashboard';
         $title = 'Dashboard';
-        $IDhousesManaged  = getHousesManagement($_SESSION['userID']);
+        $IDhousesManaged = getHousesManagement($_SESSION['userID']);
         break;
 
     case 'gestionImmeubles' :
@@ -27,12 +28,10 @@ switch ($page) {
         $title = 'gestion d\' immeuble';
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
-            addBuilding();
-            $logements = getIDHousesFromAdress($_POST['adresse']);
-            $adresseDictincte=$_POST['adresse'];
-            var_dump($adresseDictincte);
 
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding');</script>";
+            $_SESSION['adresse'] = $_POST['adresse']; ?>
+
+             <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
             exit();
         }
         break;
@@ -40,7 +39,11 @@ switch ($page) {
     case 'newBuilding':
         $tab = 'ajoutLogementGestionnaire';
         $title = 'ChoixLogement';
-
+        if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
+            addBuilding();
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard');</script>";
+            exit();
+        }
         break;
 
     case 'myinfos' :
@@ -84,7 +87,6 @@ switch ($page) {
             header("Refresh:0");
         }
         break;
-
 
 
     default :

@@ -1,10 +1,10 @@
 <?php
 
-function getIDHousesFromAdress($adresseduser) : array
+function getIDHousesFromAdress($adresseGestionnaire) : array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID FROM logements WHERE adresse =?');
-    $req->execute(array($adresseduser));
+    $req->execute(array($adresseGestionnaire));
     $IDhouses = $req->fetchAll();
     return $IDhouses;
 }
