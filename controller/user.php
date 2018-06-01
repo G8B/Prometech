@@ -20,6 +20,12 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         break;
 
+    case 'dashboard-conso' :
+        $tab = 'user-dashboard-conso';
+        $title = 'Dashboard-Consommation';
+        $houses = getHouses($_SESSION['userID']);
+        break;
+
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';

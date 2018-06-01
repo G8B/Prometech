@@ -26,6 +26,10 @@
     text-decoration: none;
 }
 
+.dashboard-nav-link.active{
+    background-color: #E29845;
+}
+
 
 .fas {
     position: relative;
@@ -58,6 +62,22 @@
     text-align: center;
     color: #333333;
 }
+
+.type_conso{
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    background: #DDDDDD;
+    color: #333333;
+    font-weight: bold;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.type_conso:hover{
+    background: #F1B573;
+}
+
 
 /* - Accordion css - */
 .tab {
@@ -101,6 +121,16 @@ label {
     grid-template: 1fr 1fr / 1fr 1fr;
     grid-gap: 50px;
 }
+
+.product-grid-conso{
+    margin: 1em;
+    display: grid;
+    grid-gap: 50px;
+    border: #E29845 solid 1px;
+    min-height: 250px;
+    min-width: 50px;
+}
+
 
 .product-box {
     background-color: white;
