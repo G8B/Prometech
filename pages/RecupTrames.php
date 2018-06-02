@@ -52,15 +52,14 @@ curl_setopt(
     echo("<br />$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec<br />");
     
     
-    
+   
     $time = strtotime("$year$month$day$hour$min$sec") ;
+    $d = date("Y-m-d H:i:s", $time) ;
+    echo($d);
     
     
-    
-    
-    echo date("Y-m-d H:i:s", $time);
-    Temps($time);
-    
+    Temps($d);
+    echo 'date insérée dans la BDD' ; 
     
     
     
