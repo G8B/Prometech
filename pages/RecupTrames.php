@@ -1,5 +1,27 @@
 <?php
 
+
+function connectBDD(): PDO
+{
+    $host = 'localhost';
+    $db = 'prometech';
+    $user = 'root';
+    $pass = '';
+    $charset = 'utf8';
+    
+    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    return new PDO($dsn, $user, $pass);
+}
+
+function Temps($temps){
+    
+    $bdd= connectBDD();
+    $req = $bdd->prepare('INSERT INTO capteurs(date) VALUES (:date)');
+    $req->bindParam(':date', $temps);
+    $req->execute();
+}
+
+
 $ch = curl_init();
 curl_setopt(
     $ch,
@@ -28,4 +50,18 @@ curl_setopt(
     list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
     sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
     echo("<br />$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec<br />");
+    
+    
+    
+    $time = strtotime("$year$month$day$hour$min$sec") ;
+    
+    
+    
+    
+    echo date("Y-m-d H:i:s", $time);
+    Temps($time);
+    
+    
+    
+    
     
