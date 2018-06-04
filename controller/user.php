@@ -148,6 +148,11 @@ switch ($page) {
         $idproduct = $_GET['idproduct'];
         $productInfos = getProductInfos($idproduct);
         $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['idPiece'])) {
+            moveProduct($idproduct, $_POST['idPiece']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
         break;
 
     default :

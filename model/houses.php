@@ -75,6 +75,16 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
     ]);
 }
 
+function moveProduct($numeroDeSerie, $idPiece)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('UPDATE positionProduit SET ID_piece = :ID_piece WHERE numeroDeSerie = :numeroDeSerie');
+    $req->execute([
+        'numeroDeSerie' => $numeroDeSerie,
+        'ID_piece' => $idPiece
+    ]);
+}
+
 function deleteProduct($idProduct)
 {
     $bdd = connectBDD();
