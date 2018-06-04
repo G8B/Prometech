@@ -39,9 +39,9 @@ switch ($page) {
     case 'newBuilding':
         $tab = 'ajoutLogementGestionnaire';
         $title = 'ChoixLogement';
-        if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
-            addBuilding();
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard');</script>";
+        if (isset($_POST['idHouse']) AND !empty($_POST['idHouse'])) {
+            addBuilding($_POST['idHouse']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
             exit();
         }
         break;

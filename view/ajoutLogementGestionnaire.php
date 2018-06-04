@@ -2,7 +2,7 @@
 
 
 <div class="form_logement">
-    <form method="post" action="" >
+    <form method="post" action="" id="ajoutLogement" >
 
         <h1>Ajouter un logement</h1>
 
@@ -16,18 +16,18 @@
             <select title="idHouse" name="idHouse" form="ajoutLogement">
                 <?php
 
-                $logements = getIDHousesFromAdress($_SESSION['adresse']);
+                $logements = getIDhousesFromadresseManaged($_SESSION['adresse']);
                 foreach ($logements as $logement) : ?>
                     <option value="<?php echo $logement ["ID"] ; ?>">
                         <?php echo 'Logement '.$logement ["ID"] ; ?></option>
                 <?php endforeach; ?>
+
             </select>
         </p>
 
         <div class="bouton">
             <button class="form-button">Confirmer</button>
         </div>
-
-        <input class="form-button" type="submit" value="Ajouter logement"/>
+        <input class="form-button" type="submit" value="Ajouter Logement"/>
     </form>
 </div>
