@@ -1,14 +1,23 @@
-.reception{
-
+#reception{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 200px;
+    margin-bottom: 250px;
+    margin-top:50px;
 }
 
 h1{
     color: #E29845;
-
+    font-size: 70px;
 }
 
 
 
 p{
     color: #10455D;
+    position: center;
+    font-size:30px;
+
 }
