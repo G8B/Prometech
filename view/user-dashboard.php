@@ -1,6 +1,6 @@
 <div id="dashboard-nav">
-    <a class="dashboard-nav-link active" href="index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
-    <a class="dashboard-nav-link" href="index.php?target=user&page=dashboard-conso&spage=graph_conso"><i class="fas fa-chart-bar"></i></a>
+    <a class="dashboard-nav-link active" href="../index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
+    <a class="dashboard-nav-link" href="../index.php?target=user&page=dashboard-conso&spage=graph_conso"><i class="fas fa-chart-bar"></i></a>
 </div>
 
 <?php
@@ -11,9 +11,9 @@ if(!isset($_GET['spage'])){
         $i = 0;
         foreach ($houses as $house) : ?>
             <div class="user-house-dashboard">
-            </br>
+            <br>
                 <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?></h1>
-            </br>
+            <br>
                 <?php $rooms = getRooms($house['ID_logement']);
                 $j = 0;
                 foreach ($rooms as $room) : ?>

@@ -20,14 +20,14 @@
 }
 
 .dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
-    background-color: #E29845;
+    background-color: #F1B573;
     color:#292929;
     cursor: pointer;
     text-decoration: none;
 }
 
 .dashboard-nav-link.active{
-    background-color: #E29845;
+    background-color: #F1B573;
 }
 
 

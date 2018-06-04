@@ -54,7 +54,7 @@ function hasNoProduct($idroom)
 function getProductInfos($idproduct): array
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare("SELECT `nom`, `modele` FROM `produits` WHERE `numeroDeSerie` ='?'");
+    $req = $bdd->prepare("SELECT `nom`, `modele` FROM `produits` WHERE `numeroDeSerie` =?");
     $req->execute(array($idproduct));
 
     $productInfos = $req->fetch();
