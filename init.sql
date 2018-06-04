@@ -121,6 +121,7 @@ CREATE TABLE modeleProduits(
 
 CREATE TABLE Cemac (numero INTEGER AUTO_INCREMENT PRIMARY KEY, ID_piece INTEGER REFERENCES pieces(ID));
 CREATE TABLE donnees(
+    ID INTEGER AUTO_INCREMENT PRIMARY KEY,
     numCemac INTEGER REFERENCES cemac(numero),
     numeroDeSerie INTEGER, 
     valeur INTEGER, 
