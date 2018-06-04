@@ -6,6 +6,13 @@
 
         <h1>Editer le logement <?php echo getHouseAdress($idHouse); ?></h1>
 
+        <br>
+
+        <p >
+            Adresse :
+            <input  class ="logement" type="text" name="adresse" size="50"/>
+        </p>
+        <br>
 
         <p>
             Nombres de pieces :
