@@ -25,6 +25,9 @@ foreach ($houses as $house) : ?>
                                 <p><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></p>
                                 <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
                                             class="fas fa-minus"></i></button>
+                                <a class="setting-btn"
+                                   href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
+                                            class="fas fa-cog"></i></a>
                             </div>
                         <?php endforeach; ?>
                     </div>

@@ -138,6 +138,11 @@ switch ($page) {
         }
         break;
 
+    case 'edit-product' :
+        $tab = "user-edit-product";
+        $title = "Edition de produit";
+        break;
+
     default :
         $title = '404';
         echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
