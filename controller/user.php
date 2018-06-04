@@ -141,6 +141,13 @@ switch ($page) {
     case 'edit-product' :
         $tab = "user-edit-product";
         $title = "Edition de produit";
+        if (!isset($_GET['idproduct'])) {
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
+            exit();
+        }
+        $idproduct = $_GET['idproduct'];
+        $productInfos = getProductInfos($idproduct);
+        $houses = getHouses($_SESSION['userID']);
         break;
 
     default :
