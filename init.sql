@@ -124,6 +124,7 @@ CREATE TABLE donnees(
     ID INTEGER AUTO_INCREMENT PRIMARY KEY,
     numCemac INTEGER REFERENCES cemac(numero),
     numeroDeSerie INTEGER, 
-    valeur INTEGER, 
+    valeur INTEGER,
+    unite VARCHAR(256),
     date DATETIME
 );
