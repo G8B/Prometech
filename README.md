@@ -29,7 +29,7 @@ Le site consiste en trois parties principales :
     - Tableau de bord
 1. Interface administrateur / Back office
     - Mon compte
-    - Produits disponibles
+    - Gestion produits
     - Gestion comptes
-    - Logs
     - Support
+    - Logs
