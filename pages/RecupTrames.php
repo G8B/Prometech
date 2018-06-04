@@ -1,6 +1,7 @@
 <?php
 
 
+
 function connectBDD(): PDO
 {
     $host = 'localhost';
@@ -11,6 +12,19 @@ function connectBDD(): PDO
     
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
     return new PDO($dsn, $user, $pass);
+}
+
+function Trames($list)
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=prometech;charset=utf8', 'root', '');
+    if ($list[3] == 3) {
+
+        $req2 = $bdd->prepare('INSERT INTO capteurs(numeroDeSerie, valeur) VALUES(:numeroDeSerie,:valeur)');
+        $req2->execute(array(
+            'numeroDeSerie' => $list[4],
+            'valeur' => $list[5],
+        ));
+    }
 }
 
 function Temps($temps){
@@ -63,4 +77,5 @@ curl_setopt(
     
     
     
-    
+
+
