@@ -43,6 +43,14 @@ function getProducts($idroom): array
     return $products;
 }
 
+function hasNoProduct($idroom)
+{
+    $products = getProducts($idroom);
+    if (count($products))
+        return false;
+    return true;
+}
+
 function getProductInfos($idproduct): array
 {
     $bdd = connectBDD();
@@ -67,6 +75,16 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
     ]);
 }
 
+function moveProduct($numeroDeSerie, $idPiece)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('UPDATE positionProduit SET ID_piece = :ID_piece WHERE numeroDeSerie = :numeroDeSerie');
+    $req->execute([
+        'numeroDeSerie' => $numeroDeSerie,
+        'ID_piece' => $idPiece
+    ]);
+}
+
 function deleteProduct($idProduct)
 {
     $bdd = connectBDD();
@@ -74,6 +92,13 @@ function deleteProduct($idProduct)
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
     $req->execute(array($idProduct));
+}
+
+function deleteRoom($idRoom)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE FROM pieces WHERE ID = ?');
+    $req->execute(array($idRoom));
 }
 
 function addRoom($nomPiece, $idHouse)
@@ -84,4 +109,12 @@ function addRoom($nomPiece, $idHouse)
         'house' => $idHouse,
         'name' => $nomPiece
     ]);
+}
+
+function updateLogements($nbrHabitants, $nbrPieces, $superficie, $idHouse){
+    $bdd = connectBDD();
+    $updateLogement = $bdd->prepare("UPDATE logements SET nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
+    $updateLogement->execute(array($nbrPieces, $nbrHabitants, $superficie));
+
+
 }

@@ -5,6 +5,9 @@ foreach ($houses as $house) : ?>
         <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?>
             <button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i class="fas fa-minus"></i>
             </button>
+            <a class="setting-btn"
+               href="../index.php?target=user&page=edit-house&idhouse=<?php echo $house['ID_logement'] ?>"><i
+                        class="fas fa-cog"></i></a>
         </h1>
         <?php $rooms = getRooms($house['ID_logement']);
         $j = 0;
@@ -22,6 +25,9 @@ foreach ($houses as $house) : ?>
                                 <p><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></p>
                                 <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
                                             class="fas fa-minus"></i></button>
+                                <a class="setting-btn"
+                                   href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
+                                            class="fas fa-cog"></i></a>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -34,9 +40,12 @@ foreach ($houses as $house) : ?>
     <?php
     $i++;
 endforeach; ?>
-<a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
-<a id="addProd" href="../index.php?target=user&page=newHouse"><i class="fas fa-plus-square">Ajouter Logement</i></a>
-<a id="addProd" href="../index.php?target=user&page=ajout-piece"><i class="fas fa-plus-square">Ajouter Pièce</i></a>
+
+<div id="addButtons">
+    <a id="addProd" href="../index.php?target=user&page=newHouse"><i class="fas fa-plus-square">Ajouter Logement</i></a>
+    <a id="addProd" href="../index.php?target=user&page=ajout-piece"><i class="fas fa-plus-square">Ajouter Pièce</i></a>
+    <a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
+</div>
 
 <div id="confirmationModale" class="modal">
     <div class="modal-content">
