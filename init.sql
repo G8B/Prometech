@@ -90,16 +90,17 @@ CREATE TABLE logs (
 );
 
 CREATE TABLE ticketsDeSupport (
-	ID INTEGER AUTO_INCREMENT PRIMARY KEY,
-	etat INTEGER,
-	priorite INTEGER,
-	time DATETIME,
-	contenu TEXT,
-	email VARCHAR(256)
+  ID       INTEGER AUTO_INCREMENT PRIMARY KEY,
+  etat     INTEGER,
+  priorite INTEGER,
+  time     DATETIME,
+  contenu  TEXT,
+  objet    VARCHAR(256),
+  email    VARCHAR(256)
 );
 
-
-
-
-
-
+CREATE TABLE modeleProduits(
+    ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    modele VARCHAR(256),
+    icon INTEGER
+);

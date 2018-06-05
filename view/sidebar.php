@@ -19,7 +19,7 @@
         case 'admin' :
             ?>
             <a class="side-button" href="../index.php?target=admin&page=myinfos">Mon compte</a>
-            <a class="side-button" href="#">Gestion produits</a>
+            <a class="side-button" href="../index.php?target=admin&page=produits">Gestion produits</a>
             <a class="side-button" href="../index.php?target=admin&page=accounts-management">Gestion comptes</a>
             <a class="side-button" href="../index.php?target=admin&page=support">Support</a>
             <a class="side-button" href="../index.php?target=admin&page=logs">Logs</a>
@@ -30,7 +30,7 @@
 
     <ul id="link-footer">
         <li><a href="/index.php?target=home&page=login">Accueil</a></li>
-        <li><a href="#">CGU</a></li>
+        <li><a href="/index.php?target=home&page=mentions-legales">ML</a></li>
         <li><a href="/index.php?target=home&page=contact">Contact</a></li>
     </ul>
 </div>
