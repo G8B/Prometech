@@ -31,4 +31,8 @@ function deleteHouse($idHouse){
     $req->execute(array($idHouse));
     $req = $bdd->prepare('DELETE FROM occupationLogement WHERE ID_logement = ?');
     $req->execute(array($idHouse));
+    $req = $bdd->prepare('DELETE FROM gestionLogement WHERE ID_logement = ?');
+    $req->execute(array($idHouse));
+    $req = $bdd->prepare('DELETE FROM pieces WHERE ID_logement = ?');
+    $req->execute(array($idHouse));
 }

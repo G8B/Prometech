@@ -31,11 +31,26 @@ switch ($page) {
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['delete'])) {
-            if (isset($_POST['idHouse']))
-                deleteHouse($_POST['idHouse']);
-            else
+            $delete = true;
+            if (isset($_POST['idHouse'])) {
+                $rooms = getRooms($_POST['idHouse']);
+                foreach ($rooms as $room) {
+                    if (hasNoProduct($room['ID'])) {
+                        deleteRoom($room['ID']);
+                    } else {
+                        $alerte = "Impossible de supprimer une pièce qui contient des produits !";
+                        $delete = false;
+                    }
+                   break;
+                }
+                if ($delete) {
+                    deleteHouse($_POST['idHouse']);
+                    header("Refresh:0");
+                }
+            } else {
                 deleteProduct($_POST['idProduct']);
-            header("Refresh:0");
+                header("Refresh:0");
+            }
         }
         break;
 
