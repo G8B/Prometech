@@ -1,15 +1,15 @@
 <?php
 
-function getIDHousesFromAdress($adresseGestionnaire) : array
+function getIDHousesFromAdress($adresseGestionnaire): array
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT ID FROM logements JOIN gestionLogement ON logements.adresse =? AND gestionLogement.ID_logement=logements.ID AND gestionLogement.ID_utilisateur=?;' );
-    $req->execute(array($adresseGestionnaire,$_SESSION['userID']));
+    $req = $bdd->prepare('SELECT ID FROM logements JOIN gestionLogement ON logements.adresse =? AND gestionLogement.ID_logement=logements.ID AND gestionLogement.ID_utilisateur=?;');
+    $req->execute(array($adresseGestionnaire, $_SESSION['userID']));
     $IDhouses = $req->fetchAll();
     return $IDhouses;
 }
 
-function getHousesManagement($iduser) : array
+function getHousesManagement($iduser): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID_logement FROM gestionLogement WHERE ID_utilisateur = ?');
@@ -18,16 +18,14 @@ function getHousesManagement($iduser) : array
     return $houses;
 }
 
-function getIDhousesFromadresseManaged($adresseGestionnaire ) : array
+function getIDhousesFromadresseManaged($adresseGestionnaire): array
 {
-    $bdd= connectBDD();
-    $req = $bdd->prepare('SELECT DISTINCT ID FROM logements JOIN gestionLogement ON gestionLogement.ID_logement!=logements.ID
- WHERE logements.ID NOT IN ( SELECT ID_logement FROM gestionLogement WHERE gestionLogement.ID_utilisateur=?) AND adresse=?');
-    $req->execute(array($_SESSION['userID'],$adresseGestionnaire));
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT DISTINCT ID FROM logements WHERE logements.ID NOT IN ( SELECT ID_logement FROM gestionLogement WHERE gestionLogement.ID_utilisateur=?) AND adresse=?');
+    $req->execute(array($_SESSION['userID'], $adresseGestionnaire));
     $logements = $req->fetchAll();
     return $logements;
 }
-
 
 
 function addBuilding($idHouse)
