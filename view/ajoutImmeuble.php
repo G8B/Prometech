@@ -10,7 +10,7 @@
 
 		<p >
  Adresse :
-            <input  class ="compte" type="adress" name="adresse" size="50"/>
+            <input  class ="compte" type="text" name="adresse" size="50"/>
         </p>
         <br>
 

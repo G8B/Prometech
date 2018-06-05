@@ -26,7 +26,6 @@ switch ($page) {
     case 'gestionImmeubles' :
         $tab = 'ajoutImmeuble';
         $title = 'gestion d\' immeuble';
-        $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['adresse']) AND !empty($_POST['adresse'])) {
 
             $_SESSION['adresse'] = $_POST['adresse']; ?>
