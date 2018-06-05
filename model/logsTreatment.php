@@ -25,5 +25,3 @@ function getAdminName($id){
     return $adminNames;
 }
 
-?>
-

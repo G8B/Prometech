@@ -1,0 +1,86 @@
+table
+{
+	border:1px solid black;
+	border-collapse: collapse;
+	width : 99.5%;
+	margin-left: 0.2%;
+	display : table;
+}
+
+table.scroll tbody {
+    height: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+
+td{
+	border:1px solid black;
+}
+
+tr:hover{
+	background-color: rgb(241, 194, 148);
+	cursor : pointer; 
+}
+
+th{
+	border:1px solid black;
+	background-color: rgb(204,204,204);
+}
+.tableau-support{
+	width : 100%;
+	margin-bottom : 3%;
+}
+
+#main{
+	display : flex;
+	flex-direction : column;
+	width : 100%;
+	margin-left : 0.4%;
+	height : 100%;
+	overflow-y: scroll;
+}
+
+.Tickets{
+	width : 99.5%;
+	margin-left: 0.2%;
+	border : 1px solid black;
+	background-color: rgb(238,238,238);
+	
+}
+
+.Tickets:hover{
+	background-color: rgb(241, 194, 148);
+	cursor : pointer; 
+}
+
+button:hover{
+	cursor : pointer; 
+	background-color: rgb(241, 194, 148);
+}
+
+/*.text{
+	overflow-y : scroll;
+}*/
+
+.support-button {
+    background-color: #E29845;
+    height: 30px;
+    border-radius: 5px;
+    margin-top : 1%;
+    margin-bottom : 1%;
+}
+
+#answer-button{
+	margin-left : 20%;
+	margin-right : 20%;
+}
+
+.status-form{
+	margin-top : 5%;
+	display : flex;
+	margin-left : 35%;
+	margin-right : 30%;
+}

@@ -20,10 +20,23 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         break;
 
+    case 'dashboard-conso' :
+        $tab = 'user-dashboard-conso';
+        $title = 'Dashboard-Consommation';
+        $houses = getHouses($_SESSION['userID']);
+        break;
+
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['delete'])) {
+            if (isset($_POST['idHouse']))
+                deleteHouse($_POST['idHouse']);
+            else
+                deleteProduct($_POST['idProduct']);
+            header("Refresh:0");
+        }
         break;
 
     case 'myinfos' :
@@ -98,6 +111,52 @@ switch ($page) {
         if (isset($_POST['nomPiece']) AND !empty($_POST['nomPiece']) AND isset($_POST['idHouse'])) {
             $nom = htmlspecialchars($_POST['nomPiece']);
             addRoom($nom, $_POST['idHouse']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        break;
+
+    case 'edit-house' :
+        $tab = "edit-house";
+        $title = "Edition maison";
+        if (!isset($_GET['idhouse'])) {
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
+            exit();
+        }
+        $idHouse = $_GET['idhouse'];
+        if (isset($_POST['adresse']) AND !empty($_POST['adresse']) AND isset($_POST['nbrPieces']) AND !empty($_POST['nbrPieces']) AND isset($_POST['nbrHabitants']) AND !empty($_POST['nbrHabitants']) AND isset($_POST['superficie']) AND !empty($_POST['superficie'])) {
+            $adresse = htmlspecialchars_decode($_POST['adresse']);
+            $nbrPieces = htmlspecialchars($_POST['nbrPieces']);
+            $nbrHabitants = htmlspecialchars($_POST['nbrHabitants']);
+            $superficie = htmlspecialchars($_POST['superficie']);
+            updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        if (isset($_POST['delete'])) {
+            if (isset($_POST['idRoom'])) {
+                if (hasNoProduct($_POST['idRoom'])) {
+                    deleteRoom($_POST['idRoom']);
+                    header("Refresh:0");
+                } else
+                    $alerte = "Impossible de supprimer une pièce qui contient des produits !";
+
+            }
+        }
+        break;
+
+    case 'edit-product' :
+        $tab = "user-edit-product";
+        $title = "Edition de produit";
+        if (!isset($_GET['idproduct'])) {
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
+            exit();
+        }
+        $idproduct = $_GET['idproduct'];
+        $productInfos = getProductInfos($idproduct);
+        $houses = getHouses($_SESSION['userID']);
+        if (isset($_POST['idPiece'])) {
+            moveProduct($idproduct, $_POST['idPiece']);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }

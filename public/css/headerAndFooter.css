@@ -127,6 +127,13 @@ body {
 .side-button:focus {
     background-color: #30728E;
 }
+.side-button:hover{
+    background-color: #30728E;
+}
+
+.side-button:active {
+    background-color: #30728E;
+}
 
 #link-footer {
     width: inherit;

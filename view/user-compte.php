@@ -1,6 +1,6 @@
 <div id="user-compte">
 
-    <form action="" method="post">
+    <form action="" method="post" id="form">
         <?php $h1 = isset($id) ? "Compte n° " . $id : "Mon compte"; ?>
 
         <h1><?php echo $h1; ?></h1>
@@ -54,6 +54,22 @@
                     echo "checked";
                 } ?>/> <label for="choixAdmin"> Administrateur </label> <br/>
             </p>
+
+            <div class="bouton">
+                <button class="form-button supprimer confirm-delete-btn" type="button">Supprimer</button>
+            </div>
+
+            <div id="confirmationModale" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>Êtes vous sûr de vouloir supprimer ce compte ?</h1>
+                    <h2>Cette action est irréversible !</h2>
+                    <div style="margin-left: 20%;">
+                        <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>
+                        <button type="button" class="form-button" id="cancel">Annuler</button>
+                    </div>
+                </div>
+            </div>
         <?php endif; ?>
         <div class="bouton">
             <button class="form-button">Confirmer</button>
