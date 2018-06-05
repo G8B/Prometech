@@ -38,6 +38,7 @@ function get_data() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $data = curl_exec($ch);
         curl_close($ch);
+        
         $data_tab = str_split($data,33);
         return $data_tab ;
 }
@@ -81,6 +82,16 @@ function uniteCapteur($capteur) : string {
     
 }
 
+
+function existenceTrame($numCemac, $val, $date){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numCemac, valeur, date FROM donnees WHERE numCemac = ? AND valeur = ? AND date = ? ');
+    $req->execute(array($numCemac, $val , $date));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
 function decode_trame($Trames){
     for($i=0, $size=count($Trames) ; $i<$size-1; $i++){
         
@@ -106,25 +117,32 @@ function decode_trame($Trames){
             // décodage avec sscanf
             list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
             sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+            echo "<p> le numéro de cette trame est $a </p>";
             // echo '<p>Trame' . $i . ' : ' . "$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec" . '</p>' ;
             // echo '<p>unite du capteur de la trame  : '. uniteCapteur($c) . '</p>';
             $time = strtotime("$year$month$day$hour$min$sec") ;
             $d = date("Y-m-d H:i:s", $time) ;
             $u = uniteCapteur($c) ;
-            $bdd= connectBDD();
-            $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
-            $req->execute(array(
-                'numCemac'=> $o ,
-                'numeroDeSerie' => $n,
-                'valeur' => $v,
-                'date' => $d,
-                'unite' => $u
-            ));
-            echo '<p>Trame bien enregistrée dans la BDD ! </p>';
+            if(empty(existenceTrame($o, $v, $d))){
+                
+                $bdd= connectBDD();
+                $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
+                $req->execute(array(
+                    'numCemac'=> $o ,
+                    'numeroDeSerie' => $n,
+                    'valeur' => $v,
+                    'date' => $d,
+                    'unite' => $u
+                ));
+                echo '<p>Trame bien enregistrée dans la BDD ! </p>';
+                
+            } else{
+                echo '<p>Cette trame existe déjà dans la BDD ! </p> ' ;
+            }
             
         }
         else{
-            echo "Trame invalide ! " ;
+            echo "<p>Trame invalide ! </p>" ;
         }
         
     }
@@ -134,4 +152,6 @@ function decode_trame($Trames){
 $data_tab = get_data();
 
 decode_trame($data_tab);
+
+
 
