@@ -129,7 +129,7 @@ function decode_trame($Trames){
                 $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
                 $req->execute(array(
                     'numCemac'=> $o ,
-                    'numeroDeSerie' => $n,
+                    'numeroDeSerie' => $c.$n, // numéro de série = type capteur + num capteur
                     'valeur' => $v,
                     'date' => $d,
                     'unite' => $u
