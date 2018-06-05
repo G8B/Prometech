@@ -49,30 +49,11 @@ function get_data() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $data = curl_exec($ch);
         curl_close($ch);
-        
-        
-        $data = ltrim($data);
-        $data = rtrim($data);
-        //echo $data."<br/>";
-        if(strlen($data)>500000){
-            echo "More than 500000 <br/>";
-            $data=substr($data,strlen($data)-500000,strlen($data));
-            
-        } else{
-            echo '<p>ok !</p>';
-        }
-        
         $data_tab = str_split($data,33);
         return $data_tab ;
 }
 
-$data_tab = get_data();
 
-
-echo "Tabular Data:<br />";
-for($i=0, $size=count($data_tab); $i<$size-1; $i++){
-    echo "Trame $i: $data_tab[$i]<br />";
-}
 
 function uniteCapteur($capteur) : string {
     switch ($capteur){
@@ -113,34 +94,55 @@ function uniteCapteur($capteur) : string {
 
 function decode_trame($Trames){
     for($i=0, $size=count($Trames) ; $i<$size-1; $i++){
+        
         $trame = $Trames[$i];
-        // décodage avec des substring
-        $t = substr($trame,0,1);
-        $o = substr($trame,1,4);
-        // décodage avec sscanf
-        list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
-        sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
-        echo '<p>Trame' . $i . ' : ' . "$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec" . '</p>' ;
-        echo '<p>unite du capteur de la trame  : '. uniteCapteur($c) . '</p>';
-        $time = strtotime("$year$month$day$hour$min$sec") ;
-        $d = date("Y-m-d H:i:s", $time) ;
-        $u = uniteCapteur($c) ;
-        $bdd= connectBDD();
-        $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
-        $req->execute(array(
-            'numCemac'=> $o ,
-            'numeroDeSerie' => $n,
-            'valeur' => $v,
-            'date' => $d,
-            'unite' => $u
-        ));
-        echo '<p>Trame bien enregistrée dans la BDD ! </p>';
+        // vérification du checksum pour trame valide
+        
+        $cchk = 0 ; // checksum calculé
+        for($j = 0 ; $j < 17; $j++){
+            
+            $cchk = $cchk + ord($trame[$j]) ;
+        }
+        $cchk = $cchk%256 ;
+        $cchk=dechex($cchk);
+        $chk = $trame[17].$trame[18]; //checksum de la trame
+        echo "la trame $i est : $Trames[$i] a pour checksum $chk <br />";
+        echo "<p> le checksum calculé donne $cchk </p>" ;
+        
+        if($cchk == $chk){
+            $trame = $Trames[$i];
+            // décodage avec des substring
+            $t = substr($trame,0,1);
+            $o = substr($trame,1,4);
+            // décodage avec sscanf
+            list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
+            sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
+            // echo '<p>Trame' . $i . ' : ' . "$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec" . '</p>' ;
+            // echo '<p>unite du capteur de la trame  : '. uniteCapteur($c) . '</p>';
+            $time = strtotime("$year$month$day$hour$min$sec") ;
+            $d = date("Y-m-d H:i:s", $time) ;
+            $u = uniteCapteur($c) ;
+            $bdd= connectBDD();
+            $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
+            $req->execute(array(
+                'numCemac'=> $o ,
+                'numeroDeSerie' => $n,
+                'valeur' => $v,
+                'date' => $d,
+                'unite' => $u
+            ));
+            echo '<p>Trame bien enregistrée dans la BDD ! </p>';
+            
+        }
+        else{
+            echo "Trame invalide ! " ;
+        }
         
     }
     
-    
-    
 }
 
+$data_tab = get_data();
 
 decode_trame($data_tab);
+
