@@ -1,4 +1,6 @@
 <?php
+
+echo AfficheAlerte($alerte);
 $i = 0;
 foreach ($houses as $house) : ?>
     <div class="user-house-dashboard" id="<?php echo $house['ID_logement'] ?>">
