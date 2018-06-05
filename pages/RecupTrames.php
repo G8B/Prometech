@@ -26,17 +26,6 @@ function Trames($list)
     }
 }
 
-function Temps($temps){
-    
-    $bdd= connectBDD();
-    $req = $bdd->prepare('INSERT INTO capteurs(date) VALUES (:date)');
-    
-    $req->execute([
-        
-        'date' => $temps
-    ]);
-    echo '<p>Date bien insérée ! </p>' ;
-}
 
 //récupération des trames
 function get_data() {
