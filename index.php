@@ -5,11 +5,14 @@ include('view/functions.php');
 
 // Appel du contrôleur selon paramètre GET
 
-if (!isset($_GET['target']) || empty($_GET['target'])) {
+if (!isset($_GET['target']) or empty($_GET['target'])) {
     $target = "home";
 } else {
     $target = $_GET['target'];
 }
+
+if (empty($_SESSION))
+    $target = "home";
 
 switch ($target) {
     case 'home' :
@@ -17,7 +20,7 @@ switch ($target) {
         break;
 
     case 'user' :
-        $domain = 'user';
+        $domain = empty($_SESSION['userID']) ? 'home' : 'user';
         break;
 
     case 'admin' :
