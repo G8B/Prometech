@@ -18,9 +18,9 @@ function Trames($list)
     $bdd = new PDO('mysql:host=localhost;dbname=prometech;charset=utf8', 'root', '');
     if ($list[3] == 3) {
         
-        $req2 = $bdd->prepare('INSERT INTO capteurs(numeroDeSerie, valeur) VALUES(:numeroDeSerie,:valeur)');
+        $req2 = $bdd->prepare('INSERT INTO capteurs(identifiant, valeur) VALUES(:identifiant,:valeur)');
         $req2->execute(array(
-            'numeroDeSerie' => $list[4],
+            'identifiant' => $list[4],
             'valeur' => $list[5],
         ));
     }
@@ -60,7 +60,7 @@ function uniteCapteur($capteur) : string {
             $unite = 'pourcentage' ;
             break;
         case 5 :
-            $unite = 'lumiere' ;
+            $unite = 'lux' ;
             break ;
         case 6 :
             $unite = 'couleur';
@@ -69,13 +69,13 @@ function uniteCapteur($capteur) : string {
             $unite = 'presence' ;
             break ;
         case 8 :
-            $unite = 'lumiere' ;
+            $unite = 'lux' ;
             break ;
         case 9 :
             $unite = 'mouvement' ;
             break ;
         default :
-            $unite = 'temperature';
+            $unite = 'degre C';
             
     }
     return $unite ;
@@ -106,8 +106,8 @@ function decode_trame($Trames){
         $cchk = $cchk%256 ;
         $cchk=dechex($cchk);
         $chk = $trame[17].$trame[18]; //checksum de la trame
-        echo "la trame $i est : $Trames[$i] a pour checksum $chk <br />";
-        echo "<p> le checksum calculé donne $cchk </p>" ;
+        // echo "la trame $i est : $Trames[$i] a pour checksum $chk <br />";
+        // echo "<p> le checksum calculé donne $cchk </p>" ;
         
         if($cchk == $chk){
             $trame = $Trames[$i];
@@ -117,7 +117,7 @@ function decode_trame($Trames){
             // décodage avec sscanf
             list($t, $o, $r, $c, $n, $v, $a, $x, $year, $month, $day, $hour, $min, $sec) =
             sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
-            echo "<p> le numéro de cette trame est $a </p>";
+            // echo "<p> le numéro de cette trame est $a </p>";
             // echo '<p>Trame' . $i . ' : ' . "$t,$o,$r,$c,$n,$v,$a,$x,$year,$month,$day,$hour,$min,$sec" . '</p>' ;
             // echo '<p>unite du capteur de la trame  : '. uniteCapteur($c) . '</p>';
             $time = strtotime("$year$month$day$hour$min$sec") ;
@@ -126,23 +126,23 @@ function decode_trame($Trames){
             if(empty(existenceTrame($o, $v, $d))){
                 
                 $bdd= connectBDD();
-                $req = $bdd->prepare('INSERT INTO donnees(numCemac, numeroDeSerie, valeur, date, unite) VALUES(:numCemac , :numeroDeSerie , :valeur, :date, :unite)');
+                $req = $bdd->prepare('INSERT INTO donnees(numCemac, identifiant, valeur, date, unite) VALUES(:numCemac , :identifiant , :valeur, :date, :unite)');
                 $req->execute(array(
                     'numCemac'=> $o ,
-                    'numeroDeSerie' => $c.$n, // numéro de série = type capteur + num capteur
+                    'identifiant' => $c.$n, // numéro de série = type capteur + num capteur
                     'valeur' => $v,
                     'date' => $d,
                     'unite' => $u
                 ));
-                echo '<p>Trame bien enregistrée dans la BDD ! </p>';
+                // echo '<p>Trame bien enregistrée dans la BDD ! </p>';
                 
             } else{
-                echo '<p>Cette trame existe déjà dans la BDD ! </p> ' ;
+                //  echo '<p>Cette trame existe déjà dans la BDD ! </p> ' ;
             }
             
         }
         else{
-            echo "<p>Trame invalide ! </p>" ;
+            // echo "<p>Trame invalide ! </p>" ;
         }
         
     }
@@ -153,5 +153,19 @@ $data_tab = get_data();
 
 decode_trame($data_tab);
 
+function getValSensor(){
+    $bdd=connectBDD();
+    $req=$bdd->prepare('SELECT numCemac, identifiant, valeur, date FROM donnees ORDER BY date AND numeroDeSerie DESC ;
+');
+    $req->execute();
+    $valSensor=$req->fetchAll();
+    return $valSensor;
+    
+}
+
+$valSensors = getValSensor();
+foreach ($valSensors as $valSensor){
+    echo '<p>'.$valSensor['numCemac']. $valSensor['numeroDeSerie'] . $valSensor['valeur']  . '</p>';
+}
 
 
