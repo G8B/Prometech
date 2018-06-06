@@ -141,6 +141,66 @@ function decode_trame($Trames){
     
     
 }
+function Donnee($donnee) {
+    if (strlen ( $donnee ) == 3){
+        echo $donnee[0];
+        echo $donnee[1];
+        echo ".";
+        echo $donnee[2];
+
+    }
+    else {
+        echo $donnee;
+    }
+}
+function luminosite($donnee){
+    if($donnee < 100) {
+        echo "Il fait sombre.";
+    }
+    else {
+        echo "La pièce est eclairée.";
+    }
+}
+
+
+function lectureDonnees($unite, $donnee)
+
+{
+    switch ($unite) {
+        case 'metre' :
+            Donnee($donnee);
+            echo ' ';
+            echo 'mètres';
+            break;
+        case 'degre C' :
+            Donnee($donnee);
+            echo '°';
+            break;
+        case 'pourcentage' :
+            Donnee($donnee);
+            echo '%';
+            break;
+        case 'lumiere' :
+            luminosite($donnee);
+            break;
+        case 'presence':
+            echo $donnee;
+            break;
+
+        case 'mouvement' :
+            echo $donnee;
+            break;
+
+
+
+
+
+
+
+
+
+    }
+}
 
 
 decode_trame($data_tab);
