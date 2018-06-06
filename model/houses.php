@@ -134,14 +134,10 @@ function getNumberProducts($iduser)
 
 function getNumberLogements($iduser)
 {
-    $numberLogements= NULL ;
-    $houses=getHouses($iduser);
-    foreach ($houses as $house){
-        $house;
-        $numberLogements ++;
-        }
-
-    return $numberLogements ;
+    $houses = getHouses($iduser);
+    $numberLogements = count($houses);
+    return $numberLogements;
+}
   
 function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse){
     $bdd = connectBDD();
