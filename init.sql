@@ -123,7 +123,7 @@ CREATE TABLE Cemac (numero INTEGER AUTO_INCREMENT PRIMARY KEY, ID_logement INTEG
 CREATE TABLE donnees(
     ID INTEGER AUTO_INCREMENT PRIMARY KEY,
     numCemac INTEGER REFERENCES cemac(numero),
-    numeroDeSerie INTEGER, 
+    identifiant INTEGER, 
     valeur INTEGER,
     unite VARCHAR(256),
     date DATETIME
