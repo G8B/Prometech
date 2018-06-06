@@ -111,6 +111,23 @@ body {
     z-index: 1;
 }
 
+.drop-element-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-element {
+    text-decoration: none;
+    color: #365b6b;
+}
+
+.disconnect {
+    color: red;
+}
+
 .triangle {
     width: 0;
     height: 0;

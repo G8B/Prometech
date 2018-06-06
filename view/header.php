@@ -10,8 +10,9 @@
         </button>
         <div class="dropdown-content">
             <div class="triangle"></div>
-            <a href="#">Mon compte</a>
-            <a href="#">Déconnexion</a>
+            <div class="drop-element-container">
+                <a href="/index.php" class="dropdown-element disconnect">Déconnexion</a>
+            </div>
         </div>
     </div>
 </div>
