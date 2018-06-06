@@ -15,6 +15,7 @@ $alerte = false;
 
 switch ($page) {
     case 'login' :
+        $_SESSION = array();
         $view = 'login';
         $title = 'Connexion';
 
