@@ -43,13 +43,25 @@ function getProducts($idroom): array
     return $products;
 }
 
+function hasNoProduct($idroom)
+{
+    $products = getProducts($idroom);
+    if (count($products))
+        return false;
+    return true;
+}
+
 function getProductInfos($idproduct): array
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT nom, modele FROM produits WHERE numeroDeSerie = ?');
+    $req = $bdd->prepare("SELECT `nom`, `modele` FROM `produits` WHERE `numeroDeSerie` =?");
     $req->execute(array($idproduct));
+
     $productInfos = $req->fetch();
-    return $productInfos;
+    if(!is_array($productInfos)){ // dans le cas où la base de données des produits est vide
+        return array('nom' => 'no name in db', 'modele' => 'no modele in db');
+    }
+    else return $productInfos;
 }
 
 function addProduct($numeroDeSerie, $idPiece, $idUser)
@@ -67,6 +79,16 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
     ]);
 }
 
+function moveProduct($numeroDeSerie, $idPiece)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('UPDATE positionProduit SET ID_piece = :ID_piece WHERE numeroDeSerie = :numeroDeSerie');
+    $req->execute([
+        'numeroDeSerie' => $numeroDeSerie,
+        'ID_piece' => $idPiece
+    ]);
+}
+
 function deleteProduct($idProduct)
 {
     $bdd = connectBDD();
@@ -74,6 +96,13 @@ function deleteProduct($idProduct)
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
     $req->execute(array($idProduct));
+}
+
+function deleteRoom($idRoom)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE FROM pieces WHERE ID = ?');
+    $req->execute(array($idRoom));
 }
 
 function addRoom($nomPiece, $idHouse)
@@ -113,4 +142,9 @@ function getNumberLogements($iduser)
         }
 
     return $numberLogements ;
+  
+function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse){
+    $bdd = connectBDD();
+    $updateLogement = $bdd->prepare("UPDATE logements SET adresse = ?, nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
+    $updateLogement->execute(array($adresse, $nbrPieces, $nbrHabitants, $superficie));
 }

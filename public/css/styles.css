@@ -16,11 +16,20 @@
     line-height: 100%;
     vertical-align: middle;
     border: 1px #333333 solid;
+    cursor:pointer;
 }
 
-.current-dashboard {
+.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+    background-color: #F1B573;
+    color:#292929;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dashboard-nav-link.active{
     background-color: #F1B573;
 }
+
 
 .fas {
     position: relative;
@@ -47,12 +56,29 @@
     width: 600px;
     height: 100%;
     border: 2px #333333 solid;
+    overflow: scroll;
 }
 
 .user-house-name {
     text-align: center;
     color: #333333;
 }
+
+.type_conso{
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    background: #DDDDDD;
+    color: #333333;
+    font-weight: bold;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.type_conso:hover{
+    background: #F1B573;
+}
+
 
 /* - Accordion css - */
 .tab {
@@ -97,6 +123,16 @@ label {
     grid-gap: 50px;
 }
 
+.product-grid-conso{
+    margin: 1em;
+    display: grid;
+    grid-gap: 50px;
+    border: #E29845 solid 1px;
+    min-height: 250px;
+    min-width: 50px;
+}
+
+
 .product-box {
     background-color: white;
     border: 2px #333333 solid;
@@ -109,7 +145,7 @@ input:checked ~ .accordion-tab-content {
 }
 
 input:checked ~ .accordion-tab-content .product-grid {
-    height: 500px;
+    max-height: 500px;
 }
 
 input:checked ~ label {
@@ -346,6 +382,21 @@ input[type=radio]:checked + label::after {
     font-size: 16px;
 }
 
+.setting-btn {
+    color: #30728E;
+    background: none;
+    border: none;
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
 .confirm-delete-btn {
     background-color: #e22b1d;
+}
+
+#addButtons {
+    display: flex;
+    flex-direction: column;
 }
