@@ -28,6 +28,10 @@ switch ($target) {
         $domain = 'edition_compte-controller';
         break;
 
+    case 'manager' :
+        $domain = $_SESSION['gestionnaire'] == 1 ? 'manager' : 'home';
+        break;
+
     default :
         $domain = 'home';
         break;

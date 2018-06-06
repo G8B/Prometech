@@ -25,7 +25,15 @@ switch ($page) {
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide.";
             } else if (login($_POST['email'], $_POST['password'])) {
-                $redirection = $_SESSION['admin'] == 1 ? 'admin' : 'user';
+                if ($_SESSION['admin'] == 1) {
+                    $redirection = 'admin';
+                } else {
+                    if ($_SESSION['gestionnaire'] == 1) {
+                        $redirection = 'manager';
+                    } else {
+                        $redirection = 'user';
+                    }
+                }
                 header('Location: /index.php?target=' . $redirection);
                 exit();
             } else {
