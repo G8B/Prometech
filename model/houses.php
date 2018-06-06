@@ -134,10 +134,8 @@ function getNumberProducts($iduser)
 
 function getNumberLogements($iduser)
 {
-    $numberLogements = NULL;
     $houses = getHouses($iduser);
     $numberLogements = count($houses);
-
     return $numberLogements;
 }
   
