@@ -16,7 +16,7 @@ function getHouseAdress($idHouse)
     $req->execute(array($idHouse));
     return $req->fetch()['adresse'];
 }
-function getCemac($idHouse) : array
+function getCemacLogement($idHouse) : array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_logement = ?');
