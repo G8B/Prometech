@@ -6,12 +6,17 @@ require('model/supportTickets.php');
 require('model/productsTreatment.php');
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
-    $page = "support";
+    $page = "reception";
 } else {
     $page = $_GET['page'];
 }
 
 switch ($page) {
+    case 'reception' :
+        $tab = 'reception-admin';
+        $title = 'Accueil';
+        break;
+
     case 'support' :
         $tab = 'support';
         $title = 'Support';
