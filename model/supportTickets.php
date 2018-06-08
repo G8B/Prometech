@@ -89,6 +89,14 @@ function getStatus($statut): int
     }
 }
 
+function countOpenTickets()
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT COUNT(ID) AS ticket FROM ticketsDeSupport WHERE etat = ?');
+    $req->execute(array(1));
+    return $req->fetch()[0];
+}
+
 
 function getIDTicket($str): int
 {
