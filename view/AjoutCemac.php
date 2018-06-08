@@ -12,7 +12,7 @@
 
         <p >
             Numéro de Cemac :
-            <input  class ="compte" type="number" name="number" size="50"/>
+            <input  class ="compte" type="text" name="number" size="50"/>
         </p>
 
         <p>
