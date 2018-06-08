@@ -16,8 +16,8 @@ $alerte = false;
 
 switch ($page) {
     case 'reception' :
-        $tab = 'reception';
-        $title = 'reception';
+        $tab = 'reception-user';
+        $title = 'Accueil';
         $houses = getHouses($_SESSION['userID']);
         break;
 
