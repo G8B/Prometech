@@ -23,8 +23,16 @@ function getCemacLogement($idHouse) : array
     $req->execute(array($idHouse));
     $numbers = $req->fetchAll();
     return $numbers;
+    
+    
+}
 
-
+function getCemacs() : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($_SESSION['userID']));
+    $cemacs = $req->fetchAll();
+    return $cemacs ;
 }
 
 function getRooms($idhouse): array
@@ -103,10 +111,10 @@ function addRoom($nomPiece, $idHouse)
 function addCemac($numero, $idHouse)
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('INSERT INTO cemac(numero,ID_logement) VALUES (:numero,:house)');
+    $req = $bdd->prepare('INSERT INTO cemac(numero,ID_logement, ID_utilisateur) VALUES (:numero,:house, :user)');
     $req->execute([
         'numero' => $numero,
         'house' => $idHouse,
-
+        'user' =>  $_SESSION['userID']
     ]);
 }
