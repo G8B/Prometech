@@ -27,7 +27,7 @@
 
                 <?php foreach ($houses as $house) : ?>
                     <optgroup label="<?php echo getHouseAdress($house['ID_logement']); ?>">
-                        <?php $numbers = getCemac($house['ID_logement']);
+                        <?php $numbers = getCemacLogement($house['ID_logement']);
                         foreach ($numbers as $number) : ?>
                             <option value="<?php echo $number['numero'] ?>"><?php echo $number['numero']; ?> </option>
                         <?php endforeach; ?>
