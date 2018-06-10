@@ -118,3 +118,11 @@ function addCemac($numero, $idHouse)
         'user' =>  $_SESSION['userID']
     ]);
 }
+
+function getNewCapteursID(){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT * FROM capteurs WHERE ID IS NULL');
+    $req->execute();
+    $capteursID = $req->fetchAll();
+    return $capteursID ;
+}
