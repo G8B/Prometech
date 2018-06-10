@@ -1,4 +1,7 @@
 
+<link rel="stylesheet" type="text/css" href="/public/css/cemac.css">';
+
+
 <div class="form_cemac">
 
     <form action="" method="post" id="form_cemac">
