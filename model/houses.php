@@ -121,8 +121,15 @@ function addCemac($numero, $idHouse)
 
 function getNewCapteursID(){
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT * FROM capteurs WHERE ID IS NULL');
+    $req = $bdd->prepare('SELECT ID, numeroCemac, numSerie, modele FROM capteurs INNER JOIN produits ON capteurs.numSerie = produits.numeroDeSerie WHERE ID IS NULL ');
     $req->execute();
     $capteursID = $req->fetchAll();
     return $capteursID ;
 }
+
+function setCapteursID($idcapteur, $numS){
+    $bdd = connectBDD();
+    $req =$bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
+    $req->execute(array($idcapteur, $numS )) ;
+}
+
