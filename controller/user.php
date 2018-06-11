@@ -4,6 +4,7 @@ require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
 require('model/houses.php');
 
+$home = '/index.php?target=user';
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "reception";
@@ -16,8 +17,8 @@ $alerte = false;
 
 switch ($page) {
     case 'reception' :
-        $tab = 'reception';
-        $title = 'reception';
+        $tab = 'reception-user';
+        $title = 'Accueil';
         $houses = getHouses($_SESSION['userID']);
         break;
 

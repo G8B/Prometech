@@ -6,9 +6,10 @@ require('model/ajoutLogementTreatment.php');
 require('model/buildings.php');
 require('model/houses.php');
 
+$home = '/index.php?target=manager';
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
-    $page = "dashboard";
+    $page = "reception";
 } else {
     $page = $_GET['page'];
 }
@@ -17,6 +18,11 @@ $alerte = false;
 
 
 switch ($page) {
+    case 'reception' :
+        $tab = 'reception-manager';
+        $title = 'Accueil';
+        break;
+
     case 'dashboard' :
         $tab = 'manager-dashboard';
         $title = 'Dashboard';
