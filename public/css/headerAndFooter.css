@@ -29,7 +29,7 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    overflow: hidden;
+    overflow: visible;
     flex: 1;
 }
 
@@ -88,10 +88,58 @@ body {
     border: none;
     right: 50px;
     float: right;
-    margin-top: 27px;
     text-decoration: none;
     text-align: center;
 }
+
+#dropdown-user {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    float: right;
+    margin-top: 27px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-element-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-element {
+    text-decoration: none;
+    color: #365b6b;
+}
+
+.disconnect {
+    color: red;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    top: -8px;
+    left: 50%;
+    margin-left: -8px;
+}
+
 
 #icon-user {
     color: white;
@@ -127,6 +175,13 @@ body {
 .side-button:focus {
     background-color: #30728E;
 }
+.side-button:hover{
+    background-color: #30728E;
+}
+
+.side-button:active {
+    background-color: #30728E;
+}
 
 #link-footer {
     width: inherit;
@@ -134,7 +189,7 @@ body {
     bottom: 1%;
     float: left;
     list-style: none;
-    padding-left: 20px;
+    padding-left: auto;
 }
 
 #link-footer li {

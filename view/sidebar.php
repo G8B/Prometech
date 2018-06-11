@@ -4,9 +4,15 @@
         case 'user' :
             ?>
             <a class="side-button" href="../index.php?target=user&page=myinfos">Mon compte</a>
-            <a class="side-button" href="#">Gestion utilisateurs</a>
             <a class="side-button" href="../index.php?target=user&page=logements">Gestion logements</a>
             <a class="side-button" href="../index.php?target=user&page=dashboard">Tableau de bord</a>
+            <?php break;
+
+        case 'manager' :
+            ?>
+            <a class="side-button" href="../index.php?target=manager&page=myinfos">Mon compte</a>
+            <a class="side-button" href="../index.php?target=manager&page=gestionImmeubles">Gestion Immeubles</a>
+            <a class="side-button" href="../index.php?target=manager&page=dashboard">Tableau de bord</a>
             <?php break;
 
         case 'admin' :
