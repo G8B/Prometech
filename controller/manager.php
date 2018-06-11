@@ -6,6 +6,7 @@ require('model/ajoutLogementTreatment.php');
 require('model/buildings.php');
 require('model/houses.php');
 
+$home = '/index.php?target=manager';
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "reception";

@@ -5,6 +5,8 @@ require('model/logsTreatment.php');
 require('model/supportTickets.php');
 require('model/productsTreatment.php');
 
+$home = '/index.php?target=admin';
+
 if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = "reception";
 } else {
