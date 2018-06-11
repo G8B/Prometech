@@ -162,6 +162,7 @@ function setCapteursID($idcapteur, $numS){
     $bdd = connectBDD();
     $req =$bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
     $req->execute(array($idcapteur, $numS )) ;
+}
 
 function getNumberProducts($iduser)
 {

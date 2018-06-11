@@ -1,12 +1,12 @@
 
-<link rel="stylesheet" type="text/css" href="/public/css/cemac.css">';
+<link rel="stylesheet" type="text/css" href="/public/css/cemac.css">
 
 
 <div class="form_cemac">
 
     <form action="" method="post" id="form_cemac">
 
-        <h1>Ajouter un Cemac</h1>
+        <h1>Ajouter une Cemac</h1>
         <br>
 
         <p >
