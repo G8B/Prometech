@@ -12,13 +12,13 @@
             <div class="triangle"></div>
             <div class="drop-element-container">
                 <?php if ($_SESSION['user'] == 1 and $_GET['target'] !== "user") : ?>
-                <a href="/index.php" class="dropdown-element">Interface Client</a>
+                <a href="/index.php?target=user" class="dropdown-element">Interface Client</a>
                 <?php endif;
                  if ($_SESSION['admin'] == 1 and $_GET['target'] !== "admin") : ?>
-                    <a href="/index.php" class="dropdown-element">Interface Administrateur</a>
+                    <a href="/index.php?target=admin" class="dropdown-element">Interface Administrateur</a>
                 <?php endif;
                 if ($_SESSION['gestionnaire'] == 1 and $_GET['target'] !== "manager") : ?>
-                    <a href="/index.php" class="dropdown-element">Interface Gestionnaire</a>
+                    <a href="/index.php?target=manager" class="dropdown-element">Interface Gestionnaire</a>
                 <?php endif; ?>
                 <a href="/index.php" class="dropdown-element disconnect">Déconnexion</a>
             </div>
