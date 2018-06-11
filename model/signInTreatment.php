@@ -4,7 +4,7 @@
 function login($email, $password): bool
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT ID, email, password, prenom, nom, statutAdmin FROM utilisateurs WHERE email = :email');
+    $req = $bdd->prepare('SELECT ID, email, password, prenom, nom, statutAdmin, statutGestionnaire FROM utilisateurs WHERE email = :email');
     $req->execute(['email' => $email]);
     $user = $req->fetch();
 
@@ -18,6 +18,8 @@ function login($email, $password): bool
         $_SESSION['nom'] = $user['nom'];
         $_SESSION['userID'] = $user['ID'];
         $_SESSION['admin'] = $user['statutAdmin'];
+        $_SESSION['gestionnaire'] = $user['statutGestionnaire'];
+
         return true;
     } else {
         return false;

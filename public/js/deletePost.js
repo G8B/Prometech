@@ -73,3 +73,22 @@ $('.product-delete').click(function () {
 
     console.log("Appended field")
 });
+
+$('.room-delete').click(function () {
+
+    var idRoom = $(this).parent().attr('id');
+
+    checkFormExistence();
+
+    var form = $('#form');
+
+    var field = $('<input>');
+
+    field.attr("type", "text");
+    field.attr("name", "idRoom");
+    field.attr("value", idRoom);
+
+    form.append(field);
+
+    console.log("Appended field")
+});
