@@ -104,3 +104,13 @@ CREATE TABLE modeleProduits(
     modele VARCHAR(256),
     icon INTEGER
 );
+
+CREATE TABLE Cemac (numero INTEGER AUTO_INCREMENT PRIMARY KEY, ID_logement INTEGER REFERENCES logements(ID));
+CREATE TABLE donnees(
+    ID INTEGER AUTO_INCREMENT PRIMARY KEY,
+    numCemac INTEGER REFERENCES cemac(numero),
+    identifiant INTEGER, 
+    valeur INTEGER,
+    unite VARCHAR(256),
+    date DATETIME
+);

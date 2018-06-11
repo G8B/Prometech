@@ -16,6 +16,24 @@ function getHouseAdress($idHouse)
     $req->execute(array($idHouse));
     return $req->fetch()['adresse'];
 }
+function getCemacLogement($idHouse) : array
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_logement = ?');
+    $req->execute(array($idHouse));
+    $numbers = $req->fetchAll();
+    return $numbers;
+    
+    
+}
+
+function getCemacs() : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($_SESSION['userID']));
+    $cemacs = $req->fetchAll();
+    return $cemacs ;
+}
 
 function getRooms($idhouse): array
 {
@@ -64,7 +82,7 @@ function getProductInfos($idproduct): array
     else return $productInfos;
 }
 
-function addProduct($numeroDeSerie, $idPiece, $idUser)
+function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece) VALUES (:numeroDeSerie, :ID_piece)');
@@ -76,6 +94,11 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
     $req2->execute([
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
+    ]);
+    $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie) VALUES (:numeroCemac, :numSerie)');
+    $req3->execute([
+        'numeroCemac' => $numeroCemac,
+        'numSerie' => $numeroDeSerie,
     ]);
 }
 
@@ -113,6 +136,25 @@ function addRoom($nomPiece, $idHouse)
         'house' => $idHouse,
         'name' => $nomPiece
     ]);
+}
+
+function addCemac($numero, $idHouse)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO cemac(numero,ID_logement, ID_utilisateur) VALUES (:numero,:house, :user)');
+    $req->execute([
+        'numero' => $numero,
+        'house' => $idHouse,
+        'user' =>  $_SESSION['userID']
+    ]);
+}
+
+function getNewCapteursID(){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT * FROM capteurs WHERE ID IS NULL');
+    $req->execute();
+    $capteursID = $req->fetchAll();
+    return $capteursID ;
 }
 
 function getNumberProducts($iduser)
