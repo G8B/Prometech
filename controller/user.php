@@ -150,6 +150,7 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
+        break;
 
     case 'edit-house' :
         $tab = "edit-house";
