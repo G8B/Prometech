@@ -132,4 +132,3 @@ function setCapteursID($idcapteur, $numS){
     $req =$bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
     $req->execute(array($idcapteur, $numS )) ;
 }
-
