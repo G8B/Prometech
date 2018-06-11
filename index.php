@@ -27,10 +27,6 @@ switch ($target) {
         $domain = $_SESSION['admin'] == 1 ? 'admin' : 'home';
         break;
 
-    case 'edition_compte-controller' :
-        $domain = 'edition_compte-controller';
-        break;
-
     case 'manager' :
         $domain = $_SESSION['gestionnaire'] == 1 ? 'manager' : 'home';
         break;
