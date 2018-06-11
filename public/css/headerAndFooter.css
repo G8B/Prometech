@@ -189,7 +189,7 @@ body {
     bottom: 1%;
     float: left;
     list-style: none;
-    padding-left: 20px;
+    padding-left: auto;
 }
 
 #link-footer li {
