@@ -144,6 +144,14 @@ switch ($page) {
         $tab = "AjoutCemac";
         $title = "Ajouter une pièce";
         $houses = getHouses($_SESSION['userID']);
+        
+        if(isset($_POST['numbersuppr']) AND !empty($_POST['numbersuppr'])){
+            $numbersuprr = htmlspecialchars($_POST['numbersuppr']);
+            deleteCemac( $numbersuprr);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+         
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
             $number = htmlspecialchars($_POST['number']);
             addCemac($number, $_POST['idHouse']);

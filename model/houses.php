@@ -44,6 +44,28 @@ function getRooms($idhouse): array
     return $rooms;
 }
 
+function getCemacUser($idUser) : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($idUser));
+    $listCemacs = $req->fetchAll();
+    return $listCemacs ;
+}
+
+function deleteCemac($numeroCemac){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE from cemac WHERE numero = ? ');
+    $req->execute(array($numeroCemac));
+}
+
+function getCemacs() : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($_SESSION['userID']));
+    $cemacs = $req->fetchAll();
+    return $cemacs ;
+}
+
 function getRoomName($idRoom)
 {
     $bdd = connectBDD();

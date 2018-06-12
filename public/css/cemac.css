@@ -15,8 +15,16 @@
 
 
 .form_cemac {
-    width: 15%;
+    width: 30%;
+    margin-left : 25%;
+    margin-right : 20%;
+    
 }
+
+.supressioncemac{
+	padding-top : 10% ; 
+}
+
 
 input::placeholder {
     color: black;

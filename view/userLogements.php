@@ -49,7 +49,7 @@ endforeach; ?>
 <div id="addButtons">
     <a id="addProd" href="../index.php?target=user&page=newHouse"><i class="fas fa-plus-square">Ajouter Logement</i></a>
     <a id="addProd" href="../index.php?target=user&page=ajout-piece"><i class="fas fa-plus-square">Ajouter Pièce</i></a>
-    <a id="addProd" href="../index.php?target=user&page=ajout-Cemac"><i class="fas fa-plus-square">Ajouter Cemac</i></a>
+    <a id="addProd" href="../index.php?target=user&page=ajout-Cemac"><i class="fas fa-plus-square">Gestion Cemac</i></a>
     <a id="addProd" href="../index.php?target=user&page=ajout-produit"><i class="fas fa-plus-square">Ajouter Produit</i></a>
 </div>
 
