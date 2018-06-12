@@ -51,7 +51,7 @@ switch ($page) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (!isAPassword($_POST['password'])) {
-                $alerte = "Veuillez entrer un format de mot de passe valide.";
+                $alerte = "Veuillez entrer un format de mot de passe valide avec au moins 8 caractères, une lettre, un chiffre et un caractère spécial.";
             } else if (!existingEmail($_POST['email']) and !existingName($_POST['nom'],$_POST['prenom'])) {
                 signup();
                 header('Location: /index.php?target=home&page=login');
