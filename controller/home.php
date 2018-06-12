@@ -48,7 +48,11 @@ switch ($page) {
         $title = 'Inscription';
 
         if (isset($_POST['email']) and isset($_POST['password'])) {
-            if (uniqueEmail($_POST['email']) and uniqueName($_POST['nom'],$_POST['prenom'])) {
+            if (!isAnEmail($_POST['email'])) {
+                $alerte = "Veuillez entrer un format d'adresse mail valide.";
+            } else if (!isAPassword($_POST['password'])) {
+                $alerte = "Veuillez entrer un format de mot de passe valide.";
+            } else if (uniqueEmail($_POST['email']) and uniqueName($_POST['nom'],$_POST['prenom'])) {
                 signup();
                 header('Location: /index.php?target=home&page=login');
                 exit();
