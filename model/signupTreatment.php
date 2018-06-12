@@ -25,3 +25,22 @@ function signup(): bool
 
     return true;
 }
+
+function uniqueEmail($email): bool
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT EXISTS(SELECT * FROM utilisateurs WHERE email = ?)');
+    $req->execute(array($email));
+    return $req->fetch()[0];
+}
+
+function uniqueName($nom,$prenom): bool
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT EXISTS(SELECT * FROM utilisateurs WHERE (nom = :nom) AND (prenom = :prenom))');
+    $req->execute([
+        'nom' => $nom,
+        'prenom' => $prenom
+    ]);
+    return $req->fetch()[0];
+}

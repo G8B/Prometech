@@ -48,9 +48,13 @@ switch ($page) {
         $title = 'Inscription';
 
         if (isset($_POST['email']) and isset($_POST['password'])) {
-            signup();
-            header('Location: /index.php?target=home&page=login');
-            exit();
+            if (uniqueEmail($_POST['email']) and uniqueName($_POST['nom'],$_POST['prenom'])) {
+                signup();
+                header('Location: /index.php?target=home&page=login');
+                exit();
+            } else {
+                $alerte = "Un compte existe déjà avec cet email ou ce nom !";
+            }
         }
         break;
 
