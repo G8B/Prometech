@@ -25,16 +25,16 @@ function get_data($numCemac) {
 function uniteCapteur($capteur) : string {
     switch ($capteur){
         case 1 :
-            $unite = 'metre' ;
+            $unite = 'mm' ;
             break;
         case 2 :
-            $unite = 'metre' ;
+            $unite = 'mm' ;
             break;
         case 3 :
-            $unite = 'degre C' ;
+            $unite = '°C' ;
             break ;
         case 4 :
-            $unite = 'pourcentage' ;
+            $unite = '%' ;
             break;
         case 5 :
             $unite = 'lux' ;
@@ -52,7 +52,7 @@ function uniteCapteur($capteur) : string {
             $unite = 'mouvement' ;
             break ;
         default :
-            $unite = 'degre C';
+            $unite = '°C';
             
     }
     return $unite ;
@@ -112,6 +112,7 @@ function decode_trame($Trames, $CEMAC){
             foreach ($newCapteursID as $newCapteurID){
                 if(is_null($newCapteurID['ID'])){
                     
+                    
                     if($newCapteurID['modele'] == $c AND $newCapteurID['numeroCemac'] == $o){
                         $idc = $c.$n ;
                         setCapteursID($idc, $newCapteurID['numSerie']) ;
@@ -148,22 +149,24 @@ function decode_trame($Trames, $CEMAC){
 }
 function Donnee($donnee) {
     if (strlen ( $donnee ) == 3){
-        echo $donnee[0];
-        echo $donnee[1];
-        echo ".";
-        echo $donnee[2];
+        //echo $donnee[0];
+        //echo $donnee[1];
+        //echo ".";
+        //echo $donnee[2];
+        $newDonnee = ($donnee[0].$donnee[1].$donnee[2])/10 ;
+        return $newDonnee ;
         
     }
     else {
-        echo $donnee;
+        return $donnee;
     }
 }
 function luminosite($donnee){
     if($donnee < 100) {
-        echo "Il fait sombre.";
+        return "Il fait sombre.";
     }
     else {
-        echo "La pièce est éclairée.";
+        return "La pièce est éclairée.";
     }
 }
 
@@ -172,37 +175,39 @@ function lectureDonnees($unite, $donnee)
 
 {
     switch ($unite) {
-        case 'metre' :
-            Donnee($donnee);
-            echo ' ';
-            echo 'mètres';
+        case 'mm' :
+            $convertValue = Donnee($donnee);
+            
+            //echo ' ';
+            //echo 'mètres';
             break;
-        case 'degre C' :
-            Donnee($donnee);
-            echo '°';
+        case '°C' :
+            $convertValue = Donnee($donnee);
+            // echo '°C';
             break;
-        case 'pourcentage' :
-            Donnee($donnee);
-            echo '%';
+        case '%' :
+            $convertValue = Donnee($donnee);
+            //echo '%';
             break;
-        case 'lumiere' :
-            luminosite($donnee);
+        case 'lux' :
+            $convertValue = luminosite($donnee);
             break;
         case 'presence':
-            echo $donnee;
+            $convertValue = $donnee;
             break;
             
         case 'mouvement' :
-            echo $donnee;
+            $convertValue =  $donnee;
             break;
             
     }
+    return $convertValue ;
 }
 
 
 function getValSensor($numSerie){
     $bdd=connectBDD();
-    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? GROUP BY numSerie ORDER BY date DESC');
+    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? GROUP BY numSerie ORDER BY date DESC');
     $req->execute(array($numSerie));
     $valSensor=$req->fetchAll();
     return $valSensor;
@@ -222,4 +227,3 @@ function getTramesCount($cemacNum){
     $count = $req->fetchAll();
     return $count[0]['trameCount'];
 }
-

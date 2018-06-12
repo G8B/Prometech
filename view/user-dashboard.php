@@ -30,8 +30,8 @@ if(!isset($_GET['spage'])){
                                     <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
                                     $values = getValSensor($product['numeroDeSerie']) ; 
                                     foreach ($values as $value){
-                                        echo '<p> dernière valeur enregistrée : ' .  $value['valeur'] . '</p>' ;
-                                        echo '<p> dernière mise à jour le : ' . $value['date'] . '</p>';
+                                        echo '<p> Dernière valeur enregistrée : ' . lectureDonnees($value['unite'], $value['valeur']) . ' ' . $value['unite'] . '</p>' ;
+                                        echo '<p> Dernière mise à jour le : ' . $value['date'] . '</p>';
                                     }
                                     
                                     
