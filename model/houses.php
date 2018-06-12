@@ -16,6 +16,24 @@ function getHouseAdress($idHouse)
     $req->execute(array($idHouse));
     return $req->fetch()['adresse'];
 }
+function getCemacLogement($idHouse) : array
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_logement = ?');
+    $req->execute(array($idHouse));
+    $numbers = $req->fetchAll();
+    return $numbers;
+    
+    
+}
+
+function getCemacs() : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($_SESSION['userID']));
+    $cemacs = $req->fetchAll();
+    return $cemacs ;
+}
 
 function getRooms($idhouse): array
 {
@@ -24,6 +42,28 @@ function getRooms($idhouse): array
     $req->execute(array($idhouse));
     $rooms = $req->fetchAll();
     return $rooms;
+}
+
+function getCemacUser($idUser) : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($idUser));
+    $listCemacs = $req->fetchAll();
+    return $listCemacs ;
+}
+
+function deleteCemac($numeroCemac){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE from cemac WHERE numero = ? ');
+    $req->execute(array($numeroCemac));
+}
+
+function getCemacs() : array{
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
+    $req->execute(array($_SESSION['userID']));
+    $cemacs = $req->fetchAll();
+    return $cemacs ;
 }
 
 function getRoomName($idRoom)
@@ -64,7 +104,7 @@ function getProductInfos($idproduct): array
     else return $productInfos;
 }
 
-function addProduct($numeroDeSerie, $idPiece, $idUser)
+function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece) VALUES (:numeroDeSerie, :ID_piece)');
@@ -76,6 +116,11 @@ function addProduct($numeroDeSerie, $idPiece, $idUser)
     $req2->execute([
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
+    ]);
+    $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie) VALUES (:numeroCemac, :numSerie)');
+    $req3->execute([
+        'numeroCemac' => $numeroCemac,
+        'numSerie' => $numeroDeSerie,
     ]);
 }
 
@@ -115,6 +160,32 @@ function addRoom($nomPiece, $idHouse)
     ]);
 }
 
+function addCemac($numero, $idHouse)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO cemac(numero,ID_logement, ID_utilisateur) VALUES (:numero,:house, :user)');
+    $req->execute([
+        'numero' => $numero,
+        'house' => $idHouse,
+        'user' =>  $_SESSION['userID']
+    ]);
+}
+
+function getNewCapteursID(){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT ID, numeroCemac, numSerie, modele FROM capteurs INNER JOIN produits ON capteurs.numSerie = produits.numeroDeSerie WHERE ID IS NULL ');
+    $req->execute();
+    $capteursID = $req->fetchAll();
+    return $capteursID ;
+}
+
+
+function setCapteursID($idcapteur, $numS){
+    $bdd = connectBDD();
+    $req =$bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
+    $req->execute(array($idcapteur, $numS )) ;
+}
+
 function getNumberProducts($iduser)
 {
     $numberProducts= NULL ;
@@ -143,4 +214,5 @@ function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHo
     $bdd = connectBDD();
     $updateLogement = $bdd->prepare("UPDATE logements SET adresse = ?, nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
     $updateLogement->execute(array($adresse, $nbrPieces, $nbrHabitants, $superficie));
+
 }

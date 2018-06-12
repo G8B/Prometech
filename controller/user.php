@@ -120,9 +120,10 @@ switch ($page) {
         $tab = "add-product";
         $title = "Ajouter un produit";
         $houses = getHouses($_SESSION['userID']);
-        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece'])) {
+        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece']) AND isset($_POST['Cemac']) AND !empty($_POST['Cemac'])) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
-            addProduct($num, $_POST['idPiece'], $_SESSION['userID']);
+            $numCemac = htmlspecialchars($_POST['Cemac']);
+            addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
@@ -135,6 +136,26 @@ switch ($page) {
         if (isset($_POST['nomPiece']) AND !empty($_POST['nomPiece']) AND isset($_POST['idHouse'])) {
             $nom = htmlspecialchars($_POST['nomPiece']);
             addRoom($nom, $_POST['idHouse']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+        break;
+
+    case 'ajout-Cemac' :
+        $tab = "AjoutCemac";
+        $title = "Ajouter une pièce";
+        $houses = getHouses($_SESSION['userID']);
+        
+        if(isset($_POST['numbersuppr']) AND !empty($_POST['numbersuppr'])){
+            $numbersuprr = htmlspecialchars($_POST['numbersuppr']);
+            deleteCemac( $numbersuprr);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+            exit();
+        }
+         
+        if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
+            $number = htmlspecialchars($_POST['number']);
+            addCemac($number, $_POST['idHouse']);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
