@@ -23,8 +23,8 @@ switch ($page) {
         if (isset($_POST['email']) and isset($_POST['password'])) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
-            } else if (!isAPassword($_POST['password'])) {
-                $alerte = "Veuillez entrer un format de mot de passe valide.";
+            } else if (empty($_POST['password'])) {
+                $alerte = "Veuillez entrer votre mot de passe.";
             } else if (login($_POST['email'], $_POST['password'])) {
                 if ($_SESSION['admin'] == 1) {
                     $redirection = 'admin';
@@ -52,7 +52,7 @@ switch ($page) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide.";
-            } else if (uniqueEmail($_POST['email']) and uniqueName($_POST['nom'],$_POST['prenom'])) {
+            } else if (!existingEmail($_POST['email']) and !existingName($_POST['nom'],$_POST['prenom'])) {
                 signup();
                 header('Location: /index.php?target=home&page=login');
                 exit();
