@@ -43,6 +43,9 @@ function getProducts($idroom): array
     return $products;
 }
 
+
+
+
 function hasNoProduct($idroom)
 {
     $products = getProducts($idroom);

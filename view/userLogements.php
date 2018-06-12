@@ -21,15 +21,52 @@ foreach ($houses as $house) : ?>
                     <div class="product-grid">
                         <?php $products = getProducts($room['ID']);
                         foreach ($products as $product) : ?>
-                            <div class="product-box" id="<?php echo $product['numeroDeSerie'] ?>">
-                                <p><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></p>
-                                <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
-                                            class="fas fa-minus"></i></button>
-                                <a class="setting-btn"
-                                   href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
-                                            class="fas fa-cog"></i></a>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php $modele= getProductInfos($product['numeroDeSerie'])['modele'];
+                        if ($modele=='1'){ ?>
+                                            <div class="product-boxTemperature">
+
+                                              <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                              <?php echo getProductInfos($product['numeroDeSerie'])['modele'] ;?>
+                                                <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
+                                                            class="fas fa-minus"></i></button>
+                                                <a class="setting-btn"
+                                                   href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
+                                                            class="fas fa-cog"></i></a>
+
+                                             </div>
+                                       <?php }
+
+                                       elseif ($modele=='2'){ ?>
+                                            <div class="product-boxActionneur">
+
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['modele']; ?>
+                                                <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
+                                                            class="fas fa-minus"></i></button>
+                                                <a class="setting-btn"
+                                                   href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
+                                                            class="fas fa-cog"></i></a>
+
+                                            </div>
+                                        <?php }
+
+                                       elseif ($modele=='3'){ ?>
+                                           <div class="product-boxCapteur">
+                                               <button class="supprimer delete-btn product-delete" type="button" id="supprimer"><i
+                                                           class="fas fa-minus"></i></button>
+                                               <a class="setting-btn"
+                                                  href="../index.php?target=user&page=edit-product&idproduct=<?php echo $product['numeroDeSerie'] ?>"><i
+                                                           class="fas fa-cog"></i></a>
+
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['modele'] ;?>
+
+                                           </div>
+                                       <?php } ?>
+
+
+
+                    <?php endforeach; ?>
                     </div>
                 </div>
             </div>
