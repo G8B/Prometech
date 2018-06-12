@@ -1,5 +1,5 @@
 <?php
-
+/*
 
 function connectBDD(): PDO
 {
@@ -228,4 +228,4 @@ foreach ($valSensors as $valSensor){
     echo '<p>'.$valSensor['numCemac']. $valSensor['numeroDeSerie'] . $valSensor['valeur']  . '</p>';
 }
 
-
+*/

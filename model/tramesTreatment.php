@@ -69,25 +69,6 @@ function existenceTrame($numCemac, $val, $date){
     return $existence;
 }
 
-function IDNumSerie($Trames){
-    for($i=0, $size=count($Trames) ; $i < $size-1 ; $i++){
-        $newCapteursID = getNewCapteursID() ;
-        foreach ($newCapteursID as $newCapteurID){
-            if(is_null($newCapteurID['ID'])){
-                if($newCapteurID['modele'] == $c AND $newCapteurID['numeroCemac'] == $o){
-                    $idc = $c.$n ;
-                    setCapteursID($idc, $newCapteurID['numSerie']) ;
-                    
-                }
-            } else{
-                //echo '<p> Ce capteur a déjà un identifiant </p>';
-            }
-            
-        }
-    }
-}
-
-
 function decode_trame($Trames, $CEMAC){
     //$k=0;
     $k = getTramesCount($CEMAC);
@@ -114,7 +95,7 @@ function decode_trame($Trames, $CEMAC){
         
         if($cchk == $chk){
             
-            echo 'hey' ;
+            
             $trame = $Trames[$i];
             // décodage avec des substring
             $t = substr($trame,0,1);
@@ -182,7 +163,7 @@ function luminosite($donnee){
         echo "Il fait sombre.";
     }
     else {
-        echo "La pièce est eclairée.";
+        echo "La pièce est éclairée.";
     }
 }
 
@@ -219,11 +200,10 @@ function lectureDonnees($unite, $donnee)
 }
 
 
-function getValSensor(){
+function getValSensor($numSerie){
     $bdd=connectBDD();
-    $req=$bdd->prepare('SELECT numCemac, identifiant, valeur, date FROM donnees ORDER BY date AND numeroDeSerie DESC ;
-');
-    $req->execute();
+    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? GROUP BY numSerie ORDER BY date DESC');
+    $req->execute(array($numSerie));
     $valSensor=$req->fetchAll();
     return $valSensor;
     
@@ -242,10 +222,4 @@ function getTramesCount($cemacNum){
     $count = $req->fetchAll();
     return $count[0]['trameCount'];
 }
-
-$valSensors = getValSensor();
-foreach ($valSensors as $valSensor){
-    echo '<p>'.$valSensor['numCemac']. $valSensor['numeroDeSerie'] . $valSensor['valeur']  . '</p>';
-}
-
 
