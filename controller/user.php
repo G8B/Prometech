@@ -3,6 +3,7 @@ include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
 require('model/houses.php');
+require('model/tramesTreatment.php');
 
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
