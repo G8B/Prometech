@@ -111,8 +111,6 @@ function decode_trame($Trames, $CEMAC){
             $newCapteursID = getNewCapteursID() ;
             foreach ($newCapteursID as $newCapteurID){
                 if(is_null($newCapteurID['ID'])){
-                    
-                    
                     if($newCapteurID['modele'] == $c AND $newCapteurID['numeroCemac'] == $o){
                         $idc = $c.$n ;
                         setCapteursID($idc, $newCapteurID['numSerie']) ;
