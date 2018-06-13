@@ -21,7 +21,7 @@ if(!isset($_GET['spage'])){
                 foreach ($rooms as $room) : ?>
                     <div class="accordion-tab">
                         <input id="accordion<?php echo $i ?>-tab-<?php echo $j ?>" type="radio" name="accordion<?php echo $i ?>"
-                               checked>
+                              checked>
                         <label for="accordion<?php echo $i ?>-tab-<?php echo $j ?>" ><?php echo getRoomName($room['ID']); ?></label>
                         <div class="accordion-tab-content">
                             <div class="product-grid">
@@ -29,10 +29,10 @@ if(!isset($_GET['spage'])){
                                 foreach ($products as $product) : ?>
                                     <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
                                     $values = getValSensor($product['numeroDeSerie']) ; 
-                                    foreach ($values as $value){
-                                        echo '<p> Dernière valeur enregistrée : ' . lectureDonnees($value['unite'], $value['valeur']) . ' ' . $value['unite'] . '</p>' ;
-                                        echo '<p> Dernière mise à jour le : ' . $value['date'] . '</p>';
-                                    }
+                                    //foreach ($values as $value){
+                                        echo '<p> Dernière valeur enregistrée : ' . lectureDonnees($values['unite'], $values['valeur']) . ' ' . $values['unite'] . '</p>' ;
+                                        echo '<p> Dernière mise à jour le : ' . $values['date'] . '</p>';
+                                   // }
                                     
                                     
                                     ?></div> <!-- affichage du nom des capteurs  -->
@@ -49,23 +49,12 @@ if(!isset($_GET['spage'])){
 
         endforeach; ?>
         
- <?php
- 
- 
-     $cemacs = getCemacs();
-     foreach ($cemacs as $cemac){
-         $data_tab = get_data($cemac['numero']);
-         //IDNumSerie($data_tab);
-         
-         decode_trame($data_tab, $cemac['numero'] );
-     }
-     
 
-?>
-
-<script type="text/javascript">
-
-
+<script type="text/javascript" src="/public/js/trames.js" >
 
 </script>
+
+
+
+
 

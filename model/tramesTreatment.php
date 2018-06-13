@@ -207,10 +207,10 @@ function lectureDonnees($unite, $donnee)
 
 function getValSensor($numSerie){
     $bdd=connectBDD();
-    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? GROUP BY numSerie ORDER BY date DESC');
+    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date DESC LIMIT 1');
     $req->execute(array($numSerie));
     $valSensor=$req->fetchAll();
-    return $valSensor;
+    return $valSensor[0];
     
 }
 
@@ -227,3 +227,4 @@ function getTramesCount($cemacNum){
     $count = $req->fetchAll();
     return $count[0]['trameCount'];
 }
+
