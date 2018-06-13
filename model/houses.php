@@ -115,10 +115,32 @@ function addRoom($nomPiece, $idHouse)
     ]);
 }
 
+function getNumberProducts($iduser)
+{
+    $numberProducts= NULL ;
+    $houses=getHouses($iduser);
+    foreach ($houses as $house){
+        $rooms=getRooms($house['ID_logement']);
+        foreach($rooms as $room) {
+            $bdd = connectBDD();
+            $req = $bdd->prepare('SELECT COUNT(numeroDeSerie) FROM positionProduit WHERE ID_piece = ?');
+            $req->execute(array($room['ID']));
+            $products = $req->fetchAll();
+            $numberProducts = $numberProducts + count($products);
+        }
+    }
+    return $numberProducts ;
+}
+
+function getNumberLogements($iduser)
+{
+    $houses = getHouses($iduser);
+    $numberLogements = count($houses);
+    return $numberLogements;
+}
+  
 function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse){
     $bdd = connectBDD();
     $updateLogement = $bdd->prepare("UPDATE logements SET adresse = ?, nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
     $updateLogement->execute(array($adresse, $nbrPieces, $nbrHabitants, $superficie));
-
-
 }
