@@ -14,13 +14,13 @@
                 <div class="accordion-tab">
                     <h2 class="type_conso">Variation intensité lumineuse</h2>
                     <div class="product-grid-conso">
-                        <?php echo "Ajouter graphique consommation énergétique";?>
+                        <?php echo "Ajouter graphique variation intensité lumineuse";?>
                     </div>
                 </div>
                 <div class="accordion-tab">
                     <h2 class="type_conso">Fréquence d'allumage de la LED</h2>
                     <div class="product-grid-conso">
-                        <?php echo "Ajouter graphique consommation hydraulique";?>
+                        <?php echo "Ajouter graphique fréquence d'allumage de la LED";?>
                     </div>
                 </div>
             </div>

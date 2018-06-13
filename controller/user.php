@@ -4,8 +4,10 @@ require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
 require('model/houses.php');
 
+$home = '/index.php?target=user';
+
 if (!isset($_GET['page']) || empty($_GET['page'])) {
-    $page = "dashboard";
+    $page = "reception";
 } else {
     $page = $_GET['page'];
 }
@@ -14,6 +16,13 @@ $alerte = false;
 
 
 switch ($page) {
+    case 'reception' :
+        $tab = 'reception-user';
+        $title = 'Accueil';
+        $houses = getHouses($_SESSION['userID']);
+        break;
+
+
     case 'dashboard' :
         $tab = 'user-dashboard';
         $title = 'Dashboard';
@@ -31,11 +40,26 @@ switch ($page) {
         $title = 'Mes logements';
         $houses = getHouses($_SESSION['userID']);
         if (isset($_POST['delete'])) {
-            if (isset($_POST['idHouse']))
-                deleteHouse($_POST['idHouse']);
-            else
+            $delete = true;
+            if (isset($_POST['idHouse'])) {
+                $rooms = getRooms($_POST['idHouse']);
+                foreach ($rooms as $room) {
+                    if (hasNoProduct($room['ID'])) {
+                        deleteRoom($room['ID']);
+                    } else {
+                        $alerte = "Impossible de supprimer une pièce qui contient des produits !";
+                        $delete = false;
+                    }
+                   break;
+                }
+                if ($delete) {
+                    deleteHouse($_POST['idHouse']);
+                    header("Refresh:0");
+                }
+            } else {
                 deleteProduct($_POST['idProduct']);
-            header("Refresh:0");
+                header("Refresh:0");
+            }
         }
         break;
 
