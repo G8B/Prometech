@@ -5,7 +5,7 @@
 
 		<form action="" method="post">
 
-		<h1>Ajouter un immeuble</h1>
+		<h1>Selectionner un immeuble</h1>
 		<br>
 
 		<p >
@@ -23,4 +23,3 @@
 
 
 </div>
-
