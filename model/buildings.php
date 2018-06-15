@@ -27,6 +27,14 @@ function getIDhousesFromadresseManaged($adresseGestionnaire): array
     return $logements;
 }
 
+function getIDhousesFromadresseAldreadyManaged($adresseGestionnaire): array
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT DISTINCT ID FROM logements WHERE logements.ID IN ( SELECT ID_logement FROM gestionLogement WHERE gestionLogement.ID_utilisateur=?) AND adresse=?');
+    $req->execute(array($_SESSION['userID'], $adresseGestionnaire));
+    $logements = $req->fetchAll();
+    return $logements;
+}
 
 function addBuilding($idHouse)
 {
@@ -44,7 +52,6 @@ function supprBuilding($IDlogementSuppr)
     $req = $bdd->prepare('DELETE FROM gestionLogement WHERE ID_logement = ?');
     $req->execute( array($IDlogementSuppr));
 }
-
 
 function getHouseAdressManager($idHouse)
 {
