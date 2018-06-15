@@ -50,6 +50,8 @@ switch ($page) {
         if (isset($_POST['email']) and isset($_POST['password'])) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
+            }else if (!isset($_POST['choixUtilisateur']) and !isset($_POST['choixGestionnaire'])) {
+                $alerte = "Veuillez sélectionner un type de compte.";
             } else if (!isAPassword($_POST['password'])) {
                 $alerte = "Veuillez entrer un format de mot de passe valide avec au moins 8 caractères, une lettre, un chiffre et un caractère spécial.";
             } else if (!existingEmail($_POST['email']) and !existingName($_POST['nom'],$_POST['prenom'])) {
