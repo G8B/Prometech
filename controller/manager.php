@@ -39,11 +39,7 @@ switch ($page) {
              <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
             exit();
         }
-        if (isset($_POST['idHouseSuppr']) AND !empty($_POST['idHouseSuppr'])) {
-            supprBuilding($_POST['idHouseSuppr']);
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
-        }
-            exit();
+
         break;
 
     case 'newBuilding':
@@ -54,6 +50,12 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
             exit();
         }
+
+        if (isset($_POST['idHouseSuppr']) AND !empty($_POST['idHouseSuppr'])) {
+            supprBuilding($_POST['idHouseSuppr']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
+        }
+        exit();
         break;
 
     case 'myinfos' :
