@@ -38,6 +38,14 @@ function addBuilding($idHouse)
     ));
 }
 
+function supprBuilding($IDlogementSuppr)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('DELETE FROM gestionLogement WHERE ID_logement = ?');
+    $req->execute( array($IDlogementSuppr));
+}
+
+
 function getHouseAdressManager($idHouse)
 {
     $bdd = connectBDD();
