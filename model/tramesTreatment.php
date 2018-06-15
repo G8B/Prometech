@@ -114,7 +114,7 @@ function decode_trame($Trames, $CEMAC){
                     if($newCapteurID['modele'] == $c AND $newCapteurID['numeroCemac'] == $o){
                         $idc = $c.$n ;
                         setCapteursID($idc, $newCapteurID['numSerie']) ;
-                        echo 'test' ;
+                        
                     }
                 } else{
                     echo '<p> Ce capteur a déjà un identifiant </p>';

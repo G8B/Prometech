@@ -1,4 +1,4 @@
-<?php include('pages/RecupTrames.php') ?>
+
 <link rel="stylesheet" type="text/css" href="/public/css/cemac.css">
 
 
@@ -11,7 +11,7 @@
         
         <p>Voici la liste des Cemacs à votre nom : 
         <ul>
-         <?php $listCemacs = getCemacUser($_SESSION['userID']) ; 
+         <?php $listCemacs = getCemacs() ; 
         foreach ($listCemacs as $listCemac) :?>
         <li><?php echo $listCemac['numero'] ?>
         <?php endforeach; ?></li>
