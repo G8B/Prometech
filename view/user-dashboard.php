@@ -2,7 +2,7 @@
     <a class="dashboard-nav-link active" href="../index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
     <a class="dashboard-nav-link" href="../index.php?target=user&page=dashboard-conso&spage=graph_conso"><i class="fas fa-chart-bar"></i></a>
 </div>
-
+<link rel="stylesheet" type="text/css" href="/public/css/styles.css">
 <?php
 if(!isset($_GET['spage'])){
     $_GET['spage'] = '';
@@ -24,9 +24,36 @@ if(!isset($_GET['spage'])){
                         <div class="accordion-tab-content">
                             <div class="product-grid">
                                 <?php $products = getProducts($room['ID']);
-                                foreach ($products as $product) : ?>
-                                    <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?></div>
-                                <?php endforeach; ?>
+                                foreach ($products as $product) :  ?>
+                                       <?php $modele= getProductInfos($product['numeroDeSerie'])['modele'];
+                                       if ($modele==1){ ?>
+                                            <div class="product-boxTemperature">
+
+                                              <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                              <?php echo getProductInfos($product['numeroDeSerie'])['modele'] ;?>
+
+                                             </div>
+                                       <?php }
+
+                                       elseif ($modele==2){ ?>
+                                            <div class="product-boxActionneur">
+
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['modele']; ?>
+
+                                            </div>
+                                        <?php }
+
+                                       elseif ($modele==3){ ?>
+                                           <div class="product-boxCapteur">
+
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['nom']; ?>
+                                               <?php echo getProductInfos($product['numeroDeSerie'])['modele'] ;?>
+
+                                           </div>
+                                       <?php }
+
+                                endforeach; ?>
                             </div>
                         </div>
                     </div>

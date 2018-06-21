@@ -132,10 +132,31 @@ label {
 }
 
 
-.product-box {
-    background-color: white;
-    border: 2px #333333 solid;
+.product-boxTemperature {
+    background-image: url("/public/images/Temperature-icon.png");
+    background-size: 100% 100%;
+    border: 2px #333333 ;
     overflow: hidden;
+    min-height: 170px;
+    min-width: 50px;
+}
+
+.product-boxCapteur {
+    background-image: url("/public/images/Capteur.png");
+    background-size: 100% 100%;
+    border: 2px #333333 ;
+    overflow: hidden;
+    min-height: 170px;
+    min-width: 50px;
+}
+
+.product-boxActionneur {
+    background-image: url("/public/images/ActionneurLinéaire.png");
+    background-size: 100% 100%;
+    border: 2px #333333 ;
+    overflow: hidden;
+    min-height: 170px;
+    min-width: 50px;
 }
 
 /* :checked */

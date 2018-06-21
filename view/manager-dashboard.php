@@ -36,4 +36,3 @@ foreach ( $adressesDistinctes as $adresseDistincte) :?>
     <?php
     $i++;
 endforeach;
-?>
