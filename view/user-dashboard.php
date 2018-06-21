@@ -25,16 +25,16 @@ if(!isset($_GET['spage'])){
                         <label for="accordion<?php echo $i ?>-tab-<?php echo $j ?>" ><?php echo getRoomName($room['ID']); ?></label>
                         <div class="accordion-tab-content">
                             <div class="product-grid">
-                                <?php $products = getProducts($room['ID']);
-                                foreach ($products as $product) : ?>
-                                    <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
+                                <?php $products = getProducts($room['ID']); $k = 0 ;
+                                foreach ($products as $product) : $k++ ;  ?>
+                                    <div class="product-box" id = <?php echo $k ;  ?>><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
                                     $values = getValSensor($product['numeroDeSerie']) ; 
-                                    //foreach ($values as $value){
-                                        echo '<p> Dernière valeur enregistrée : ' . lectureDonnees($values['unite'], $values['valeur']) . ' ' . $values['unite'] . '</p>' ;
-                                        echo '<p> Dernière mise à jour le : ' . $values['date'] . '</p>';
-                                   // }
-                                    
-                                    
+                                   
+                                        echo '<p class="lastValueSensor"> Dernière valeur enregistrée : ' . lectureDonnees($values['unite'], $values['valeur']) . ' ' . $values['unite'] . '</p>' ;
+                                        echo '<p class="lastDate"> Dernière mise à jour le : ' . $values['date'] . '</p>';
+                                        
+                                     
+
                                     ?></div> <!-- affichage du nom des capteurs  -->
                                 <?php endforeach; ?>
                             </div>
@@ -48,13 +48,14 @@ if(!isset($_GET['spage'])){
             $i++;
 
         endforeach; ?>
-        
+
+
 
 <script type="text/javascript" src="/public/js/trames.js" >
 
 </script>
+<script type="text/javascript" >
 
-
-
+</script>
 
 

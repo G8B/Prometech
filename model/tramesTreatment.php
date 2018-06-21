@@ -1,7 +1,6 @@
 <?php
 
-//ini_set('max_execution_time', 250);
-
+//récupération des trames
 //récupération des trames
 function get_data($numCemac) {
     $ch = curl_init();
@@ -188,7 +187,7 @@ function lectureDonnees($unite, $donnee)
             //echo '%';
             break;
         case 'lux' :
-            $convertValue = luminosite($donnee);
+            $convertValue = Donnee($donnee);
             break;
         case 'presence':
             $convertValue = $donnee;
