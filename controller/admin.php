@@ -35,14 +35,20 @@ switch ($page) {
             if (empty(existenceModele())) {
                 if (isset($_POST['addModel']) AND !empty($_POST["addModel"]) AND isset($_POST['iconsList'])) {
                     addModel();
+                    ajoutLog("L'admin n°" . $_SESSION['userID'] . " a ajouté le modèle produit " . $_POST['addModel']
+                        );
+                    header("Refresh:0");
                 }
             } else {
                 echo '<script>alert("Ce modèle existe déjà !");</script>';
             }
         }
 
-        if (isset($_POST['removeModel'])) {
+        if (isset($_POST['removeModel']) AND !empty($_POST['removeModel'])) {
             removeModel();
+            ajoutLog("L'admin n°" . $_SESSION['userID'] . " a retiré le modèle produit " . $_POST['removeModel']
+                );
+            header("Refresh:0");
         }
         break;
 
