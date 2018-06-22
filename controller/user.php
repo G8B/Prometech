@@ -28,6 +28,30 @@ switch ($page) {
         $tab = 'user-dashboard';
         $title = 'Dashboard';
         $houses = getHouses($_SESSION['userID']);
+        
+        if (isset($_POST['moteur'])){
+            echo 'on active ' . $_POST['moteur'] ;
+            switch (getActuatorState($_POST['moteur'])){
+                
+                case 0 :
+                    activateActuator($_POST['moteur'], 1);
+                    break;
+                case NULL :
+                    activateActuator($_POST['moteur'], 1);
+                    break;
+                case 1 :
+                    activateActuator($_POST['moteur'], 0);
+                    break;
+                default :
+                    activateActuator($_POST['moteur'], 0);
+                    break;
+                    
+                    
+            }
+            
+        }
+        
+        
         break;
 
     case 'dashboard-conso' :
