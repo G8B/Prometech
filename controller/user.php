@@ -30,7 +30,7 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         
         if (isset($_POST['moteur'])){
-            echo 'on active ' . $_POST['moteur'] ;
+          
             switch (getActuatorState($_POST['moteur'])){
                 
                 case 0 :
