@@ -79,6 +79,8 @@ if(!isset($_GET['spage'])){
 
 $('#btn-bg').click(function(){
 	  $('#btn-bg').toggleClass('active');
+	 
 	});
 </script>
+
 

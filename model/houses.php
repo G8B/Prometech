@@ -249,3 +249,19 @@ function getActuatorState($numSerie){
     return $stateA[0]['etat'];
     
 }
+
+function getActuatorID($numSerie){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT ID FROM actionneurs WHERE numSerie = ? ');
+    $req->execute(array($numSerie));
+    $actID = $req->fetchAll();
+    return $actID[0]['ID'];
+}
+
+function getActuatorCemac($numCemac){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numSerie = ? ');
+    $req->execute(array($numCemac));
+    $actCemac = $req->fetchAll();
+    return $actCemac[0]['numeroCemac'];
+}

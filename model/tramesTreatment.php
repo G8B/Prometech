@@ -1,6 +1,7 @@
 <?php
 
-//récupération des trames
+//ini_set('max_execution_time', 250);
+
 //récupération des trames
 function get_data($numCemac) {
     $ch = curl_init();
@@ -223,5 +224,23 @@ function getTramesCount($cemacNum){
     $req->execute(array($cemacNum));
     $count = $req->fetchAll();
     return $count[0]['trameCount'];
+}
+
+function sendTrame($numeroCemac, $data){
+    $ch = curl_init();
+    
+    curl_setopt(
+        $ch,
+        CURLOPT_URL,
+        "http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=$numeroCemac&TRAME=$data");
+        
+        // curl_exec($ch);
+        
+        
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        
 }
 
