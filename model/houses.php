@@ -92,7 +92,7 @@ function getProductInfos($idproduct): array
 function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur)
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('INSERT INTO positionproduit(numeroDeSerie, ID_piece, nom_capteur) VALUES (:numeroDeSerie, :ID_piece, :nom_capteur)');
+    $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece, nom_capteur) VALUES (:numeroDeSerie, :ID_piece, :nom_capteur)');
     $req->execute([
         'numeroDeSerie' => $numeroDeSerie,
         'ID_piece' => $idPiece,
@@ -207,7 +207,7 @@ function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHo
 function getNames($idRoom)
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT nom_capteur,numeroDeSerie FROM positionproduit WHERE ID_piece = ?');
+    $req = $bdd->prepare('SELECT nom_capteur,numeroDeSerie FROM positionProduit WHERE ID_piece = ?');
     $req->execute(array($idRoom));
     $names = $req->fetchAll();
     return $names;
