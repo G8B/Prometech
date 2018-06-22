@@ -24,7 +24,7 @@ switch ($page) {
         $title = 'Support';
         if (isset($_POST['ticketChoice']) AND isset($_POST['Statuts'])) {
             changeStatus(getStatus($_POST['Statuts']), getIDTicket($_POST['ticketChoice']));
-            ajoutLog("L'admin n°" . $_SESSION['userID'] . " a changé le statut du ticket " . $_POST['ticketChoice'] . ' en ' . $_POST['Statuts']
+            ajoutLog("L'admin n°" . $_SESSION['userID'] . " a changé le statut du ticket support " . $_POST['ticketChoice'] . ' en ' . $_POST['Statuts']
                 );
             header("Refresh:0");
         }
