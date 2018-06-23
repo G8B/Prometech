@@ -216,7 +216,7 @@ function getNames($idRoom)
 }
 function getDonnees($numero) {
     $bdd = connectBDD();
-    $req = $bdd->prepare('SELECT valeur, date FROM donnees WHERE identifiant = ? ORDER BY Date ASC');
+    $req = $bdd->prepare('SELECT donnees.valeur , donnees.date FROM `donnees` JOIN capteurs ON donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date ASC;');
     $req->execute(array($numero));
     $donnees = $req->fetchAll();
     return $donnees;
