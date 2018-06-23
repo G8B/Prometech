@@ -228,7 +228,7 @@ foreach ($valSensors as $valSensor){
     echo '<p>'.$valSensor['numCemac']. $valSensor['numeroDeSerie'] . $valSensor['valeur']  . '</p>';
 }
 
-*/
+
 
 $ch = curl_init();
 curl_setopt(
@@ -243,3 +243,5 @@ curl_setopt(
     
     
 echo 'test' ;
+
+*/

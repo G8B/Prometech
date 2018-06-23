@@ -4,7 +4,7 @@ require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
 require('model/houses.php');
 require('model/tramesTreatment.php');
-//require('model/updateDatabase.php');
+require ('model/productsTreatment.php');
 
 $home = '/index.php?target=user';
 
@@ -23,20 +23,63 @@ switch ($page) {
         $title = 'Accueil';
         $houses = getHouses($_SESSION['userID']);
         break;
-
-
+        
+        
     case 'dashboard' :
         $tab = 'user-dashboard';
         $title = 'Dashboard';
         $houses = getHouses($_SESSION['userID']);
+        
+        if (isset($_POST['moteur'])){
+            $obj = getActuatorCemac($_POST['moteur']);
+            $actID = sprintf("%'.02u", getActuatorID($_POST['moteur'])) ;
+            $on = sprintf("%'.04u", 1) ;
+            $off =sprintf("%'.04u", 0) ;
+            
+            switch (getActuatorState($_POST['moteur'])){
+                
+                case 0 :
+                    activateActuator($_POST['moteur'], 1);
+                    $data = 1 . $obj . 2 . 'a'. $actID. $on  ;
+                    
+                    
+                    sendTrame($obj, $data);
+                    break;
+                case NULL :
+                    activateActuator($_POST['moteur'], 1);
+                    
+                    $data = 1 . $obj . 2 . 'a'. $actID. $on  ;
+                    
+                    sendTrame($obj, $data);
+                    break;
+                case 1 :
+                    activateActuator($_POST['moteur'], 0);
+                    
+                    $data = 1 . $obj . 2 . 'a'. $actID. $off  ;
+                    
+                    sendTrame($obj, $data);
+                    break;
+                default :
+                    activateActuator($_POST['moteur'], 0);
+                    
+                    $data = 1 . $obj . 2 . 'a'. $actID. $off  ;
+                    
+                    sendTrame($obj, $data);
+                    break;
+                    
+                    
+            }
+            
+        }
+        
         break;
-
+        
     case 'dashboard-conso' :
         $tab = 'user-dashboard-conso';
         $title = 'Dashboard-Consommation';
         $houses = getHouses($_SESSION['userID']);
         break;
-
+        
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';
@@ -52,7 +95,7 @@ switch ($page) {
                         $alerte = "Impossible de supprimer une pièce qui contient des produits !";
                         $delete = false;
                     }
-                   break;
+                    break;
                 }
                 if ($delete) {
                     deleteHouse($_POST['idHouse']);
@@ -64,7 +107,7 @@ switch ($page) {
             }
         }
         break;
-
+        
     case 'myinfos' :
         $tab = 'user-compte';
         $title = 'Mon compte';
@@ -75,30 +118,30 @@ switch ($page) {
             updatenom($newnom, $userInfos['ID']);
             header("Refresh:0");
         }
-
+        
         if (isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $userInfos['prenom']) {
             $newprenom = htmlspecialchars($_POST['newprenom']);
             updateprenom($newprenom, $userInfos['ID']);
             header("Refresh:0");
         }
-
+        
         if (isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $userInfos['email']) {
             $newmail = htmlspecialchars($_POST['newmail']);
             updatemail($newmail, $userInfos['ID']);
             header("Refresh:0");
         }
-
+        
         if (isset($_POST['mdpactuel']) AND !empty($_POST['mdpactuel']) AND isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2'])) {
             $mdpactuel = $_POST['mdpactuel'];
             $newmdp1 = $_POST['newmdp1'];
             $newmdp2 = $_POST['newmdp1'];
-
+            
             if (password_verify($mdpactuel, $userInfos['password'])) {
                 if ($newmdp1 == $newmdp2) {
                     updatepassword(password_hash($newmdp1, PASSWORD_DEFAULT), $userInfos['ID']);
                 } else {
                     echo '<p> Vos deux nouveaux mots de passe ne correspondent pas ! </p>';
-
+                    
                 }
             } else {
                 echo "<p>Mot de passe actuel incorrect !</p>";
@@ -106,7 +149,7 @@ switch ($page) {
             header("Refresh:0");
         }
         break;
-
+        
     case 'newHouse':
         $tab = 'ajoutLogement';
         $title = 'Mes logements';
@@ -117,7 +160,7 @@ switch ($page) {
             exit();
         }
         break;
-
+        
     case 'ajout-produit' :
         $tab = "add-product";
         $title = "Ajouter un produit";
@@ -126,11 +169,20 @@ switch ($page) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
             $numCemac = htmlspecialchars($_POST['Cemac']);
             addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
+            if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
+                addActuator($num, $numCemac, $_SESSION['userID']);
+            } else{
+                addSensor($num, $numCemac);
+            }
+            
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
+            
         }
+        
+        
         break;
-
+        
     case 'ajout-piece' :
         $tab = "add-room";
         $title = "Ajouter une pièce";
@@ -142,7 +194,7 @@ switch ($page) {
             exit();
         }
         break;
-
+        
     case 'ajout-Cemac' :
         $tab = "AjoutCemac";
         $title = "Ajouter une pièce";
@@ -154,15 +206,16 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
-         
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
             $number = htmlspecialchars($_POST['number']);
             addCemac($number, $_POST['idHouse']);
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
             exit();
         }
+        
+        
         break;
-
+        
     case 'edit-house' :
         $tab = "edit-house";
         $title = "Edition maison";
@@ -187,11 +240,11 @@ switch ($page) {
                     header("Refresh:0");
                 } else
                     $alerte = "Impossible de supprimer une pièce qui contient des produits !";
-
+                    
             }
         }
         break;
-
+        
     case 'edit-product' :
         $tab = "user-edit-product";
         $title = "Edition de produit";
@@ -208,7 +261,7 @@ switch ($page) {
             exit();
         }
         break;
-
+        
     default :
         $title = '404';
         echo "<script type='text/javascript'>document.location.replace('index.php?target=home&page=404');</script>";
