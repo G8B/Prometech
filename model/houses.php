@@ -30,8 +30,10 @@ function getCemacLogement($idHouse) : array
 
 function deleteCemac($numeroCemac){
     $bdd = connectBDD();
-    $req = $bdd->prepare('DELETE from cemac WHERE numero = ? ');
-    $req->execute(array($numeroCemac));
+    $req1 = $bdd->prepare('DELETE cemac,capteurs,positionproduit, proprieteproduit, donnees FROM cemac JOIN capteurs ON cemac.numero = capteurs.numeroCemac JOIN proprieteproduit ON proprieteproduit.numeroDeSerie = capteurs.numSerie JOIN positionproduit ON positionproduit.numeroDeSerie = capteurs.numSerie JOIN donnees ON donnees.numCemac = cemac.numero WHERE cemac.numero = ?');
+    $req1->execute(array($numeroCemac));
+    $req2 = $bdd->prepare('DELETE cemac,actionneurs, positionproduit, proprieteproduit, donnees FROM cemac JOIN actionneurs ON cemac.numero = actionneurs.numeroCemac JOIN positionproduit ON positionproduit.numeroDeSerie = actionneurs.numSerie JOIN proprieteproduit ON proprieteproduit.numeroDeSerie = actionneurs.numSerie JOIN donnees ON donnees.numCemac = cemac.numero WHERE cemac.numero = ?');
+    $req2->execute(array($numeroCemac));
 }
 
 function getCemacs() : array{
@@ -151,6 +153,9 @@ function deleteProduct($idProduct)
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
     $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM capteurs WHERE numSerie = ?');
+    $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM actionneurs WHERE numSerie =?');
 }
 
 function deleteRoom($idRoom)
