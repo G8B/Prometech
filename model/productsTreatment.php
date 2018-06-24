@@ -24,6 +24,17 @@ function getModelsList(){
 
 function getIcon($modele) : string {
     $bdd = connectBDD();
+    $req= $bdd->prepare('SELECT icon FROM modeleProduits WHERE modele = ?  ');
+    $req->execute(array($modele));
+    $indexes = $req-> fetch();
+    $index = $indexes['icon'];
+    $iconsList = listIcons();
+    $icon = array_search($iconsList[$index-1], $iconsList) ;
+    return $iconsList[$icon] ;
+}
+
+function getIconUser($modele) : string {
+    $bdd = connectBDD();
     $req= $bdd->prepare('SELECT icon FROM modeleProduits WHERE ID_modele = ?  ');
     $req->execute(array($modele));
     $indexes = $req-> fetch();

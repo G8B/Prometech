@@ -27,7 +27,7 @@ foreach ($houses as $house) : ?>
                         foreach ($products as $product) : ?>
                             <div class="product-box">
                                 <?php echo getProductInfos($product['numeroDeSerie'])['nom'] ?>
-                                <i class="<?php echo getIcon(getProductInfos($product['numeroDeSerie'])['modele']) ?>" > </i>
+                                <i class="<?php echo getIconUser(getProductInfos($product['numeroDeSerie'])['modele']) ?>" > </i>
                             </div>
 
                         <?php endforeach; ?>
