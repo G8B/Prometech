@@ -56,13 +56,13 @@ function getProductInfos($idproduct): array
     $bdd = connectBDD();
     $req = $bdd->prepare("SELECT `nom`, `modele` FROM `produits` WHERE `numeroDeSerie` =?");
     $req->execute(array($idproduct));
-
     $productInfos = $req->fetch();
     if(!is_array($productInfos)){ // dans le cas où la base de données des produits est vide
         return array('nom' => 'no name in db', 'modele' => 'no modele in db');
     }
     else return $productInfos;
 }
+
 
 function addProduct($numeroDeSerie, $idPiece, $idUser)
 {

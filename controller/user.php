@@ -2,6 +2,7 @@
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
+require('model/productsTreatment.php');
 require('model/houses.php');
 
 $home = '/index.php?target=user';
