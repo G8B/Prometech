@@ -1,24 +1,8 @@
-/* Get the ticket
-var ticket = document.getElementById('myDIV');
-
-//Get the button
- var row = document.getElementById("test");
-
- 
- row.onclick = function showTicket() {
-	 if (ticket.style.display === "none") {
-	        ticket.style.display = "block";
-	    } else {
-	        ticket.style.display = "none";
-	    }
- }
- 
- */
 var listes = document.getElementsByClassName("Liste_ticket");
 
-for (i =0 ; i< listes.length ; i++){
-	 listes[i].style.display = "block";
-	 }
+for (var i = 0; i < listes.length; i++) {
+    listes[i].style.display = "block";
+}
 
 $(document).ready(function () {
     $('.text').hide();

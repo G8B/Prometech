@@ -1,9 +1,3 @@
-var log = function($selector) {
-    $selector.each(function() {
-        console.log(this);
-    });
-};
-
 $('#deleteElement').click(function () {
 
     var form = $('#form');

@@ -16,20 +16,19 @@
     line-height: 100%;
     vertical-align: middle;
     border: 1px #333333 solid;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+.dashboard-nav-link:hover, .dashboard-nav-link:active, .dashboard-nav-link:focus {
     background-color: #F1B573;
-    color:#292929;
+    color: #292929;
     cursor: pointer;
     text-decoration: none;
 }
 
-.dashboard-nav-link.active{
+.dashboard-nav-link.active {
     background-color: #F1B573;
 }
-
 
 .fas {
     position: relative;
@@ -64,7 +63,7 @@
     color: #333333;
 }
 
-.type_conso{
+.type_conso {
     position: relative;
     display: block;
     padding: 0 0 0 1em;
@@ -75,10 +74,9 @@
     cursor: pointer;
 }
 
-.type_conso:hover{
+.type_conso:hover {
     background: #F1B573;
 }
-
 
 /* - Accordion css - */
 .tab {
@@ -122,7 +120,7 @@ label {
     grid-gap: 50px;
 }
 
-.product-grid-conso{
+.product-grid-conso {
     margin: 1em;
     display: grid;
     grid-gap: 50px;
@@ -130,7 +128,6 @@ label {
     min-height: 250px;
     min-width: 50px;
 }
-
 
 .product-box {
     background-color: white;
@@ -345,23 +342,23 @@ input[type=radio]:checked + label::after {
 }
 
 #addProd {
-    background-color:#30728E;
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
-    border-radius:28px;
-    border:1px solid #10455D;
+    background-color: #30728E;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    border-radius: 28px;
+    border: 1px solid #10455D;
     display: inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-size:17px;
-    padding:16px 31px;
-    text-decoration:none;
-    text-shadow:0 1px 0 #10455D;
-}
-#addProd:hover {
-    background-color:#64A9C7;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #10455D;
 }
 
+#addProd:hover {
+    background-color: #64A9C7;
+}
 
 .form-button {
     background-color: #E29845;

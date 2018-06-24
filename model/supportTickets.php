@@ -21,7 +21,6 @@ function sendSupportTicket(): bool
         INTO ticketsDeSupport(etat, priorite, time, contenu, email, objet)
         VALUES(:etat, :priorite, :time, :contenu, :email, :objet)');
 
-
     $req->execute([
         'etat' => 1,
         'priorite' => $_POST['priorite'],
@@ -82,8 +81,7 @@ function getStatus($statut): int
     if ($statut == "En attente") {
         $etat = 2;
         return $etat;
-    }
-    else {
+    } else {
         $etat = 3;
         return $etat;
     }
@@ -97,13 +95,11 @@ function countOpenTickets()
     return $req->fetch()[0];
 }
 
-
 function getIDTicket($str): int
 {
     $reg = '/^Ticket/';
     $ticketNumber = preg_replace($reg, '$1', $str);
     return $ticketNumber;
-
 }
 
 function changeStatus($newStatus, $id)

@@ -7,6 +7,7 @@
 /**
  * Génère le code HTML d'affichage d'une alerte
  * @param string|null $alerte
+ * @return string
  */
 function AfficheAlerte(?string $alerte)
 {

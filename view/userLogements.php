@@ -4,7 +4,7 @@ echo AfficheAlerte($alerte);
 $i = 0;
 foreach ($houses as $house) : ?>
     <div class="user-house-dashboard" id="<?php echo $house['ID_logement'] ?>">
-    </br>
+        </br>
         <h1 class="user-house-name"><?php echo getHouseAdress($house['ID_logement']); ?>
             <button class="supprimer delete-btn house-delete" type="button" id="supprimer"><i class="fas fa-minus"></i>
             </button>
