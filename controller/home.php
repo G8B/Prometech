@@ -48,7 +48,9 @@ switch ($page) {
         $title = 'Inscription';
 
         if (isset($_POST['email']) and isset($_POST['password'])) {
-            if (!isAnEmail($_POST['email'])) {
+            if (empty($_POST['nom']) or empty($_POST['prenom']) or empty($_POST['email']) or empty($_POST['password'])) {
+                $alerte = "Veuillez remplir tous les champs.";
+            } else if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
             } else if (!isset($_POST['choixUtilisateur']) and !isset($_POST['choixGestionnaire'])) {
                 $alerte = "Veuillez sélectionner un type de compte.";
