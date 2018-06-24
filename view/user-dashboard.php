@@ -70,9 +70,7 @@ foreach ($houses as $house) : ?>
     </div>
     <?php
     $i++;
-
 endforeach; ?>
-
 
 <script type="text/javascript" src="/public/js/trames.js">
 </script>
@@ -86,5 +84,3 @@ endforeach; ?>
 
     });
 </script>
-
-

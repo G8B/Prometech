@@ -8,6 +8,7 @@
         <h1>Gérer un immeuble</h1>
         <br>
 
+
         <p>
             Adresse :
             <input class="compte" type="text" name="adresse" size="50"/>
@@ -22,4 +23,3 @@
 
 
 </div>
-

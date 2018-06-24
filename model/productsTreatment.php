@@ -38,8 +38,18 @@ function getIcon($modele): string
     return $iconsList[$icon];
 }
 
-function listIcons(): array
-{
+function getIconUser($modele) : string {
+    $bdd = connectBDD();
+    $req= $bdd->prepare('SELECT icon FROM modeleProduits WHERE ID_modele = ?  ');
+    $req->execute(array($modele));
+    $indexes = $req-> fetch();
+    $index = $indexes['icon'];
+    $iconsList = listIcons();
+    $icon = array_search($iconsList[$index-1], $iconsList) ;
+    return $iconsList[$icon] ;
+}
+
+function listIcons() : array{
     $icons = array('fa fa-thermometer-full', 'fa fa-cogs', 'fa fa-video', 'fa fa-lightbulb',
         'fa fa-male', 'fa fa-lock', 'fa fa-tint');
     return $icons;

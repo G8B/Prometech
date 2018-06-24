@@ -89,6 +89,7 @@ function getProductInfos($idproduct): array
     } else return $productInfos;
 }
 
+
 function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur)
 {
     $bdd = connectBDD();
@@ -331,6 +332,24 @@ function cemacActuator($numCemac)
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numeroCemac = ?');
     $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function existenceCapteurs($numS){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numSerie, numeroDeSerie FROM capteurs JOIN proprieteProduit ON capteurs.numSerie = proprieteProduit.numeroDeSerie WHERE numSerie = ?');
+    $req->execute(array($numS));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function existenceActionneurs($numS){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numSerie, numeroDeSerie FROM actionneurs JOIN proprieteProduit ON actionneurs.numSerie = proprieteProduit.numeroDeSerie WHERE numSerie = ?');
+    $req->execute(array($numS));
     $existence = $req->fetch();
     $req->closeCursor();
     return $existence;

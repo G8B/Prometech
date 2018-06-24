@@ -2,9 +2,9 @@
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
 require('model/ajoutLogementTreatment.php');
+require('model/productsTreatment.php');
 require('model/houses.php');
 require('model/tramesTreatment.php');
-require('model/productsTreatment.php');
 
 $home = '/index.php?target=user';
 
@@ -147,14 +147,19 @@ switch ($page) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
             $numCemac = htmlspecialchars($_POST['Cemac']);
             $nomCapteur = htmlspecialchars($_POST['nomCapteur']);
-            addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac, $nomCapteur);
-            if (getActionneurModele($_POST['numeroDeSerie']) == 'a') {
-                addActuator($num, $numCemac, $_SESSION['userID']);
-            } else {
-                addSensor($num, $numCemac);
+            if (empty(existenceActionneurs($_POST['numeroDeSerie'])) AND empty(existenceCapteurs($_POST['numeroDeSerie']))){
+                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac, $nomCapteur);
+                if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
+                    addActuator($num, $numCemac, $_SESSION['userID']);
+                } else{
+                    addSensor($num, $numCemac);
+                }
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+            } else{
+                $alerte = 'Vous ne pouvez pas ajouter ce produit car il a déjà été enregistré !';
             }
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-            exit();
+     
         }
         break;
 
@@ -180,11 +185,9 @@ switch ($page) {
                 $numbersuprr = htmlspecialchars($_POST['numbersuppr']);
                 deleteCemac($numbersuprr);
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-                exit();
-            } else {
-                echo '<script>alert("Vous devez supprimer les capteurs et actionneurs associés à la Cemac avant de la retirer !");</script>';
-                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-                exit();
+                exit();   
+            } else{
+                $alerte = 'Vous devez supprimer les capteurs et actionneurs associés à la Cemac avant de la retirer !'; 
             }
         }
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
@@ -193,10 +196,8 @@ switch ($page) {
                 addCemac($number, $_POST['idHouse']);
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
                 exit();
-            } else {
-                echo '<script>alert("Vous ne pouvez pas ajouter cette Cemac !");</script>';
-                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-                exit();
+            } else{
+                $alerte = 'Vous ne pouvez pas ajouter cette Cemac car elle est déjà enregistrée!';
             }
         }
         break;
