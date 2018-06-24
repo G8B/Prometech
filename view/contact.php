@@ -20,7 +20,7 @@
         <label for="email"></label>
         <input type="email" name="email" placeholder="Email" size="25"/>
     </p>
-    <p>        <label for="objet"></label>
+    <p><label for="objet"></label>
         <input type="text" name="objet" placeholder="Objet" size="25"/>
     </p>
     <p>

@@ -8,9 +8,9 @@
 
         <br>
 
-        <p >
+        <p>
             Adresse :
-            <input  class ="logement" type="text" name="adresse" size="50"/>
+            <input class="logement" type="text" name="adresse" size="50"/>
         </p>
         <br>
 
@@ -44,14 +44,14 @@
         <tbody>
         <?php $rooms = getRooms($idHouse);
         foreach ($rooms as $room) : ?>
-        <tr>
-            <td><?php echo getRoomName($room['ID']); ?></td>
-            <td id="<?php echo $room['ID'] ?>">
-                <button class="supprimer delete-btn room-delete" type="button" id="supprimer"><i
-                            class="fas fa-minus"></i>
-                </button>
-            </td>
-        </tr>
+            <tr>
+                <td><?php echo getRoomName($room['ID']); ?></td>
+                <td id="<?php echo $room['ID'] ?>">
+                    <button class="supprimer delete-btn room-delete" type="button" id="supprimer"><i
+                                class="fas fa-minus"></i>
+                    </button>
+                </td>
+            </tr>
         <?php endforeach; ?>
         </tbody>
     </table>

@@ -1,5 +1,4 @@
 <?php
-
 function getHouses($iduser): array
 {
     $bdd = connectBDD();
@@ -16,19 +15,18 @@ function getHouseAdress($idHouse)
     $req->execute(array($idHouse));
     return $req->fetch()['adresse'];
 }
-function getCemacLogement($idHouse) : array
+
+function getCemacLogement($idHouse): array
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numero FROM cemac WHERE ID_logement = ?');
     $req->execute(array($idHouse));
     $numbers = $req->fetchAll();
     return $numbers;
-    
-    
 }
 
-
-function deleteCemac($numeroCemac){
+function deleteCemac($numeroCemac)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('DELETE FROM `cemac` WHERE numero = ? ');
     $req->execute(array($numeroCemac));
@@ -36,12 +34,13 @@ function deleteCemac($numeroCemac){
     $req1->execute(array($numeroCemac));
 }
 
-function getCemacs() : array{
-    $bdd= connectBDD();
+function getCemacs(): array
+{
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numero from cemac WHERE ID_utilisateur = ? ');
     $req->execute(array($_SESSION['userID']));
     $cemacs = $req->fetchAll();
-    return $cemacs ;
+    return $cemacs;
 }
 
 function getRooms($idhouse): array
@@ -75,7 +74,7 @@ function hasNoProduct($idroom)
     $products = getProducts($idroom);
     if (count($products))
         return false;
-        return true;
+    return true;
 }
 
 function getProductInfos($idproduct): array
@@ -83,11 +82,11 @@ function getProductInfos($idproduct): array
     $bdd = connectBDD();
     $req = $bdd->prepare("SELECT `nom`, `modele` FROM `produits` WHERE `numeroDeSerie` =?");
     $req->execute(array($idproduct));
+
     $productInfos = $req->fetch();
-    if(!is_array($productInfos)){ // dans le cas où la base de données des produits est vide
+    if (!is_array($productInfos)) { // dans le cas où la base de données des produits est vide
         return array('nom' => 'no name in db', 'modele' => 'no modele in db');
-    }
-    else return $productInfos;
+    } else return $productInfos;
 }
 
 
@@ -104,17 +103,17 @@ function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur
     $req2->execute([
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
-        
     ]);
     $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
     $req3->execute([
         'numeroCemac' => $numeroCemac,
         'numSerie' => $numeroDeSerie,
         'nom_capteur' => $nomCapteur
-        ]);
+    ]);
 }
 
-function addSensor($numeroDeSerie,$numeroCemac){
+function addSensor($numeroDeSerie, $numeroCemac)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie) VALUES (:numeroCemac, :numSerie)');
     $req->execute([
@@ -123,18 +122,20 @@ function addSensor($numeroDeSerie,$numeroCemac){
     ]);
 }
 
-function addActuator($numeroDeSerie,$numeroCemac, $idUser){
+function addActuator($numeroDeSerie, $numeroCemac, $idUser)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO actionneurs(ID,numeroCemac, numSerie) VALUES (:ID, :numeroCemac, :numSerie)');
     $count = getUserActuators($idUser);
     $req->execute([
-        'ID' => $count ,
+        'ID' => $count,
         'numeroCemac' => $numeroCemac,
         'numSerie' => $numeroDeSerie
     ]);
 }
 
-function getUserActuators($idUser) {
+function getUserActuators($idUser)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT COUNT(modele) as actio FROM `produits` INNER JOIN proprieteProduit ON produits.numeroDeSerie = proprieteProduit.numeroDeSerie WHERE modele = "a" AND ID_utilisateur = ?');
     $req->execute(array($idUser));
@@ -189,40 +190,44 @@ function addCemac($numero, $idHouse)
     $req->execute([
         'numero' => $numero,
         'house' => $idHouse,
-        'user' =>  $_SESSION['userID']
+        'user' => $_SESSION['userID']
     ]);
 }
 
-function getNewCapteursID(){
+function getNewCapteursID()
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID, numeroCemac, numSerie, modele FROM capteurs INNER JOIN produits ON capteurs.numSerie = produits.numeroDeSerie WHERE ID IS NULL ');
     $req->execute();
     $capteursID = $req->fetchAll();
-    return $capteursID ;
+    return $capteursID;
 }
 
 
-function setCapteursID($idcapteur, $numS){
+function setCapteursID($idcapteur, $numS)
+{
     $bdd = connectBDD();
-    $req =$bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
-    $req->execute(array($idcapteur, $numS )) ;
+    $req = $bdd->prepare('UPDATE capteurs SET ID = ? WHERE numSerie = ?');
+    $req->execute(array($idcapteur, $numS));
 }
 
 
-function getActionneurModele($nums)  {
+function getActionneurModele($nums)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT modele FROM produits WHERE numeroDeSerie = ? ');
     $req->execute(array($nums));
     $modeleAct = $req->fetchAll();
-    return $modeleAct[0]['modele'] ;
+    return $modeleAct[0]['modele'];
 }
+
 function getNumberProducts($iduser)
 {
-    $numberProducts= 0;
-    $houses=getHouses($iduser);
-    foreach ($houses as $house){
-        $rooms=getRooms($house['ID_logement']);
-        foreach($rooms as $room) {
+    $numberProducts = 0;
+    $houses = getHouses($iduser);
+    foreach ($houses as $house) {
+        $rooms = getRooms($house['ID_logement']);
+        foreach ($rooms as $room) {
             $bdd = connectBDD();
             $req = $bdd->prepare('SELECT COUNT(numeroDeSerie) FROM positionProduit WHERE ID_piece = ?');
             $req->execute(array($room['ID']));
@@ -230,7 +235,7 @@ function getNumberProducts($iduser)
             $numberProducts = $numberProducts + $products[0][0];
         }
     }
-    return $numberProducts ;
+    return $numberProducts;
 }
 
 function getNumberLogements($iduser)
@@ -240,11 +245,12 @@ function getNumberLogements($iduser)
     return $numberLogements;
 }
 
-function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse){
+function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHouse)
+{
     $bdd = connectBDD();
     $updateLogement = $bdd->prepare("UPDATE logements SET adresse = ?, nbrPieces = ?, nbrHabitants = ?, superficie = ? WHERE ID = $idHouse");
     $updateLogement->execute(array($adresse, $nbrPieces, $nbrHabitants, $superficie));
-    
+
 }
 
 function getNames($idRoom)
@@ -254,10 +260,10 @@ function getNames($idRoom)
     $req->execute(array($idRoom));
     $names = $req->fetchAll();
     return $names;
-
-
 }
-function getDonnees($numero) {
+
+function getDonnees($numero)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT donnees.valeur , donnees.date FROM `donnees` JOIN capteurs ON donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date ASC;');
     $req->execute(array($numero));
@@ -265,22 +271,25 @@ function getDonnees($numero) {
     return $donnees;
 }
 
-      function activateActuator($numSerie, $state){
+function activateActuator($numSerie, $state)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('UPDATE actionneurs SET etat = ? WHERE numSerie = ? ');
     $req->execute(array($state, $numSerie));
 }
 
-function getActuatorState($numSerie){
+function getActuatorState($numSerie)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT etat FROM actionneurs WHERE numSerie = ? ');
     $req->execute(array($numSerie));
     $stateA = $req->fetchAll();
     return $stateA[0]['etat'];
-    
+
 }
 
-function getActuatorID($numSerie){
+function getActuatorID($numSerie)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT ID FROM actionneurs WHERE numSerie = ? ');
     $req->execute(array($numSerie));
@@ -288,7 +297,8 @@ function getActuatorID($numSerie){
     return $actID[0]['ID'];
 }
 
-function getActuatorCemac($numCemac){
+function getActuatorCemac($numCemac)
+{
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numSerie = ? ');
     $req->execute(array($numCemac));
@@ -296,8 +306,9 @@ function getActuatorCemac($numCemac){
     return $actCemac[0]['numeroCemac'];
 }
 
-function existenceCemac($numC){
-    $bdd= connectBDD();
+function existenceCemac($numC)
+{
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numero FROM cemac WHERE numero = ?');
     $req->execute(array($numC));
     $existence = $req->fetch();
@@ -306,8 +317,9 @@ function existenceCemac($numC){
 }
 
 
-function cemacSensor($numCemac){
-    $bdd= connectBDD();
+function cemacSensor($numCemac)
+{
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numeroCemac FROM capteurs WHERE numeroCemac = ?');
     $req->execute(array($numCemac));
     $existence = $req->fetch();
@@ -315,8 +327,9 @@ function cemacSensor($numCemac){
     return $existence;
 }
 
-function cemacActuator($numCemac){
-    $bdd= connectBDD();
+function cemacActuator($numCemac)
+{
+    $bdd = connectBDD();
     $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numeroCemac = ?');
     $req->execute(array($numCemac));
     $existence = $req->fetch();

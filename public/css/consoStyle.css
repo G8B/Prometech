@@ -4,10 +4,6 @@ h1 {
     border: 1px solid black;
     padding: 5px;
     width: 100%;
-
-
-
-
 }
 
 .dashboard-nav-link {
@@ -21,6 +17,7 @@ h1 {
     vertical-align: middle;
     border: 1px #333333 solid;
 }
+
 #dashboard-nav {
     float: left;
     vertical-align: top;
@@ -28,14 +25,14 @@ h1 {
     width: 70px;
 }
 
-.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+.dashboard-nav-link:hover, .dashboard-nav-link:active, .dashboard-nav-link:focus {
     background-color: #F1B573;
-    color:#292929;
+    color: #292929;
     cursor: pointer;
     text-decoration: none;
 }
 
-.dashboard-nav-link.active{
+.dashboard-nav-link.active {
     background-color: #F1B573;
 }
 
@@ -51,11 +48,11 @@ h1 {
     vertical-align: middle;
 }
 
-.form_logement{
-    display : flex;
+.form_logement {
+    display: flex;
     margin-top: 1%;
-    margin-left : auto;
-    margin-right : auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-button {
@@ -65,6 +62,3 @@ h1 {
     width: 35%;
     border-radius: 5px;
 }
-
-
-

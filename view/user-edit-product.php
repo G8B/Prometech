@@ -1,7 +1,7 @@
 <div class="form_logement">
     <form method="post" action="" id="moveProduit">
 
-        <h1>Déplacement du produit <?php echo $productInfos['nom']?></h1>
+        <h1>Déplacement du produit <?php echo $productInfos['nom'] ?></h1>
 
         <p>
             <select title="idPiece" name="idPiece" form="moveProduit">

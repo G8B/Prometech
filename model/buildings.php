@@ -1,5 +1,4 @@
 <?php
-
 function getIDHousesFromAdress($adresseGestionnaire): array
 {
     $bdd = connectBDD();
@@ -50,7 +49,7 @@ function supprBuilding($IDlogementSuppr)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('DELETE FROM gestionLogement WHERE ID_logement = ?');
-    $req->execute( array($IDlogementSuppr));
+    $req->execute(array($IDlogementSuppr));
 }
 
 function getHouseAdressManager($idHouse)
@@ -60,8 +59,3 @@ function getHouseAdressManager($idHouse)
     $req->execute(array($idHouse["ID_logement"]));
     return $req->fetch()['adresse'];
 }
-
-
-
-
-

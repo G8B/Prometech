@@ -75,7 +75,8 @@
                     <h1>Êtes vous sûr de vouloir supprimer ce compte ?</h1>
                     <h2>Cette action est irréversible !</h2>
                     <div style="margin-left: 20%;">
-                        <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer</button>
+                        <button type="button" class="form-button confirm-delete-btn" id="deleteElement">Supprimer
+                        </button>
                         <button type="button" class="form-button" id="cancel">Annuler</button>
                     </div>
                 </div>
