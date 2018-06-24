@@ -90,7 +90,7 @@ function getProductInfos($idproduct): array
 }
 
 
-function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur)
+function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece, nom_capteur) VALUES (:numeroDeSerie, :ID_piece, :nom_capteur)');
@@ -104,21 +104,15 @@ function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
     ]);
-    $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
-    $req3->execute([
+}
+
+function addSensor($numeroDeSerie,$numeroCemac, $nomCapteur){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
+    $req->execute([
         'numeroCemac' => $numeroCemac,
         'numSerie' => $numeroDeSerie,
         'nom_capteur' => $nomCapteur
-    ]);
-}
-
-function addSensor($numeroDeSerie, $numeroCemac)
-{
-    $bdd = connectBDD();
-    $req = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie) VALUES (:numeroCemac, :numSerie)');
-    $req->execute([
-        'numeroCemac' => $numeroCemac,
-        'numSerie' => $numeroDeSerie
     ]);
 }
 
