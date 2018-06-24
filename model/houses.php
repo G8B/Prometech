@@ -156,6 +156,7 @@ function deleteProduct($idProduct)
     $req = $bdd->prepare('DELETE FROM capteurs WHERE numSerie = ?');
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM actionneurs WHERE numSerie =?');
+    $req->execute(array($idProduct));
 }
 
 function deleteRoom($idRoom)
