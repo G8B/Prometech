@@ -13,6 +13,8 @@ if (!isset($_GET['page']) || empty($_GET['page'])) {
     $page = $_GET['page'];
 }
 
+$alerte = false;
+
 switch ($page) {
     case 'reception' :
         $tab = 'reception-admin';
@@ -42,7 +44,7 @@ switch ($page) {
                     header("Refresh:0");
                 }
             } else {
-                echo '<script>alert("Ce modèle existe déjà !");</script>';
+                $alerte = 'Modèle déjà existant !';
             }
         }
 
