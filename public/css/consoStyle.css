@@ -1,0 +1,70 @@
+h1 {
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+
+
+
+
+}
+
+.dashboard-nav-link {
+    display: block;
+    height: 50%;
+    background-color: #DDDDDD;
+    color: #292929;
+    font-size: 40px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
+    border: 1px #333333 solid;
+}
+#dashboard-nav {
+    float: left;
+    vertical-align: top;
+    height: 100%;
+    width: 70px;
+}
+
+.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+    background-color: #F1B573;
+    color:#292929;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dashboard-nav-link.active{
+    background-color: #F1B573;
+}
+
+.current-dashboard {
+    background-color: #F1B573;
+}
+
+.fas {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form_logement{
+    display : flex;
+    margin-top: 1%;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+.form-button {
+    background-color: #E29845;
+    margin-top: 10%;
+    height: 40px;
+    width: 35%;
+    border-radius: 5px;
+}
+
+
+
