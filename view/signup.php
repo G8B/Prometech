@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/sign-up.css"/>
     <link rel="stylesheet" href="/public/css/login.css"/>
+    <link rel="icon" type="image/png" href="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png" />
     <title><?php echo $title ?></title>
 </head>
 <body>

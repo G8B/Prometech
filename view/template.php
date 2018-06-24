@@ -16,6 +16,7 @@
     echo $style; ?>
     <link rel="stylesheet" type="text/css" href="/public/css/headerAndFooter.css">
     <link rel="stylesheet" type="text/css" href="/public/css/modal.css">
+    <link rel="icon" type="image/png" href="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png" />
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>

@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/public/css/mentions-legales.css">
     <link rel="stylesheet" href="/public/css/contact.css">
+    <link rel="icon" type="image/png" href="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png" />
     <title>Mentions légales</title>
 </head>
 
