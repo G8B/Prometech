@@ -45,7 +45,7 @@ $donnees = getDonnees($numero);
             type: 'line'
         },
         title: {
-            text: 'Températures relevées par le capteur'
+            text: 'Valeurs relevées par le capteur'
         },
 
         xAxis: {
@@ -53,7 +53,7 @@ $donnees = getDonnees($numero);
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Valeurs'
             }
         },
         plotOptions: {
