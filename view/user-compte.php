@@ -39,6 +39,16 @@
                 <input class="compte" type="password" name="newmdp2" placeholder="New password" size="25"/>
             </p>
         <?php else : ?>
+            <br>
+            <p>
+                Nouveau mot de passe:
+                <input class="compte" type="password" name="newmdp1" placeholder="New password" size="25"/>
+            </p>
+            <br>
+            <p>
+                Confirmer nouveau mot de passe:
+                <input class="compte" type="password" name="newmdp2" placeholder="New password" size="25"/>
+            </p>
             <p>
                 Type de compte : <br/>
                 <input type="checkbox" name="typesCompte[]" id="choixUtilisateur"

@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/public/css/actionneur.css">
+
 <div id="dashboard-nav">
     <a class="dashboard-nav-link active" href="../index.php?target=user&page=dashboard&spage=capteur_piece"><i class="fas fa-sliders-h"></i></a>
     <a class="dashboard-nav-link" href="../index.php?target=user&page=dashboard-conso&spage=graph_conso"><i class="fas fa-chart-bar"></i></a>
@@ -21,21 +23,39 @@ if(!isset($_GET['spage'])){
                 foreach ($rooms as $room) : ?>
                     <div class="accordion-tab">
                         <input id="accordion<?php echo $i ?>-tab-<?php echo $j ?>" type="radio" name="accordion<?php echo $i ?>"
-                               checked>
+                              checked>
                         <label for="accordion<?php echo $i ?>-tab-<?php echo $j ?>" ><?php echo getRoomName($room['ID']); ?></label>
                         <div class="accordion-tab-content">
                             <div class="product-grid">
-                                <?php $products = getProducts($room['ID']);
-                                foreach ($products as $product) : ?>
-                                    <div class="product-box"><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
-                                    $values = getValSensor($product['numeroDeSerie']) ; 
-                                    foreach ($values as $value){
-                                        echo '<p> Dernière valeur enregistrée : ' . lectureDonnees($value['unite'], $value['valeur']) . ' ' . $value['unite'] . '</p>' ;
-                                        echo '<p> Dernière mise à jour le : ' . $value['date'] . '</p>';
+                                <?php $products = getProducts($room['ID']); $k = 0 ;
+                                foreach ($products as $product) : $k++ ;  ?>
+                                    <div class="product-box" id = <?php echo $k ;  ?>><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
+                                    if(getActionneurModele($product['numeroDeSerie']) != 'a'){
+                                        $values = getValSensor($product['numeroDeSerie']) ;
+                                        
+                                        echo '<p class="lastValueSensor"> Dernière valeur enregistrée : ' . lectureDonnees($values['unite'], $values['valeur']) . ' ' . $values['unite'] . '</p>' ;
+                                        echo '<p class="lastDate"> Dernière mise à jour le : ' . $values['date'] . '</p>';
+                                        
                                     }
-                                    
-                                    
-                                    ?></div> <!-- affichage du nom des capteurs  -->
+                                    else{ ?>
+                                    <form action="" method = "post">
+          
+                                    <div id="btn-bg">
+                                    	<button type="submit" name="moteur" value=<?php echo $product['numeroDeSerie'] ?>>
+                                     	<div id="btn-highlight"></div>
+                                     	<div id="btn-ring">
+                                      	<div id="ring-line"></div>
+                                      	</div>
+                                       </button>
+                                   </div>
+                                   </form>
+                                        
+                                     <?php  
+                                    }
+                                   
+                                    ?>
+
+                                    </div> <!-- affichage du nom des capteurs  -->
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -48,24 +68,19 @@ if(!isset($_GET['spage'])){
             $i++;
 
         endforeach; ?>
-        
- <?php
- 
- 
-     $cemacs = getCemacs();
-     foreach ($cemacs as $cemac){
-         $data_tab = get_data($cemac['numero']);
-         //IDNumSerie($data_tab);
-         
-         decode_trame($data_tab, $cemac['numero'] );
-     }
-     
-
-?>
-
-<script type="text/javascript">
 
 
-
+<script type="text/javascript" src="/public/js/trames.js" >
 </script>
+
+
+<script type="text/javascript" >
+
+
+$('#btn-bg').click(function(){
+	  $('#btn-bg').toggleClass('active');
+	 
+	});
+</script>
+
 

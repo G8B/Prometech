@@ -30,8 +30,10 @@ function getCemacLogement($idHouse) : array
 
 function deleteCemac($numeroCemac){
     $bdd = connectBDD();
-    $req = $bdd->prepare('DELETE from cemac WHERE numero = ? ');
+    $req = $bdd->prepare('DELETE FROM `cemac` WHERE numero = ? ');
     $req->execute(array($numeroCemac));
+    $req1 = $bdd->prepare('DELETE FROM donnees WHERE numCemac = ?');
+    $req1->execute(array($numeroCemac));
 }
 
 function getCemacs() : array{
@@ -102,13 +104,41 @@ function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur
     $req2->execute([
         'numeroDeSerie' => $numeroDeSerie,
         'IDUser' => $idUser
+        
     ]);
     $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
     $req3->execute([
         'numeroCemac' => $numeroCemac,
         'numSerie' => $numeroDeSerie,
         'nom_capteur' => $nomCapteur,
+}
+
+function addSensor($numeroDeSerie,$numeroCemac){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie) VALUES (:numeroCemac, :numSerie)');
+    $req->execute([
+        'numeroCemac' => $numeroCemac,
+        'numSerie' => $numeroDeSerie
     ]);
+}
+
+function addActuator($numeroDeSerie,$numeroCemac, $idUser){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('INSERT INTO actionneurs(ID,numeroCemac, numSerie) VALUES (:ID, :numeroCemac, :numSerie)');
+    $count = getUserActuators($idUser);
+    $req->execute([
+        'ID' => $count ,
+        'numeroCemac' => $numeroCemac,
+        'numSerie' => $numeroDeSerie
+    ]);
+}
+
+function getUserActuators($idUser) {
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT COUNT(modele) as actio FROM `produits` INNER JOIN proprieteProduit ON produits.numeroDeSerie = proprieteProduit.numeroDeSerie WHERE modele = "a" AND ID_utilisateur = ?');
+    $req->execute(array($idUser));
+    $countActs = $req->fetch();
+    return $countActs['actio'];
 }
 
 function moveProduct($numeroDeSerie, $idPiece)
@@ -127,6 +157,10 @@ function deleteProduct($idProduct)
     $req = $bdd->prepare('DELETE FROM proprieteProduit WHERE numeroDeSerie = ?');
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
+    $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM capteurs WHERE numSerie = ?');
+    $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM actionneurs WHERE numSerie =?');
     $req->execute(array($idProduct));
 }
 
@@ -173,6 +207,14 @@ function setCapteursID($idcapteur, $numS){
     $req->execute(array($idcapteur, $numS )) ;
 }
 
+
+function getActionneurModele($nums)  {
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT modele FROM produits WHERE numeroDeSerie = ? ');
+    $req->execute(array($nums));
+    $modeleAct = $req->fetchAll();
+    return $modeleAct[0]['modele'] ;
+}
 function getNumberProducts($iduser)
 {
     $numberProducts= NULL ;
@@ -220,4 +262,63 @@ function getDonnees($numero) {
     $req->execute(array($numero));
     $donnees = $req->fetchAll();
     return $donnees;
+}
+
+      function activateActuator($numSerie, $state){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('UPDATE actionneurs SET etat = ? WHERE numSerie = ? ');
+    $req->execute(array($state, $numSerie));
+}
+
+function getActuatorState($numSerie){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT etat FROM actionneurs WHERE numSerie = ? ');
+    $req->execute(array($numSerie));
+    $stateA = $req->fetchAll();
+    return $stateA[0]['etat'];
+    
+}
+
+function getActuatorID($numSerie){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT ID FROM actionneurs WHERE numSerie = ? ');
+    $req->execute(array($numSerie));
+    $actID = $req->fetchAll();
+    return $actID[0]['ID'];
+}
+
+function getActuatorCemac($numCemac){
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numSerie = ? ');
+    $req->execute(array($numCemac));
+    $actCemac = $req->fetchAll();
+    return $actCemac[0]['numeroCemac'];
+}
+
+function existenceCemac($numC){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE numero = ?');
+    $req->execute(array($numC));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+
+function cemacSensor($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM capteurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function cemacActuator($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
 }

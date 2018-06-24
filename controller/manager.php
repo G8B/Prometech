@@ -6,9 +6,10 @@ require('model/ajoutLogementTreatment.php');
 require('model/buildings.php');
 require('model/houses.php');
 
+$home = '/index.php?target=manager';
 
 if (!isset($_GET['page']) || empty($_GET['page'])) {
-    $page = "dashboard";
+    $page = "reception";
 } else {
     $page = $_GET['page'];
 }
@@ -17,6 +18,11 @@ $alerte = false;
 
 
 switch ($page) {
+    case 'reception' :
+        $tab = 'reception-manager';
+        $title = 'Accueil';
+        break;
+
     case 'dashboard' :
         $tab = 'manager-dashboard';
         $title = 'Dashboard';
@@ -30,10 +36,11 @@ switch ($page) {
 
             $_SESSION['adresse'] = $_POST['adresse']; ?>
 
-             <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
+            <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
             exit();
         }
         break;
+
 
     case 'newBuilding':
         $tab = 'ajoutLogementGestionnaire';
@@ -43,6 +50,14 @@ switch ($page) {
             echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
             exit();
         }
+        if (isset($_POST['idHouseSuppr']) AND !empty($_POST['idHouseSuppr'])) {
+            supprBuilding($_POST['idHouseSuppr']);
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=dashboard?target=manager&page=dashboard')</script>";
+
+
+            exit();
+        }
+
         break;
 
     case 'myinfos' :

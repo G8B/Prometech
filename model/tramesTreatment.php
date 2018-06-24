@@ -111,12 +111,10 @@ function decode_trame($Trames, $CEMAC){
             $newCapteursID = getNewCapteursID() ;
             foreach ($newCapteursID as $newCapteurID){
                 if(is_null($newCapteurID['ID'])){
-                    
-                    
                     if($newCapteurID['modele'] == $c AND $newCapteurID['numeroCemac'] == $o){
                         $idc = $c.$n ;
                         setCapteursID($idc, $newCapteurID['numSerie']) ;
-                        echo 'test' ;
+                        
                     }
                 } else{
                     echo '<p> Ce capteur a déjà un identifiant </p>';
@@ -190,7 +188,7 @@ function lectureDonnees($unite, $donnee)
             //echo '%';
             break;
         case 'lux' :
-            $convertValue = luminosite($donnee);
+            $convertValue = Donnee($donnee);
             break;
         case 'presence':
             $convertValue = $donnee;
@@ -207,10 +205,10 @@ function lectureDonnees($unite, $donnee)
 
 function getValSensor($numSerie){
     $bdd=connectBDD();
-    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? GROUP BY numSerie ORDER BY date DESC');
+    $req= $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date DESC LIMIT 1');
     $req->execute(array($numSerie));
     $valSensor=$req->fetchAll();
-    return $valSensor;
+    return $valSensor[0];
     
 }
 
@@ -227,3 +225,22 @@ function getTramesCount($cemacNum){
     $count = $req->fetchAll();
     return $count[0]['trameCount'];
 }
+
+function sendTrame($numeroCemac, $data){
+    $ch = curl_init();
+    
+    curl_setopt(
+        $ch,
+        CURLOPT_URL,
+        "http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=$numeroCemac&TRAME=$data");
+        
+        // curl_exec($ch);
+        
+        
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        
+}
+
