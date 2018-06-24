@@ -6,6 +6,7 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
+<?php echo AfficheAlerte($alerte); ?>
 <div class="form">
     <form method="post" action="">
 
