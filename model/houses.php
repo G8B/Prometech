@@ -299,3 +299,21 @@ function cemacActuator($numCemac){
     $req->closeCursor();
     return $existence;
 }
+
+function existenceCapteurs($numS){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numSerie FROM capteurs WHERE numSerie = ?');
+    $req->execute(array($numS));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function existenceActionneurs($numS){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numSerie FROM actionneurs WHERE numSerie = ?');
+    $req->execute(array($numS));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}

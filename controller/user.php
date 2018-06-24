@@ -170,9 +170,13 @@ switch ($page) {
             $numCemac = htmlspecialchars($_POST['Cemac']);
             addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
             if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
-                addActuator($num, $numCemac, $_SESSION['userID']);
+                if(empty(existenceActionneurs($_POST['numeroDeSerie']))){
+                    addActuator($num, $numCemac, $_SESSION['userID']);
+                }
             } else{
-                addSensor($num, $numCemac);
+                if(empty(existenceCapteurs($_POST['numeroDeSerie']))){
+                    addSensor($num, $numCemac);
+                }
             }
             
             echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
