@@ -2,9 +2,11 @@
 
 function addModel(){
     $bdd = connectBDD();
-    $req = $bdd-> prepare("INSERT INTO modeleProduits(modele, icon) VALUES(:modele, :icon)");
+    $req = $bdd-> prepare("INSERT INTO modeleProduits(modele, icon, ID_modele) VALUES(:modele, :icon, :ID_modele)");
     $req->bindParam(':modele' , $_POST["addModel"]);
     $req->bindParam(':icon', $_POST["iconsList"]);
+    $IDmod = chooseIDModels($_POST['addModel']) ;
+    $req->bindParam('ID_modele', $IDmod );
     $req->execute();
 }
 
@@ -39,6 +41,42 @@ function listIcons() : array{
     return $icons;
 }
 
+
+function chooseIDModels($model){
+    if(stristr($model, 'Distance 1')){
+        $idmodel = 1 ;
+    }
+    else if(stristr($model, 'Distance 2')){
+        $idmodel = 2 ;
+    }
+    else if(stristr($model, 'Thermomètre')){
+        $idmodel = 3 ;
+    }
+    else if(stristr($model, 'Humidité')){
+        $idmodel = 4 ;
+    }
+    else if(stristr($model, 'Lumière 1')){
+        $idmodel = 5 ;
+    }
+    else if(stristr($model, 'Couleur')){
+        $idmodel = 6 ;
+    }
+    else if(stristr($model, 'Présence')){
+        $idmodel = 7 ;
+    }
+    else if(stristr($model, 'Lumière 2')){
+        $idmodel = 8 ;
+    }
+    else if (stristr($model, 'mouvement')){
+        $idmodel = 9 ;
+    }
+    else{
+        $idmodel = 'a';
+    }
+    
+    return $idmodel ;
+    
+}
 function existenceModele(){
     $bdd= connectBDD();
     $req = $bdd->prepare('SELECT modele FROM modeleProduits WHERE modele = ?');
