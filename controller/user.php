@@ -5,7 +5,6 @@ require('model/ajoutLogementTreatment.php');
 require('model/productsTreatment.php');
 require('model/houses.php');
 require('model/tramesTreatment.php');
-require ('model/productsTreatment.php');
 
 $home = '/index.php?target=user';
 

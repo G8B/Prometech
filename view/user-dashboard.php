@@ -60,7 +60,6 @@ if(!isset($_GET['spage'])){
                             </div>
                     </div>
                 </div>
-            </div>
             <?php
             $j++;
         endforeach; ?>
