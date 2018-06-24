@@ -91,13 +91,14 @@ function getProductInfos($idproduct): array
     else return $productInfos;
 }
 
-function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
+function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur)
 {
     $bdd = connectBDD();
-    $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece) VALUES (:numeroDeSerie, :ID_piece)');
+    $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece, nom_capteur) VALUES (:numeroDeSerie, :ID_piece, :nom_capteur)');
     $req->execute([
         'numeroDeSerie' => $numeroDeSerie,
-        'ID_piece' => $idPiece
+        'ID_piece' => $idPiece,
+        'nom_capteur' => $nomCapteur,
     ]);
     $req2 = $bdd->prepare('INSERT INTO proprieteProduit(ID_utilisateur, numeroDeSerie) VALUES (:IDUser, :numeroDeSerie)');
     $req2->execute([
@@ -105,7 +106,11 @@ function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
         'IDUser' => $idUser
         
     ]);
-    
+    $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
+    $req3->execute([
+        'numeroCemac' => $numeroCemac,
+        'numSerie' => $numeroDeSerie,
+        'nom_capteur' => $nomCapteur,
 }
 
 function addSensor($numeroDeSerie,$numeroCemac){
@@ -241,7 +246,25 @@ function updateLogements($adresse, $nbrHabitants, $nbrPieces, $superficie, $idHo
     
 }
 
-function activateActuator($numSerie, $state){
+function getNames($idRoom)
+{
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT nom_capteur,numeroDeSerie FROM positionProduit WHERE ID_piece = ?');
+    $req->execute(array($idRoom));
+    $names = $req->fetchAll();
+    return $names;
+
+
+}
+function getDonnees($numero) {
+    $bdd = connectBDD();
+    $req = $bdd->prepare('SELECT donnees.valeur , donnees.date FROM `donnees` JOIN capteurs ON donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date ASC;');
+    $req->execute(array($numero));
+    $donnees = $req->fetchAll();
+    return $donnees;
+}
+
+      function activateActuator($numSerie, $state){
     $bdd = connectBDD();
     $req = $bdd->prepare('UPDATE actionneurs SET etat = ? WHERE numSerie = ? ');
     $req->execute(array($state, $numSerie));

@@ -8,6 +8,9 @@
     <?php
     if (isset($userInfos) or $title == "Ajouter un produit" or $title == "Ajouter une pièce" or $title == "Edition de produit")
         $style = '<link rel="stylesheet" type="text/css" href="/public/css/mon_compte.css">';
+    elseif ($title == "Choisir un capteur") {
+        $style =  '<link rel="stylesheet" type="text/css" href="/public/css/consoStyle.css">';
+    }
     else
         $style = '<link rel="stylesheet" type="text/css" href="/public/css/styles.css">';
 
