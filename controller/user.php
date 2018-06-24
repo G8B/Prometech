@@ -188,7 +188,7 @@ switch ($page) {
 
     case 'dashboard-conso' :
         $tab = 'user-dashboard-conso';
-        $title = 'Ajouter un produit';
+        $title = 'Choisir un capteur';
         $houses = getHouses($_SESSION['userID']);
 
         if (isset($_POST['nomCapteur']) AND !empty($_POST['nomCapteur'])) {
