@@ -13,18 +13,15 @@
     z-index: 1;
 }
 
-
 .form_cemac {
     width: 30%;
-    margin-left : 25%;
-    margin-right : 20%;
-    
+    margin-left: 25%;
+    margin-right: 20%;
 }
 
-.supressioncemac{
-	padding-top : 10% ; 
+.supressioncemac {
+    padding-top: 10%;
 }
-
 
 input::placeholder {
     color: black;
@@ -71,24 +68,14 @@ h1 { /* Titres */
 }
 
 h2 {
-    text-align: center
-
-;
+    text-align: center;
 }
+
 /* -- FORMULAIRE AJOUT DE LOGEMENT -- */
 
-.form_logement{
-    display : flex;
+.form_logement {
+    display: flex;
     margin-top: 1%;
-    margin-left : auto;
-    margin-right : auto;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
-
-
-
-
-
-

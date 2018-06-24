@@ -1,4 +1,3 @@
-
 <?php
 include('model/connectBDD.php');
 require('model/editionCompteTreatment.php');
@@ -109,6 +108,4 @@ switch ($page) {
         exit();
 }
 
-
 include('view/template.php');
-

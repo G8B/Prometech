@@ -11,7 +11,6 @@ function signup(): bool
 
     $statutGestionnaire = isset($_POST['choixGestionnaire']) ? true : false;
 
-
     $req->execute([
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
@@ -34,7 +33,7 @@ function existingEmail($email): bool
     return $req->fetch()["EXISTS(SELECT * FROM utilisateurs WHERE email = '$email')"];
 }
 
-function existingName($nom,$prenom): bool
+function existingName($nom, $prenom): bool
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('SELECT EXISTS(SELECT * FROM utilisateurs WHERE (nom = :nom) AND (prenom = :prenom))');

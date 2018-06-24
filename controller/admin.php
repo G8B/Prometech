@@ -25,7 +25,7 @@ switch ($page) {
         if (isset($_POST['ticketChoice']) AND isset($_POST['Statuts'])) {
             changeStatus(getStatus($_POST['Statuts']), getIDTicket($_POST['ticketChoice']));
             ajoutLog("L'admin n°" . $_SESSION['userID'] . " a changé le statut du ticket support " . $_POST['ticketChoice'] . ' en ' . $_POST['Statuts']
-                );
+            );
             header("Refresh:0");
         }
         break;
@@ -38,7 +38,7 @@ switch ($page) {
                 if (isset($_POST['addModel']) AND !empty($_POST["addModel"]) AND isset($_POST['iconsList'])) {
                     addModel();
                     ajoutLog("L'admin n°" . $_SESSION['userID'] . " a ajouté le modèle produit " . $_POST['addModel']
-                        );
+                    );
                     header("Refresh:0");
                 }
             } else {
@@ -49,7 +49,7 @@ switch ($page) {
         if (isset($_POST['removeModel']) AND !empty($_POST['removeModel'])) {
             removeModel();
             ajoutLog("L'admin n°" . $_SESSION['userID'] . " a retiré le modèle produit " . $_POST['removeModel']
-                );
+            );
             header("Refresh:0");
         }
         break;
@@ -188,6 +188,4 @@ switch ($page) {
         exit();
 }
 
-
 include('view/template.php');
-

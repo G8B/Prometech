@@ -1,12 +1,12 @@
 function newXMLHttp() {
     if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
+        var xmlhttp = new XMLHttpRequest();
     } else if (window.ActiveXObject) {
         try {
-            xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+            xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
         } catch (e) {
             try {
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             } catch (e) {
                 return NULL;
             }
@@ -15,49 +15,25 @@ function newXMLHttp() {
     return xmlhttp;
 }
 
-function callback(xhttp){
-	var renvoi = xhttp.responseText ; 
-	for(var i = 0 ; i <elements.length ; i++){
-		elements[i].innerHTML = 'Dernière valeur enregistrée : ' + renvoi ;
-	}
-	
-}
-
-function loadDoc(url, data, cFunction) {
+function loadDoc(url, data) {
     var xhttp;
     xhttp = newXMLHttp();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            //cFunction(this);
             console.log(this.responseText);
         }
     };
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(data);
-    
 }
-
 
 function updateDatabase() {
-    loadDoc("/model/updateDatabase.php","t="+Math.random());
+    loadDoc("/model/updateDatabase.php", "t=" + Math.random());
 }
 
+var databaseTimer = setInterval(updateDatabase, 1000);
 
-
-var elements = document.getElementsByClassName("lastValueSensor");
-
-
-
-function updateShownValue(){
-	for(var i = 0 ; i <elements.length ; i++){
-		elements[i].innerHTML = 'Dernière valeur enregistrée : ' + f ;
-	}
-}
-
-
-    var databaseTimer = setInterval(updateDatabase, 1000);
-   
-    databaseTimer ;
+databaseTimer;
     
   

@@ -1,6 +1,4 @@
 <?php
-
-
 function login($email, $password): bool
 {
     $bdd = connectBDD();
@@ -26,9 +24,3 @@ function login($email, $password): bool
         return false;
     }
 }
-
-
-
-
-
-

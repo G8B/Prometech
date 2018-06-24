@@ -3,23 +3,22 @@
 
 <div class="form_logement">
 
-		<form action="" method="post">
+    <form action="" method="post">
 
-		<h1>Gérer un immeuble</h1>
-		<br>
+        <h1>Gérer un immeuble</h1>
+        <br>
 
-		<p >
- Adresse :
-            <input  class ="compte" type="text" name="adresse" size="50"/>
+        <p>
+            Adresse :
+            <input class="compte" type="text" name="adresse" size="50"/>
         </p>
         <br>
 
         <div class="bouton">
-        	<button class="form-button">Confirmer</button>
+            <button class="form-button">Confirmer</button>
         </div>
 
-	</form>
-
+    </form>
 
 
 </div>

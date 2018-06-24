@@ -46,8 +46,9 @@ input::placeholder {
 
 #user-compte {
     display: flex;
-    margin:50px 400px 200px 400px; /* -- Obligé de mettre en pixel sinon mise en forme différente selon chrome et mozilla
-    Pour remetre en % et auto on écrirait margin : 2% auto 50% -- */
+    margin: 50px 400px 200px 400px;
+    /* -- Obligé de mettre en pixel sinon mise en forme différente selon chrome et mozilla
+       Pour remetre en % et auto on écrirait margin : 2% auto 50% -- */
     padding-bottom: 20%;
 
 }
@@ -60,23 +61,14 @@ h1 { /* Titres */
 }
 
 h2 {
-    text-align: center
-
-;
+    text-align: center;
 }
+
 /* -- FORMULAIRE AJOUT DE LOGEMENT -- */
 
-.form_logement{
-	display : flex;
-	margin-top: 1%;
-	margin-left : auto; 
-	margin-right : auto;
+.form_logement {
+    display: flex;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
-
-
-
-
-

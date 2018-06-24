@@ -14,7 +14,6 @@
         </p>
 
 
-
         <p>
             <label for="pièce"> Pièce choisie :</label>
             <select title="idPiece" name="idPiece" form="ajoutProduit">
@@ -43,15 +42,6 @@
             </select>
 
         </p>
-
-
-
-
-
-
-
-
-
 
 
         <input id='ajoutProduitButton' class="form-button" type="submit" value="Ajouter produit"/>

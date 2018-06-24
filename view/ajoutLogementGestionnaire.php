@@ -2,7 +2,7 @@
 
 
 <div class="form_logement">
-    <form method="post" action="" id="ajoutLogement" >
+    <form method="post" action="" id="ajoutLogement">
 
         <h1>Ajouter un logement</h1>
 
@@ -18,8 +18,8 @@
 
                 $logements = getIDhousesFromadresseManaged($_SESSION['adresse']);
                 foreach ($logements as $logement) : ?>
-                    <option value="<?php echo $logement ["ID"] ; ?>">
-                        <?php echo 'Logement '.$logement ["ID"] ; ?></option>
+                    <option value="<?php echo $logement ["ID"]; ?>">
+                        <?php echo 'Logement ' . $logement ["ID"]; ?></option>
                 <?php endforeach; ?>
             </select>
         </p>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="form_logement">
-    <form method="post" action="" id="supprimerLogement" >
+    <form method="post" action="" id="supprimerLogement">
 
         <h1>Supprimer un logement</h1>
 
@@ -47,8 +47,8 @@
                 <?php
                 $logements = getIDhousesFromadresseAldreadyManaged($_SESSION['adresse']);
                 foreach ($logements as $logement) : ?>
-                    <option value="<?php echo $logement ["ID"] ; ?>">
-                        <?php echo 'Logement '.$logement ["ID"] ; ?></option>
+                    <option value="<?php echo $logement ["ID"]; ?>">
+                        <?php echo 'Logement ' . $logement ["ID"]; ?></option>
                 <?php endforeach; ?>
             </select>
         </p>
