@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="/public/css/contact.css">
+    <link rel="icon" type="image/png" href="/public/images/original-logos_2018_Feb_4074-5a815ae404ef4.png" />
     <title><?php echo $title ?></title>
 </head>
 <body>
