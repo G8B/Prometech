@@ -164,12 +164,12 @@ switch ($page) {
             $numCemac = htmlspecialchars($_POST['Cemac']);
             $nomCapteur = htmlspecialchars($_POST['nomCapteur']);
             if (empty(existenceActionneurs($_POST['numeroDeSerie'])) AND empty(existenceCapteurs($_POST['numeroDeSerie']))){
-                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac, $nomCapteur);
+                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
                 if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
                     addActuator($num, $numCemac, $_SESSION['userID']);
                     
                 } else{
-                    addSensor($num, $numCemac);
+                    addSensor($num, $numCemac,$nomCapteur);
                     
                 }
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
