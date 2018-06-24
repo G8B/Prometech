@@ -12,7 +12,7 @@ if(!isset($_GET['spage'])){
     $_GET['spage'] = '';
 }
 
-        $i = 0;
+   $i = 0;
         foreach ($houses as $house) : ?>
             <div class="user-house-dashboard">
             <br>
@@ -29,7 +29,7 @@ if(!isset($_GET['spage'])){
                             <div class="product-grid">
                                 <?php $products = getProducts($room['ID']); $k = 0 ;
                                 foreach ($products as $product) : $k++ ;  ?>
-                                    <div class="product-box" id = <?php echo $k ;  ?>><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
+                                    <div class="product-box" id = <?php echo $k ;  ?>><i class="<?php echo getIconUser(getProductInfos($product['numeroDeSerie'])['modele']) ?>" > </i><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'] ;
                                     if(getActionneurModele($product['numeroDeSerie']) != 'a'){
                                         $values = getValSensor($product['numeroDeSerie']) ;
                                         
@@ -58,16 +58,16 @@ if(!isset($_GET['spage'])){
                                     </div> <!-- affichage du nom des capteurs  -->
                                 <?php endforeach; ?>
                             </div>
-                        </div>
                     </div>
-                    <?php
-                    $j++;
-                endforeach; ?>
-            </div>
+                </div>
             <?php
-            $i++;
-
+            $j++;
         endforeach; ?>
+    </div>
+    <?php
+    $i++;
+
+endforeach; ?>
 
 
 <script type="text/javascript" src="/public/js/trames.js" >
@@ -82,5 +82,3 @@ $('#btn-bg').click(function(){
 	 
 	});
 </script>
-
-
