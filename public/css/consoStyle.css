@@ -27,6 +27,18 @@ h1 {
     height: 100%;
     width: 70px;
 }
+
+.dashboard-nav-link:hover,.dashboard-nav-link:active,.dashboard-nav-link:focus {
+    background-color: #F1B573;
+    color:#292929;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dashboard-nav-link.active{
+    background-color: #F1B573;
+}
+
 .current-dashboard {
     background-color: #F1B573;
 }
