@@ -1,3 +1,4 @@
+<?php echo AfficheAlerte($alerte); ?>
 <div class="form_logement">
     <form method="post" action="" id="ajoutProduit">
 

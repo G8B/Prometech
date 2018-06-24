@@ -177,11 +177,12 @@ switch ($page) {
                     addSensor($num, $numCemac);
                     
                 }
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+            } else{
+                $alerte = 'Vous ne pouvez pas ajouter ce produit car il est déjà enregistré !';
             }
-            
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-            exit();
-            
+     
         }
         
         
@@ -212,9 +213,7 @@ switch ($page) {
                 exit();
                 
             } else{
-                echo '<script>alert("Vous devez supprimer les capteurs et actionneurs associés à la Cemac avant de la retirer !");</script>';
-                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-                exit();
+                $alerte = 'Vous devez supprimer les capteurs et actionneurs associés à la Cemac avant de la retirer !'; 
             }
         }
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
@@ -224,9 +223,7 @@ switch ($page) {
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
                 exit();
             } else{
-                echo '<script>alert("Vous ne pouvez pas ajouter cette Cemac !");</script>';
-                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-                exit();
+                $alerte = 'Vous ne pouvez pas ajouter cette Cemac !';
             }
         }
         
