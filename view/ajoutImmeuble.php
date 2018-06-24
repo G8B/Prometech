@@ -5,7 +5,8 @@
 
 		<form action="" method="post">
 
-		<h1>Selectionner un immeuble</h1>
+
+		<h1>Gérer un immeuble</h1>
 		<br>
 
 		<p >

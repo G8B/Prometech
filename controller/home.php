@@ -23,8 +23,8 @@ switch ($page) {
         if (isset($_POST['email']) and isset($_POST['password'])) {
             if (!isAnEmail($_POST['email'])) {
                 $alerte = "Veuillez entrer un format d'adresse mail valide.";
-            } else if (!isAPassword($_POST['password'])) {
-                $alerte = "Veuillez entrer un format de mot de passe valide.";
+            } else if (empty($_POST['password'])) {
+                $alerte = "Veuillez entrer votre mot de passe.";
             } else if (login($_POST['email'], $_POST['password'])) {
                 if ($_SESSION['admin'] == 1) {
                     $redirection = 'admin';
@@ -48,9 +48,19 @@ switch ($page) {
         $title = 'Inscription';
 
         if (isset($_POST['email']) and isset($_POST['password'])) {
-            signup();
-            header('Location: /index.php?target=home&page=login');
-            exit();
+            if (!isAnEmail($_POST['email'])) {
+                $alerte = "Veuillez entrer un format d'adresse mail valide.";
+            }else if (!isset($_POST['choixUtilisateur']) and !isset($_POST['choixGestionnaire'])) {
+                $alerte = "Veuillez sélectionner un type de compte.";
+            } else if (!isAPassword($_POST['password'])) {
+                $alerte = "Veuillez entrer un format de mot de passe valide avec au moins 8 caractères, une lettre, un chiffre et un caractère spécial.";
+            } else if (!existingEmail($_POST['email']) and !existingName($_POST['nom'],$_POST['prenom'])) {
+                signup();
+                header('Location: /index.php?target=home&page=login');
+                exit();
+            } else {
+                $alerte = "Un compte existe déjà avec cet email ou ce nom !";
+            }
         }
         break;
 

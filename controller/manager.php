@@ -36,7 +36,7 @@ switch ($page) {
 
             $_SESSION['adresse'] = $_POST['adresse']; ?>
 
-             <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
+            <?php echo "<script type='text/javascript'>document.location.replace('index.php?target=manager&page=newBuilding')</script>";
             exit();
         }
         break;

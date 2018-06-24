@@ -25,7 +25,12 @@ function isAnEmail($str): bool
 
 function isAPassword($str): bool
 {
-    if (empty($str) || strlen($str) < 5) {
+    if (empty($str) ||
+        strlen($str) < 8 ||
+        !preg_match("#[0-9]+#", $str) ||
+        !preg_match("#[a-zA-Z]+#", $str) ||
+        !preg_match('/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/', $str)
+    ) {
         return false;
     } else {
         return is_string($str);
