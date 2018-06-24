@@ -1,3 +1,4 @@
+<?php echo AfficheAlerte($alerte);?>
 <link rel="stylesheet" type="text/css" href="/public/css/products.css">
 
 <div id="main-wrap">
