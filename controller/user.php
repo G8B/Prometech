@@ -73,13 +73,7 @@ switch ($page) {
         }
         
         break;
-        
-    case 'dashboard-conso' :
-        $tab = 'user-dashboard-conso';
-        $title = 'Dashboard-Consommation';
-        $houses = getHouses($_SESSION['userID']);
-        break;
-        
+
     case 'logements' :
         $tab = 'userLogements';
         $title = 'Mes logements';
@@ -165,11 +159,12 @@ switch ($page) {
         $tab = "add-product";
         $title = "Ajouter un produit";
         $houses = getHouses($_SESSION['userID']);
-        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece']) AND isset($_POST['Cemac']) AND !empty($_POST['Cemac'])) {
+        if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece']) AND isset($_POST['Cemac']) AND !empty($_POST['Cemac']) AND isset($_POST['nomCapteur']) AND !empty($_POST['nomCapteur'])) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
             $numCemac = htmlspecialchars($_POST['Cemac']);
+            $nomCapteur = htmlspecialchars($_POST['nomCapteur']);
             if (empty(existenceActionneurs($_POST['numeroDeSerie'])) AND empty(existenceCapteurs($_POST['numeroDeSerie']))){
-                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
+                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac, $nomCapteur);
                 if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
                     addActuator($num, $numCemac, $_SESSION['userID']);
                     
@@ -258,7 +253,30 @@ switch ($page) {
             }
         }
         break;
-        
+
+    case 'dashboard-conso' :
+        $tab = 'user-dashboard-conso';
+        $title = 'Choisir un capteur';
+        $houses = getHouses($_SESSION['userID']);
+
+        if (isset($_POST['nomCapteur']) AND !empty($_POST['nomCapteur'])) {
+            $_SESSION['ChoixConso'] = $_POST['nomCapteur'];
+            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=dashboard-conso2');</script>";
+
+        }
+
+        break;
+
+    case 'dashboard-conso2' :
+        $tab = 'graphe';
+        $title = 'Ajouter un produit';
+        $numero = $_SESSION['ChoixConso'];
+
+
+
+
+        break;
+
     case 'edit-product' :
         $tab = "user-edit-product";
         $title = "Edition de produit";

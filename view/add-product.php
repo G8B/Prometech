@@ -10,6 +10,13 @@
         </p>
 
         <p>
+            <label for="nomCapteur"></label>
+            <input type="text" name="nomCapteur" placeholder="Nom du produit" size="25"/>
+        </p>
+
+
+
+        <p>
             <label for="pièce"> Pièce choisie :</label>
             <select title="idPiece" name="idPiece" form="ajoutProduit">
                 <?php foreach ($houses as $house) : ?>
