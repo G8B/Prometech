@@ -106,12 +106,6 @@ function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur
         'IDUser' => $idUser
         
     ]);
-    $req3 = $bdd->prepare('INSERT INTO capteurs(numeroCemac, numSerie, nom_capteur) VALUES (:numeroCemac, :numSerie, :nom_capteur)');
-    $req3->execute([
-        'numeroCemac' => $numeroCemac,
-        'numSerie' => $numeroDeSerie,
-        'nom_capteur' => $nomCapteur
-        ]);
 }
 
 function addSensor($numeroDeSerie,$numeroCemac){
