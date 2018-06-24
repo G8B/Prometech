@@ -168,14 +168,14 @@ switch ($page) {
         if (isset($_POST['numeroDeSerie']) AND !empty($_POST['numeroDeSerie']) AND isset($_POST['idPiece']) AND isset($_POST['Cemac']) AND !empty($_POST['Cemac'])) {
             $num = htmlspecialchars($_POST['numeroDeSerie']);
             $numCemac = htmlspecialchars($_POST['Cemac']);
-            addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
-            if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
-                if(empty(existenceActionneurs($_POST['numeroDeSerie']))){
+            if (empty(existenceActionneurs($_POST['numeroDeSerie'])) AND empty(existenceCapteurs($_POST['numeroDeSerie']))){
+                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
+                if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
                     addActuator($num, $numCemac, $_SESSION['userID']);
-                }
-            } else{
-                if(empty(existenceCapteurs($_POST['numeroDeSerie']))){
+                    
+                } else{
                     addSensor($num, $numCemac);
+                    
                 }
             }
             

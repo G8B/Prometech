@@ -302,7 +302,7 @@ function cemacActuator($numCemac){
 
 function existenceCapteurs($numS){
     $bdd= connectBDD();
-    $req = $bdd->prepare('SELECT numSerie FROM capteurs WHERE numSerie = ?');
+    $req = $bdd->prepare('SELECT numSerie, numeroDeSerie FROM capteurs JOIN proprieteProduit ON capteurs.numSerie = proprieteProduit.numeroDeSerie WHERE numSerie = ?');
     $req->execute(array($numS));
     $existence = $req->fetch();
     $req->closeCursor();
@@ -311,7 +311,7 @@ function existenceCapteurs($numS){
 
 function existenceActionneurs($numS){
     $bdd= connectBDD();
-    $req = $bdd->prepare('SELECT numSerie FROM actionneurs WHERE numSerie = ?');
+    $req = $bdd->prepare('SELECT numSerie, numeroDeSerie FROM actionneurs JOIN proprieteProduit ON actionneurs.numSerie = proprieteProduit.numeroDeSerie WHERE numSerie = ?');
     $req->execute(array($numS));
     $existence = $req->fetch();
     $req->closeCursor();
