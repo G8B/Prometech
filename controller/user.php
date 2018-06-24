@@ -175,7 +175,7 @@ switch ($page) {
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
                 exit();
             } else{
-                $alerte = 'Vous ne pouvez pas ajouter ce produit car il est déjà enregistré !';
+                $alerte = 'Vous ne pouvez pas ajouter ce produit car il a déjà été enregistré !';
             }
      
         }
@@ -218,7 +218,7 @@ switch ($page) {
                 echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
                 exit();
             } else{
-                $alerte = 'Vous ne pouvez pas ajouter cette Cemac !';
+                $alerte = 'Vous ne pouvez pas ajouter cette Cemac car elle est déjà enregistrée!';
             }
         }
         
