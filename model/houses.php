@@ -30,10 +30,10 @@ function getCemacLogement($idHouse) : array
 
 function deleteCemac($numeroCemac){
     $bdd = connectBDD();
-    $req1 = $bdd->prepare('DELETE cemac,capteurs,positionproduit, proprieteproduit, donnees FROM cemac JOIN capteurs ON cemac.numero = capteurs.numeroCemac JOIN proprieteproduit ON proprieteproduit.numeroDeSerie = capteurs.numSerie JOIN positionproduit ON positionproduit.numeroDeSerie = capteurs.numSerie JOIN donnees ON donnees.numCemac = cemac.numero WHERE cemac.numero = ?');
+    $req = $bdd->prepare('DELETE FROM `cemac` WHERE numero = ? ');
+    $req->execute(array($numeroCemac));
+    $req1 = $bdd->prepare('DELETE FROM donnees WHERE numCemac = ?');
     $req1->execute(array($numeroCemac));
-    $req2 = $bdd->prepare('DELETE cemac,actionneurs, positionproduit, proprieteproduit, donnees FROM cemac JOIN actionneurs ON cemac.numero = actionneurs.numeroCemac JOIN positionproduit ON positionproduit.numeroDeSerie = actionneurs.numSerie JOIN proprieteproduit ON proprieteproduit.numeroDeSerie = actionneurs.numSerie JOIN donnees ON donnees.numCemac = cemac.numero WHERE cemac.numero = ?');
-    $req2->execute(array($numeroCemac));
 }
 
 function getCemacs() : array{
@@ -269,4 +269,23 @@ function getActuatorCemac($numCemac){
     $req->execute(array($numCemac));
     $actCemac = $req->fetchAll();
     return $actCemac[0]['numeroCemac'];
+}
+
+
+function cemacSensor($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM capteurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function cemacActuator($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
 }

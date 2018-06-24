@@ -201,10 +201,17 @@ switch ($page) {
         $houses = getHouses($_SESSION['userID']);
         
         if(isset($_POST['numbersuppr']) AND !empty($_POST['numbersuppr'])){
-            $numbersuprr = htmlspecialchars($_POST['numbersuppr']);
-            deleteCemac( $numbersuprr);
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-            exit();
+            if(empty(cemacSensor($_POST['numbersuppr'])) AND empty(cemacActuator($_POST['numbersuppr']))){
+                $numbersuprr = htmlspecialchars($_POST['numbersuppr']);
+                deleteCemac( $numbersuprr);
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+                
+            } else{
+                echo '<script>alert("Vous devez supprimer les capteurs et actionneurs associés à la Cemac avant de la retirer !");</script>';
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+            }
         }
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
             $number = htmlspecialchars($_POST['number']);
