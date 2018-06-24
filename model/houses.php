@@ -271,6 +271,15 @@ function getActuatorCemac($numCemac){
     return $actCemac[0]['numeroCemac'];
 }
 
+function existenceCemac($numC){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE numero = ?');
+    $req->execute(array($numC));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
 
 function cemacSensor($numCemac){
     $bdd= connectBDD();

@@ -215,9 +215,15 @@ switch ($page) {
         }
         if (isset($_POST['number']) AND !empty($_POST['number']) AND isset($_POST['idHouse'])) {
             $number = htmlspecialchars($_POST['number']);
-            addCemac($number, $_POST['idHouse']);
-            echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
-            exit();
+            if(empty(existenceCemac($number))){
+                addCemac($number, $_POST['idHouse']);
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+            } else{
+                echo '<script>alert("Vous ne pouvez pas ajouter cette Cemac !");</script>';
+                echo "<script type='text/javascript'>document.location.replace('index.php?target=user&page=logements');</script>";
+                exit();
+            }
         }
         
         
