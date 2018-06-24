@@ -30,8 +30,10 @@ function getCemacLogement($idHouse) : array
 
 function deleteCemac($numeroCemac){
     $bdd = connectBDD();
-    $req = $bdd->prepare('DELETE from cemac WHERE numero = ? ');
+    $req = $bdd->prepare('DELETE FROM `cemac` WHERE numero = ? ');
     $req->execute(array($numeroCemac));
+    $req1 = $bdd->prepare('DELETE FROM donnees WHERE numCemac = ?');
+    $req1->execute(array($numeroCemac));
 }
 
 function getCemacs() : array{
@@ -151,6 +153,10 @@ function deleteProduct($idProduct)
     $req->execute(array($idProduct));
     $req = $bdd->prepare('DELETE FROM positionProduit WHERE numeroDeSerie = ?');
     $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM capteurs WHERE numSerie = ?');
+    $req->execute(array($idProduct));
+    $req = $bdd->prepare('DELETE FROM actionneurs WHERE numSerie =?');
+    $req->execute(array($idProduct));
 }
 
 function deleteRoom($idRoom)
@@ -264,4 +270,32 @@ function getActuatorCemac($numCemac){
     $req->execute(array($numCemac));
     $actCemac = $req->fetchAll();
     return $actCemac[0]['numeroCemac'];
+}
+
+function existenceCemac($numC){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numero FROM cemac WHERE numero = ?');
+    $req->execute(array($numC));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+
+function cemacSensor($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM capteurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
+}
+
+function cemacActuator($numCemac){
+    $bdd= connectBDD();
+    $req = $bdd->prepare('SELECT numeroCemac FROM actionneurs WHERE numeroCemac = ?');
+    $req->execute(array($numCemac));
+    $existence = $req->fetch();
+    $req->closeCursor();
+    return $existence;
 }
