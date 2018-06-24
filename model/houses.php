@@ -218,7 +218,7 @@ function getActionneurModele($nums)  {
 }
 function getNumberProducts($iduser)
 {
-    $numberProducts= NULL ;
+    $numberProducts= 0;
     $houses=getHouses($iduser);
     foreach ($houses as $house){
         $rooms=getRooms($house['ID_logement']);
@@ -227,7 +227,7 @@ function getNumberProducts($iduser)
             $req = $bdd->prepare('SELECT COUNT(numeroDeSerie) FROM positionProduit WHERE ID_piece = ?');
             $req->execute(array($room['ID']));
             $products = $req->fetchAll();
-            $numberProducts = $numberProducts + count($products);
+            $numberProducts = $numberProducts + $products[0][0];
         }
     }
     return $numberProducts ;
