@@ -1,6 +1,6 @@
 <?php
 
-//ini_set('max_execution_time', 250);
+
 
 //récupération des trames
 function get_data($numCemac)
@@ -15,7 +15,6 @@ function get_data($numCemac)
     $data = curl_exec($ch);
     curl_close($ch);
     $count = getTramesCount($numCemac);
-    //echo"le compteur vaut " . $count['trameCount'] ;
     $data_tab = str_split($data, 33);
     $data_tab2 = array_slice($data_tab, $count);
     return $data_tab2;
