@@ -186,7 +186,8 @@ function getValSensor($numSerie)
     $req = $bdd->prepare('SELECT numCemac, valeur, numSerie, unite, date FROM donnees INNER JOIN capteurs WHERE donnees.identifiant = capteurs.ID AND capteurs.numSerie = ? ORDER BY date DESC LIMIT 1');
     $req->execute(array($numSerie));
     $valSensor = $req->fetchAll();
-    return $valSensor[0];
+    if(empty($valSensor)){echo '<p>La syncrhonisation avec la Cemac est encore en cours !</p>' ;} else{
+        return $valSensor[0];}
 }
 
 function setTramesCount($numeroCemac, $compteur)
