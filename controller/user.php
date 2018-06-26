@@ -148,7 +148,7 @@ switch ($page) {
             $numCemac = htmlspecialchars($_POST['Cemac']);
             $nomCapteur = htmlspecialchars($_POST['nomCapteur']);
             if (empty(existenceActionneurs($_POST['numeroDeSerie'])) AND empty(existenceCapteurs($_POST['numeroDeSerie']))){
-                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac);
+                addProduct($num, $_POST['idPiece'], $_SESSION['userID'], $numCemac, $nomCapteur);
                 if(getActionneurModele($_POST['numeroDeSerie']) == 'a'){
                     addActuator($num, $numCemac, $_SESSION['userID']);
                 } else{
