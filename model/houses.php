@@ -90,7 +90,7 @@ function getProductInfos($idproduct): array
 }
 
 
-function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac)
+function addProduct($numeroDeSerie, $idPiece, $idUser, $numeroCemac, $nomCapteur)
 {
     $bdd = connectBDD();
     $req = $bdd->prepare('INSERT INTO positionProduit(numeroDeSerie, ID_piece, nom_capteur) VALUES (:numeroDeSerie, :ID_piece, :nom_capteur)');

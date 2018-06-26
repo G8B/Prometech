@@ -14,7 +14,7 @@
 
 
         <p>
-            <label for="name"> Capteur choisie :</label>
+            <label for="name"> Capteur choisi :</label>
             <select title="idSerie" name="nomCapteur" form="choixConso">
                 <?php foreach ($houses as $house) : ?>
                     <optgroup label="<?php echo getHouseAdress($house['ID_logement']); ?>">
