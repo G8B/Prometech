@@ -33,7 +33,7 @@ foreach ($houses as $house) : ?>
                         $k = 0;
                         foreach ($products as $product) : $k++; ?>
                             <div class="product-box"
-                                 id= <?php echo $k; ?>><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'];
+                                 id= <?php echo $k; ?>><i class="<?php echo getIconUser(getProductInfos($product['numeroDeSerie'])['modele']) ?>" > </i><?php echo getProductInfos($product['numeroDeSerie'])['nom'] . ' a pour numéro de série ' . $product['numeroDeSerie'];
                                 if (getActionneurModele($product['numeroDeSerie']) != 'a') {
                                     $values = getValSensor($product['numeroDeSerie']);
 
